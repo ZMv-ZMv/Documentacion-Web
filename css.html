@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/styles.css">
+  <title>DOCUMENTACIÓN CSS</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="a-pag-principal">
+      <p><a href="index.html">Regresar a página principal</a></p>
+    </div>
+  </header>
+
+<!-- ---------------------------------------------------------------------- -->
+  <h2>VARIABLES / CUSTOM PROPERTIES</h2>
+  <div class="definicion">
+    <h3 class="definicion-titulo" id="nombre-definicion">VARIABLES / CUSTOM PROPERTIES</h3>
+    <div class="definicion-p">
+      <p>Se refiere a las típicas variables en los lenguajes de programación, y que también se pueden usar en CSS.</p>
+      <p>Al igual que en la mayoría de lenguajes de programación, en CSS, es recomendable que las variables sean declaradas al inicio y en la raíz (root) del documento para que tengan el mayor ámbito posible.</p>
+      <p>Para declarar una variable se debe anteponer dos guiones seguidos antes del nombre, luego se asigna un valor con dos puntos. Para usar el valor de una variable hay que llamar a la función <code>var()</code> y dentro de los paréntesis poner el nombre de la variable.</p>
+    </div>
+
+    <!-- <p class="definicion-nota icon"><span class="nota">Nota:</span></p> -->
+    
+    <p class="definicion-subtitulo">Referencias:</p>
+    <div class="referencias">
+      <a class="link icon" href="https://www.youtube.com/watch?v=9qcw1JxDurs" target="_blank">The Ultimate Guide to CSS Variables</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=_2LwjfYc1x8" target="_blank">Using CSS custom properties like this is a waste</a>
+    </div>
+
+    <p class="definicion-ejemplo"><b>Ejemplo 1:</b> declaración y uso simple de una variable</p>
+    <code class="definicion-codigo">
+      <p><span class="comentario">/* declaracion de una variable en el root llamada '--bg-code' */</span></p>
+      <p>:root {</p>
+      <p class="definicion-name pre">  --bg-code: #fff;</p>
+      <p>}</p>
+      <br>
+      <p><span class="comentario">/* uso posterior de la variable */</span></p>
+      <p>.clase {</p>
+        <p class="pre">  background-color: <span class="definicion-name">var(--bg-code)</span>;</p>
+      <p>}</p>
+    </code>
+    
+    <p class="definicion-p">Es necesario siempre realizar la declaración de una variable. Si por alguna razón no se ha hecho, por ejemplo es una variable que viene de JS, se puede definir un valor 'fallback' para que no haya problema con esa variable, luego ese valor se usará en todo el ambito de la misma. Para declarar un fallback a una variable, hay que colocar una coma luego del nombre de la variable seguido del valor requerido.
+    </p>
+
+    <p class="definicion-ejemplo"><b>Ejemplo 2:</b> valor fallback para una variable</p>
+    <code class="definicion-codigo">
+      <p><span class="comentario">/* no existe declaración de la variable '--full-width' */</span></p>
+      <br>
+      <p><span class="comentario">/* definición de un fallback para la variable '--full-width' */</span></p>
+      <p>.clase {</p>
+        <p class="pre">  max-width: var(--full-width<span class="definicion-name">, 1100px</span>);</p>
+      <p>}</p>
+    </code>
+
+    <p class="definicion-p">También se puede usar dentro de un fallback, un valor de otra variable u otro fallback.</p>
+    <p class="definicion-ejemplo"><b>Ejemplo 3:</b> valor de otra variable como fallback, más un dato extra como otro fallback. En este caso la segunda variable no contenga valor alguno por x razón, se usará el último dato.</p>
+    <code class="definicion-codigo">
+      <p><span class="comentario">/* declaracion de una variable en el root llamada '--segunda-variable' */</span></p>
+      <p>:root {</p>
+      <p class="definicion-name pre">  --segunda-variable: green;</p>
+      <p>}</p>
+      <br>
+      <p><span class="comentario">/* si --primera-variable no ha sido declarada, usar --segunda-variable que sí ha sido declarada (su valor es 'green').<br>Si por alguna razón --segunda-variable no tiene valor usar 'red' */</span></p>
+      <p>.clase {</p>
+        <p class="pre">  color: var(--primera-variable<span class="definicion-name">, var(--segunda-variable, red</span>);</p>
+      <p>}</p>
+    </code>
+
+    <p class="definicion-p">El uso de variables con seudo elementos como <code>:hover</code> es muy útil.</p>
+    <p class="definicion-ejemplo"><b>Ejemplo 4:</b> cuando se pasa el mouse sobre el elemento, se cambian el valor de las variables. Tener en cuenta que con este método cambiarán todas las referencias a estas variables, si se tienen otros elementos en otras posiciones de la página también cambiarán.</p>
+    <code class="definicion-codigo">
+      <p><span class="comentario">/* declaracion de tres variables */</span></p>
+      <p>:root {</p>
+      <p class="definicion-name pre">  --bg-color: #ccc;</p>
+      <p class="definicion-name pre">  --front-color: #000;</p>
+      <p class="definicion-name pre">  --borde: 1px;</p>
+      <p>}</p>
+          <br>
+      <p><span class="comentario">/* uso de variables */ </span></p>
+      <p>.clase {</p>
+        <p class="pre">  background-color: <span class="definicion-name">var(--bg-color)</span>;</p>
+        <p class="pre">  color: <span class="definicion-name">var(--front-color)</span>;</p>
+        <p class="pre">  border: <span class="definicion-name">var(--borde) var(--front-color)</span> solid;</p>
+      <p>}</p>
+          <br>
+      <p><span class="comentario">/* uso de las variables sobre el seudo elemento :hover */ </span></p>
+      <p>.clase:hover {</p>
+        <p class="pre">  <span class="definicion-name">--bg-color: red;</span></p>
+        <p class="pre">  <span class="definicion-name">--color: blue;</span></p>
+        <p class="pre">  <span class="definicion-name">--border: 3px;</span></p>
+      <p>}</p>
+    </code>
+
+    <!-- <p class="definicion-subtitulo"><b>Resultado:</b></p>
+    <div class="definicion-resultado">
+      <details>
+        <summary>Desplegar</summary>
+        Texto a mostrar cuando se despliegue la etiqueta
+      </details>
+    </div> -->
+  </div>
+
+<!-- ---------------------------------------------------------------------- -->
+  <h2>POSICIONAMIENTO</h2>
+  <div class="definicion">
+    <h3 class="definicion-titulo" id="nombre-definicion">POSITION RELATIVE Y POSITION ABSOLUTE</h3>
+    <p class="definicion-p">Para posicionar los elementos dentro de la página</p>
+    <p class="definicion-nota icon"><span class="nota">Nota:</span></p>
+    <p class="definicion-subtitulo">Referencias:</p>
+    <div class="referencias">
+      <a class="link icon" href="https://www.youtube.com/watch?v=DnsrfzFeNg0" target="_blank">Position Relative y Absolute en CSS [Trucos Prácticos]</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=_e0ddNlc0Y8" target="_blank">Domina POSITION CSS. Guía completa ✅. Position relative, absolute, fixed, sticky y z-index</a>
+      
+    </div>
+    <p class="definicion-ejemplo"><b>Ejemplo 1:</b></p>
+    <code class="definicion-codigo">
+      <p class="definicion-name">&lt;details&gt;</p>
+      <p class="pre"><span class="definicion-name">   &lt;summary&gt;</span>Desplegar<span class="definicion-name">&lt;/summary&gt;</p>
+      <p class="pre">  Texto a mostrar cuando se despliegue la etiqueta</p>
+      <p class="definicion-name">&lt;/details&gt;</p>
+    </code>
+    <p class="definicion-ejemplo"><b>Resultado:</b></p>
+    <div class="definicion-resultado">
+      <details>
+        <summary>Desplegar</summary>
+        Texto a mostrar cuando se despliegue la etiqueta
+      </details>
+    </div>
+  </div>
+
+  <!-- ------------------------------ SELECTORES AVANZADOS: SEUDO ELEMENTOS -->
+  <h2>SELECTORES AVANZADOS: SEUDO ELEMENTOS</h2>
+
+  <div class="definicion"> <!-- definicion de seudo elementos -->
+    <div class="definicion-p">
+      <p>Son elementos abstractos que nos permiten seleccionar 'porciones' del documento que no están específicamente y directamente definidas en el arbol del documento, es decir, no tienen una etiqueta que los defina como tales. Por ejemplo, <b>no</b> son seudo elementos lo que sí están directamente definidos en documento como pueden ser un párrafo que está definido por la etiqueta &lt;p&gt;&lt;/p&gt;, una imagen por la etiqueta &lt;img&gt;, etc. Mientras que seudo elementos serían los que no tienen una etiqueta específica y por tanto no podemos definirlos exactamente, como serían, la primera línea o primer letra un párrafo, un texto seleccionado por el usuario, un contenido agregado o eliminado bajo ciertas circunstancias, etc.</p>
+      <p>Los seudo elementos son siempre parte de un 'elemento origen' también llamado 'selector' el cual normalmente sí es una etiqueta, clase o seudo clase.</p>
+      <p>Para la sintaxis de los seudo elementos primero se debe escribir el selector (elemento origen) respectivo seguido de dobles dos puntos <code>(::)</code> y por último el seudo elemento:</p>
+      <code class="definicion-codigo">
+        <p>selector<span class="definicion-name">::seudo-elemento</span> {</p>
+        <p class="pre">  propiedad: valor;</p>
+        <p>}</p>
+      </code>
+      <p>También se puede seleccionar un seudo elemento basándose en el estado del elemento origen (selector), por ejemplo <code>p:hover::first-line</code> selecciona el seudo elemento 'primera línea' de un párrafo (p) cuando se posiciona el cursor sobre él (:hover), o también <code>a:hover::after</code> que agregaría un contenido después del link cuando el cursor pase sobre este link, podría ser por ejemplo una imagen de flecha para indicar con mayor énfasis la disponibilidad del link.</p>
+    </div>
+    <p class="definicion-subtitulo">Referencias:</p>
+    <div class="referencias">
+      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements" target="_blank">MDN Pseudo-elements</a>
+      <a class="link icon" href="https://lenguajecss.com/css/pseudoelementos/que-son/" target="_blank">MANZ.DEV Pseudoelementos: ¿Qué son?</a>
+      <a class="link icon" href="https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements" target="_blank">MDN Pseudoclases y pseudoelementos</a>
+    </div>
+  </div>
+  
+  <!-- ---------------------------------------------------- SEUDO ELEMENTOS -->
+  <div class="definicion"> 
+    <h3 class="definicion-titulo">
+      <p>::first-letter</p>
+      <p>::first-line</p>
+      <p>::selection</p>
+      <p>::placeholder</p>
+      <p>::marker</p>
+    </h3>
+
+    <p class="code-titulo">
+      <span>::first-letter :</span> <br> <!-- ::first-letter  -->
+      <span>::first-line :</span>  <!-- ::first-line  -->
+    </p>
+    <p>Seleccionan la primera letra y la primera línea respectivamente de un elemento. Normalmente se utilizan sobre párrafos o contenido tipo texto. </p>
+    <p class="definicion-ejemplo"><b>Ejemplo 1:</b> Seleccionar la primera letra de todos los párrafos y definirles el tamaño en 2rem y en color #fff, y a la primera línea cambiarles el fondo a gris.</p>
+    <div class="definicion-codigo-flex">
+      <code class="definicion-codigo">
+        <p class="lang">Código HTML:</p>
+        <p>&lt;p&gt;Primer párrafo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eum voluptates suscipit! Qui distinctio enim, eligendi dignissimos magni quidem, cumque, omnis animi eos accusamus laboriosam unde voluptates incidunt illum maiores!.&lt;/p&gt;</p>
+        <p>&lt;p&gt;Segundo párrafo. Lorem ipsum dolor voluptates perspiciatis optio odit ab inventore doloribus quisquam error nobis suscipit repellendus!. Est cum consequuntur.&lt;/p&gt;</p>
+        <br>
+        <p class="lang">Código CSS:</p>
+        <p>p<span class="definicion-name">::first-letter</span> {</p>
+        <p class="pre">  font-size: 2rem;</p>
+        <p class="pre">  color: #fff;</p>
+        <p>}</p>
+        <p>p<span class="definicion-name">::first-line</span> {</p>
+          <p class="pre">  background-color: grey;</p>
+          <p>}</p>
+      </code>
+      <div class="definicion-resultado">
+        <p class="lang">Resultado:</p>
+        <p class="definicion-first-letter-line-ejemplo1">Primer párrafo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eum voluptates suscipit! Qui distinctio enim, eligendi dignissimos magni quidem, cumque, omnis animi eos accusamus laboriosam unde voluptates incidunt illum maiores!.</p>
+        <p class="definicion-first-letter-line-ejemplo1">Segundo párrafo. Lorem ipsum dolor voluptates perspiciatis optio odit ab inventore doloribus quisquam error nobis suscipit repellendus!. Est cum consequuntur.</p>
+      </div>
+    </div>
+   
+    <p class="code-titulo"><span>::selection :</span></p> <!-- ::selection -->
+    <p>Permite definir estilos al texto que el usuario seleccione en la página.</p>
+    <p class="definicion-ejemplo"><b>Ejemplo 1:</b> definir el color de texto yellow y el fondo red al texto que el usuario seleccione en el siguiente párrafo.</p>
+    <div class="definicion-codigo-flex">
+      <code class="definicion-codigo">
+        <p class="lang">Código HTML:</p>
+        <p>&lt;p&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, dicta esse quae tempora aliquid commodi dignissimos, dolores, eius iure ipsum neque. Cum, libero! Modi est voluptatem aut perspiciatis mollitia id ad, incidunt similique commodi nesciunt ullam maiores, sit veritatis ipsum iste omnis quas maxime hic deserunt quo cumque laborum facere.&lt;/p&gt;</p>
+        <br>
+        <p class="lang">Código CSS:</p>
+        <p>p<span class="definicion-name">::selection</span> {</p>
+        <p class="pre">  color: yellow;</p>
+        <p class="pre">  background-color: red;</p>
+        <p>}</p>
+      </code>
+      <div class="definicion-resultado">
+        <p class="lang">Resultado:</p>
+        <p class="comentario">selecciona una porción de texto</p>
+        <p class="definicion-selection-ejemplo1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, dicta esse quae tempora aliquid commodi dignissimos, dolores, eius iure ipsum neque. Cum, libero! Modi est voluptatem aut perspiciatis mollitia id ad, incidunt similique commodi nesciunt ullam maiores, sit veritatis ipsum iste omnis quas maxime hic deserunt quo cumque laborum facere.</p>
+      </div>
+    </div>
+  
+    <p class="code-titulo"><span>::placeholder :</span></p> <!-- ::placeholder -->
+    <p>Permite definir estilos al texto temporal (placeholder) en un elemento 'input' o 'textarea'.</p>
+    <p class="definicion-ejemplo"><b>Ejemplo 1:</b> definir el color de texto al #fff, el fondo grey y el tipo de letra itálica a un input y a un textarea a la vez.</p>
+    <div class="definicion-codigo-flex">
+      <code class="definicion-codigo">
+        <p class="lang">Código HTML:</p>
+        <p>&lt;p&gt;Ingresa los siguientes datos de producto: &lt;/p&gt;</p>
+        <p>&lt;input type="text" name="nombre" placeholder="Ingresa el nombre"&gt;</p>
+        <p>&lt;textarea name="descripcion" placeholder="Ingresa descripcion"&gt;&lt;/textarea&gt;</p>
+        <br>
+        <p class="lang">Código CSS:</p>
+        <p>input<span class="definicion-name">::placeholder</span>,</p>
+        <p>textarea<span class="definicion-name">::placeholder</span> {</p>
+        <p class="pre">  color: #fff;</p>
+        <p class="pre">  background-color: grey;</p>
+        <p class="pre">  font-style: italic;</p>
+        <p>}</p>
+      </code>
+      <div class="definicion-resultado">
+        <p class="lang">Resultado:</p>
+        <p class="comentario">teclea algo en los campos siguientes para ver el efecto del placeholder</p>
+        <p><br>Ingresa los siguientes datos de producto: </p>
+        <input class="definicion-placeholder-ejemplo1" type="text" name="nombre" placeholder="Ingresa el nombre">
+        <textarea class="definicion-placeholder-ejemplo1" name="descripcion" id="descripcion" placeholder="Ingresa descripcion"></textarea>
+      </div>
+    </div>
+
+    <p class="code-titulo"><span>::file-selector-button</span></p> <!-- ::file-selector-button -->
+    <p>Permite dar estilos al botón de 'seleccionar archivo'. Para seleccionar este botón hay que escribir <code>::file-selector-button</code> ya que de otra forma hay que hacer varias otras cosas para llegar hasta él.</p>
+    <p class="definicion-subtitulo">Referencias:</p>
+    <div class="referencias">
+      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file" target="_blank">MDN &lt;input type="file"&gt;</a>
+    </div>
+    <p class="definicion-ejemplo"><b>Ejemplo 1:</b> formatear bonito el botón y agregarle un efecto sombra al pasar el mouse sobre él.</p>
+    <div class="definicion-codigo-flex">
+      <code class="definicion-codigo">
+        <p class="lang">Código HTML:</p>
+        <p>&lt;input class="file" type="file" name="archivo" id="file"&gt;</p>
+        <br>
+        <p class="lang">Código CSS:</p>
+        <p>input.file {</p>
+        <p class="pre">  font-style: italic;</p>
+        <p class="pre">  color: grey;</p>
+        <p class="pre">  &<span class="definicion-name">::file-selector-button</span> {</p>
+        <p class="pre">    font-weight: bold;</p>
+        <p class="pre">    color: #fff;</p>
+        <p class="pre">    background-color: rgb(92, 174, 255);</p>
+        <p class="pre">    padding: 0.5rem;</p>
+        <p class="pre">    border: thin solid gray;</p>
+        <p class="pre">    border-radius: 3px;</p>
+        <p class="pre">    box-shadow: 3px 3px 3px rgb(0 0 0 / 0.45);</p>
+        <p class="pre">  }</p>
+        <p class="pre">  &:hover<span class="definicion-name">::file-selector-button</span> {</p>
+          <p class="pre">  background-color: rgb(34, 145, 255);</p>
+          <p class="pre">  box-shadow: 3px 3px 3px rgb(0 0 0 / 0.45);</p>
+        <p class="pre">  }</p>
+        <p>}</p>
+      </code>
+      <div class="definicion-resultado">
+        <p class="lang">Resultado:</p>
+        <p class="comentario">Pasa el cursor encima del botón</p>
+        <br>
+        <input type="file" name="archivo" id="file" class="definicion-file-selector-button-ejemplo1">
+      </div>
+    </div>
+
+    <p class="code-titulo"><span>::marker :</span></p> <!-- ::marker -->
+    <p>Selecciona las viñetas (íconos) de los items de lista que normalmente tiene tiene como viñeta a puntos 'bullets' o números permitiendo cambiar el contenido y algunos estilos de viñetas y números en las listas. Funciona con cualquier elemento o seudo elemento difinido como <code>display: list-item</code>, como &lt;li&gt; y &lt;summary&gt;.</p>
+    <p class="definicion-subtitulo">Referencias:</p>
+    <div class="referencias">
+      <a class="link icon" href="https://www.smashingmagazine.com/2019/07/css-lists-markers-counters/" target="_blank">CSS Lists, Markers, And Counters</a>
+      <a class="link icon" href="https://web.dev/articles/css-marker-pseudo-element?hl=es-419" target="_blank">Viñetas personalizadas con marcador de CSS</a>
+      <a class="link icon" href="https://www.w3schools.com/css/css_list.asp" target="_blank">CSS Lists</a>
+      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/::marker" target="_blank">::marker</a>
+    </div>
+    <p class="definicion-ejemplo"><b>Ejemplo 1:</b> definir un simbolo cualquiera diferente a cada elemento en la lista, además de un color red para cada uno.</p>
+    <div class="definicion-codigo-flex">
+      <code class="definicion-codigo">
+        <p class="lang">Código HTML:</p>
+        <p>&lt;ul&gt;</p>
+        <p class="pre">  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Dolores quaerat illo totamo&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Quidem aliquid perferendis&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Ipsa adipisci fugit assumenda&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Quae voluptas officiis eum et autem&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Error delectus nostrum similique!&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Adipisicing elit. Quia repudiandae&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Consectetur ducimus laboriosam quasi&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Sit amet  mollitia adipisci, harum&lt;/li&gt;</p>
+        <p>&lt;/ul&gt;</p>
+        <br>
+        <p class="lang">Código CSS:</p>
+        <p>ul {</p>
+        <p class="pre">  <span class="definicion-name">::marker</span> {</p>
+        <p class="pre">    font-size: 1.15rem;</p>
+        <p class="pre">    color: red;</p>
+        <p class="pre">    font-weight: bold;</p>
+        <p class="pre">  }</p>
+        <p class="pre">  li { margin-left: 20px;}</p>
+        <p class="pre">  li:nth-child(1)<span class="definicion-name">::marker</span> {content: "† ";}</p>
+        <p class="pre">  li:nth-child(2)<span class="definicion-name">::marker</span> {content: "※ ";}</p>
+        <p class="pre">  li:nth-child(3)<span class="definicion-name">::marker</span> {content: "⁜ ";}</p>
+        <p class="pre">  li:nth-child(4)<span class="definicion-name">::marker</span> {content: "₰ ";}</p>
+        <p class="pre">  li:nth-child(5)<span class="definicion-name">::marker</span> {content: "⁂ ";}</p>
+        <p class="pre">  li:nth-child(6)<span class="definicion-name">::marker</span> {content: "⁛ ";}</p>
+        <p class="pre">  li:nth-child(7)<span class="definicion-name">::marker</span> {content: "⁘ ";}</p>
+        <p class="pre">  li:nth-child(8)<span class="definicion-name">::marker</span> {content: "🤩 ";}</p>
+        <p class="pre">  li:nth-child(9)<span class="definicion-name">::marker</span> {content: "✔️ ";}</p>
+        <p>}</p>
+      </code>
+      <div class="definicion-resultado">
+        <p class="lang">Resultado:</p>
+        <p class="comentario">Notar que el tamañno del marker al igual que un caracter hace 'variar' su posición y a la vez el alto mismo de la línea</p>
+        <br>
+        <ul class="definicion-marker-ejemplo1">
+          <li>Lorem ipsum dolor sit amet</li>
+          <li>Dolores quaerat illo totamo</li>
+          <li>Quidem aliquid perferendis</li>
+          <li>Ipsa adipisci fugit assumenda</li>
+          <li>Quae voluptas officiis eum et autem</li>
+          <li>Error delectus nostrum similique!</li>
+          <li>Adipisicing elit. Quia repudiandae</li>
+          <li>Consectetur ducimus laboriosam quasi</li>
+          <li>Sit amet  mollitia adipisci, harum</li>
+        </ul>
+      </div>
+    </div>
+    <p class="definicion-ejemplo"><b>Ejemplo 2:</b> definir un tamaño y color diferente para cada uno de los markers de la lista.</p>
+    <div class="definicion-codigo-flex">
+      <code class="definicion-codigo">
+        <p class="lang">Código HTML:</p>
+        <p>&lt;ul&gt;</p>
+        <p class="pre">  &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Dolores quaerat illo totamo&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Quidem aliquid perferendis&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Ipsa adipisci fugit assumenda&lt;/li&gt;</p>
+        <p class="pre">  &lt;li&gt;Fuga nihil reprehenderit&lt;/li&gt;</p>
+        <p>&lt;/ul&gt;</p>
+        <br>
+        <p class="lang">Código CSS:</p>
+        <p>ul {</p>
+        <p class="pre">  --huemarker: 0;</p>
+        <p class="pre">  <span class="definicion-name">::marker</span> {</p>
+        <p class="pre">    content: "»";</p>
+        <p class="pre">    font-size: 3rem;</p>
+        <p class="pre">    color: hsl(var(--huemarker) 50% 50%);</p>
+        <p class="pre">  }</p>
+        <p class="pre">  li { margin-left: 20px;}</p>
+        <p class="pre">    li:nth-child(2)<span class="definicion-name">::marker</span> {--huemarker: 50; font-size: 2.5em;}</p>
+        <p class="pre">    li:nth-child(3)<span class="definicion-name">::marker</span> {--huemarker: 100; font-size: 2em;}</p>
+        <p class="pre">    li:nth-child(4)<span class="definicion-name">::marker</span> {--huemarker: 150; font-size: 1.5em;}</p>
+        <p class="pre">    li:nth-child(5)<span class="definicion-name">::marker</span> {--huemarker: 200; font-size: 1em;}</p>
+        <p>}</p>
+      </code>
+      <div class="definicion-resultado">
+        <p class="lang">Resultado:</p>
+        <p class="comentario">Notar que el tamañno del marker al igual que un caracter hace 'variar' su posición y a la vez el alto mismo de la línea</p>
+        <ul class="definicion-marker-ejemplo2">
+          <li>Lorem ipsum dolor sit amet</li>
+          <li>Dolores quaerat illo totamo</li>
+          <li>Quidem aliquid perferendis</li>
+          <li>Ipsa adipisci fugit assumenda</li>
+          <li>Fuga nihil reprehenderit</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="code-titulo"> <!-- ::before :: after -->
+      <span>::before :</span> <br>
+      <span>::after :</span>
+    </p>
+    <!-- <h3 class="definicion-titulo" id="before-after">
+      <p>::before</p>
+      <p>::after</p>
+    </h3> -->
+    <p>Creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the &lt;summary&gt; element. A disclosure widget is typically presented onscreen using a small triangle that rotates (or twists) to indicate open/closed status, with a label next to the triangle. The contents of the &lt;summary&gt; element are used as the label for the disclosure widget. The contents of the &lt;details&gt; provide the accessible description for the &lt;summary&gt;.</p>
+    <p>
+      Con <code>::before</code> también es posible hacer numeración consecutiva de items haciendo uso de la propiedad 'counter'. Ver ejemplo en referencias.
+    </p>
+    <p class="definicion-nota icon"><span class="nota">Nota:</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos sed enim reiciendis velit ea consequuntur temporibus, quis qui esse sequi, asperiores deleniti quo nihil obcaecati quae neque officiis dolorem laboriosam?</p>
+    <p class="definicion-subtitulo">Referencias:</p>
+    <div class="referencias">
+      <a class="link icon" href="https://css-tricks.com/almanac/selectors/a/after-and-before/#aa-more-information" target="_blank">css-tricks.com ::before / ::after</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=zGiirUiWslI" target="_blank">CSS Before and After pseudo elements explained - part one: how they work</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=xoRbkm8XgfQ" target="_blank">CSS Before and After pseudo elements explained - part two: the content property</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=djbtPnNmc0I" target="_blank">CSS Before and After pseudo elements explained - part three: as design elements</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=9v02UXMJfmQ" target="_blank">PSEUDO-ELEMENTOS | ::before y& ::after | CSS [Español]</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=wHY02FpNYnU" target="_blank">Que rayos son los Pseudoelementos en CSS</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=tnSzkAiiQ4w" target="_blank">Dynamic numbering with CSS counters</a>
+    </div>
+    <p class="definicion-ejemplo"><b>Ejemplo 1:</b></p>
+    <code class="definicion-codigo">
+      <p class="definicion-name">&lt;details&gt;</p>
+      <p class="pre"><span class="definicion-name">   &lt;summary&gt;</span>Desplegar<span class="definicion-name">&lt;/summary&gt;</p>
+      <p class="pre">  Texto a mostrar cuando se despliegue la etiqueta</p>
+      <p class="definicion-name">&lt;/details&gt;</p>
+    </code>
+    <p class="definicion-ejemplo"><b>Resultado:</b></p>
+    <div class="definicion-resultado">
+      <details>
+        <summary>Desplegar</summary>
+        Texto a mostrar cuando se despliegue la etiqueta
+      </details>
+    </div>
+    <p class="definicion-ejemplo"><b>Ejemplo 2:</b> poner un 'filtro' a una imagen dentro de un link (etiqueta a) y que al pasar por encima el filtro se 'elimine'. Notar que la imagen es agregada como fondo (background) del elemento, en este caso un 'a'. Tampoco se necesita nada dentro del contenido de esta 'a', por tanto es indistinto usar un ::before o un ::after. En caso necesitar contenido para el 'a', ahi sí afecta diferenciadamente un ::before o un ::after.</p>
+    <div class="definicion-codigo-flex">
+      <code class="definicion-codigo">
+        <p class="lang">Código HTML:</p>
+        <p>&lt;a href="#"&gt;&lt;/a&gt; <span class="comentario">/* se puede usar cualquier otro elemento como div o p */</span></p>
+        <br>
+        <p class="lang">Código CSS:</p>
+        <p>a {</p>
+        <p class="pre">  display: block; <span class="comentario">/* esto porque a es inline, un div o p no lo necesitan */</span></p>
+        <p class="pre">  width: 250px;</p>
+        <p class="pre">  height: 250px;</p>
+        <p class="pre">  background: url(./imagen.jpg) center/cover no-repeat;</p>
+        <p class="pre">  position: relative;</p>
+        <p class="pre definicion-name">  &::before {  <span class="comentario">/* en este caso también puede ser ::after */ </span></p>
+        <p class="pre definicion-name">    content: '';</p>
+        <p class="pre definicion-name">    width: 100%;</p>
+        <p class="pre definicion-name">    height: 100%;</p>
+        <p class="pre definicion-name">    position: absolute;</p>
+        <p class="pre definicion-name">    background: rgb(0 0 0 / 0.5); <span class="comentario">/* 0.5 de alfa es el filtro realmente */</span></p>
+        <p class="pre definicion-name">      }</p>
+        <p class="pre">  &:hover {</p>
+        <p class="pre definicion-name">    &::before { <span class="comentario">/* no olvidar cambiar a ::after si se cambiar arriba */</span></p>
+        <p class="pre definicion-name">      background: rgb(0 0 0 / 0); <span class="comentario">/* cuando el cursor pasa encima el filtro alfa es 0 (se quita) */</span></p>
+        <p class="pre definicion-name">        }</p>
+        <p class="pre">  }</p>
+        <p>}</p>
+      </code>
+      <div class="definicion-resultado definicion-before-after-ejemplo2">
+        <p class="lang">Resultado:</p>
+        <p class="comentario">Pasa el cursor encima de la imagen</p>
+        <p> </p>
+        <a href=""></a>
+      </div>
+    </div>
+  </div>
+
+<!-- ----------------------------------- SELECTORES AVANZADOS: SEUDO CLASES -->
+  <h2>SELECTORES AVANZADOS: SEUDO CLASES</h2>
+
+  <div class="definicion"> <!-- definición de seudo clases -->
+    <div class="definicion-p">
+      <p>Son selectores que se agregan a los elementos para identificarlos de acuerdo a un estado específico, por ejemplo si el cursor está sobre un elemento, o si ya se ha visitado un link, o si un elemento es el primero o último en el árbol de elementos, etc.</p>
+      <p>Al igual que los seudo elementos, se necesita primero un 'elemento origen' también llamado 'selector' el cual normalmente es una etiqueta o clase.</p>
+      <p>Para la sintaxis de las seudo clases primero se debe escribir el selector (elemento origen) respectivo seguido de dos puntos <code>(:)</code> y por último la seudo clase:</p>
+      <code class="definicion-codigo">
+        <p>selector<span class="definicion-name">:seudo-clase</span> {</p>
+          <p class="pre">  propiedad: valor;</p>
+          <p>}</p>
+      </code>
+      <div class="referencias">
+        <a class="link icon" href="https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes" target="_blank">MDN Pseudo-classes</a>
+        <a class="link icon" href="https://lenguajecss.com/css/pseudoclases/que-son/" target="_blank">MANZ.DEV ¿Qué son las pseudoclases?</a>
+        <a class="link icon" href="https://www.w3schools.com/css/css_pseudo_classes.asp" target="_blank">W3Schools CSS Pseudo-classes</a>
+        <a class="link icon" href="https://www.geeksforgeeks.org/css-pseudo-classes/" target="_blank">CSS Pseudo-classes</a>
+        <a class="link icon" href="https://web.dev/learn/css/pseudo-classes?hl=es-419" target="_blank">Web.Dev Seudoclases</a>
+        <a class="link icon" href="https://css-tricks.com/pseudo-class-selectors/" target="_blank">CSS-TRICKS Meet the Pseudo Class Selectors</a>
+      </div>
+    </div>
+
+
+    aqui va :required
+  </div>
+
+
+<!-- ---------------------------------------------------------------------- -->
+  <h2>SELECTORES AVANZADOS: SELECTORES POR ATRIBUTOS</h2>
+  
+  <div class="definicion"> <!-- Selección por atributos -->
+    <h3 class="definicion-titulo" id="atributo">[atributo]</h3>
+    <p class="definicion-p">Sirve para seleccionar un elemento basado en uno o varios atributos con las características que se describan. El atributo o los atributos escogidos deben ir indicados entre corchetes <code>[atributo: valor]</code> después de elemento o clase.</p>
+
+    <!-- <p class="definicion-nota icon"><span class="nota">Nota:</span></p> -->
+
+
+    <p class="definicion-ejemplo"><b>Ejemplo 1:</b> seleccionar únicamente los elementos 'input' que contengan el atributo 'type' igual a 'email' y definir el color de borde a green.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>input <span class="definicion-name">[type='email']</span> {</p>
+      <p class="pre">  border-color: green;</p>
+      <p>}</p>
+    </code>
+    <p class="definicion-ejemplo"><b>Ejemplo 2:</b> seleccionar únicamente los elementos 'input' que contengan el atributo 'name' igual a 'nombre' y definir el color de borde a blue.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>input <span class="definicion-name">[name='nombre']</span> {</p>
+      <p class="pre">  border-color: blue;</p>
+      <p>}</p>
+    </code>
+    <p class="definicion-ejemplo"><b>Ejemplo 3:</b> seleccionar únicamente los elementos 'input' que contengan el atributo 'type' igual a 'text' y además el atributo 'id' igual a 'nombre' y definirles el color de fondo a lightblue.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>input <span class="definicion-name">[type='text'][id='nombre']</span> {</p>
+      <p class="pre">  background-color: lightblue;</p>
+      <p>}</p>
+    </code>
+    <p class="definicion-ejemplo"><b>Ejemplo 4:</b> seleccionar únicamente los elementos 'input' que contengan definido el atributo 'required' y definirles el color de borde a red.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>input <span class="definicion-name">[required]</span> {</p>
+      <p class="pre">  border-color: red;</p>
+      <p>}</p>
+    </code>
+    <p class="definicion-ejemplo"><b>Ejemplo 5:</b> seleccionar únicamente los elementos 'input' que contengan definido el atributo 'type' igual a 'password' y además el atributo 'maxlength' igual a '8' y definirles el color de fondo a green.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>input <span class="definicion-name">[type='password'][maxlegth='8']</span> {</p>
+      <p class="pre">  background-color: green;</p>
+      <p>}</p>
+    </code>
+    <p class="definicion-ejemplo"><b>Ejemplo 6:</b> seleccionar únicamente los elementos 'button' que contengan el atributo 'type' igual a 'submit' y definirles el color de fondo a purple.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>button <span class="definicion-name">[type='submit']</span> {</p>
+      <p class="pre">  background-color: purple;</p>
+      <p>}</p>
+    </code>
+    <p class="definicion-ejemplo"><b>Ejemplo 7:</b> seleccionar únicamente los elementos link (&lt;a&gt;) en los que el atributo 'href' empiece con '#' y definirles el color de fondo a yellow.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>a <span class="definicion-name">[href^='#']</span> { <span class="comentario">/* el símbolo ' ^ ' quiere decir 'empieza con...' */</span></p>
+      <p class="pre">  background-color: yellow;</p>
+      <p>}</p>
+    </code>
+    <p class="definicion-ejemplo"><b>Ejemplo 8:</b> seleccionar únicamente los elementos link (&lt;a&gt;) en los que el atributo 'href' termine con '.com' y definirles el color de fondo a red.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>a <span class="definicion-name">[href$='.com']</span> { <span class="comentario">/* el símbolo ' $ ' quiere decir 'termina con...' */</span></p>
+      <p class="pre">  background-color: red;</p>
+      <p>}</p>
+    </code>
+    <p class="definicion-ejemplo"><b>Ejemplo 9:</b> seleccionar únicamente los elementos link (&lt;a&gt;) en los que el atributo 'href' contenga 'enlace' y subrayarles el contenido.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>a <span class="definicion-name">[href*='enlace']</span> { <span class="comentario">/* el símbolo ' * ' quiere decir 'contiene...' */</span></p>
+      <p class="pre">  text-decoration: underline;</p>
+      <p>}</p>
+    </code>
+
+  </div>
+
+<!-- ---------------------------------------------------------------------- -->
+  <h2>SELECTORES AVANZADOS: COMBINADORES</h2>
+
+  <div class="definicion"> <!-- Selección por combinadores > + ~ -->
+    <h3 class="definicion-titulo" id="combinadores">
+      <p><b>(espacio)</b> Selector Descendente</p>
+      <p><b>&gt</b> Selector hijo</p>
+      <p><b> + </b> Selector hermano adyacente</p>
+      <p><b> ~ </b> Selector hermano general</p>
+    </h3>
+    <p>Combinadores son reglas que distinguen las diferentes relaciones entre los selectores.</p>
+
+    <!-- <p class="definicion-nota icon"><span class="nota">Nota:</span></p> -->
+
+    <p class="definicion-subtitulo">Referencias:</p>
+    <div class="referencias">
+      <a class="link icon" href="https://www.w3schools.com/css/css_combinators.asp" target="_blank">CSS Combinators</a>
+      <a class="link icon" href="https://www.geeksforgeeks.org/css-combinators/" target="_blank">CSS Combinators</a>
+      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators" target="_blank">CSS Combinators</a>
+      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors/Selectors_and_combinators" target="_blank">CSS selectors and combinators</a>
+    </div>
+
+    <p class="code-titulo"><span>padre <b>&gt;</b>  selector-hijo : </span></p>
+    <p> selecciona sólo a los elementos que coincidiendo con lo indicado en <code>selector-hijo</code>, sean <b>hijos directos</b> del padre, es decir, que no estén anidados dentro de otros elementos hijos. No es necesario que éstos elementos sean adyacentes ni los primeros descendientes del padre, pueden estar ubicados en cualquier lugar dentro del padre pero siempre como hijos directos.</p>
+
+    <p class="definicion-ejemplo"><b>Ejemplo 1:</b> seleccionar a todos los párrafos hijos directos de la clase 'contenedor' y formatearlos en itálica y color gris.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>.contenedor <span class="definicion-name"><b>&gt;</b></span> p {</p>
+      <p class="pre">  font-style: italic;</p>
+      <p class="pre">  color: grey;</p>
+      <p>}</p>
+    </code>
+
+    <p class="definicion-ejemplo"><b>Ejemplo 2:</b> seleccionar únicamente los elementos de listas desordenadas (ul) hijos directos de la clase 'contenedor' y eliminarles el símbolo de lista.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>.contenedor <span class="definicion-name"><b>&gt;</b></span> ul {</p>
+        <p class="pre">  list-style: none;</p>
+        <p>}</p>
+    </code>
+    
+    <p class="definicion-ejemplo"><b>Ejemplo 3:</b> seleccionar únicamente los links (&lt;a&gt;) hijos directos de la clase 'contenedor' y definirlos en color red.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>.contenedor <span class="definicion-name"><b>&gt;</b></span> a {</p>
+        <p class="pre">  color: red;</p>
+        <p>}</p>
+    </code>
+
+    <p class="code-titulo"><span>elemento-anterior <b> + </b> hermano-adyacente : </span></p>
+    <p>selecciona a un único elemento (sólo a uno) que coincidiendo con lo indicado en <code>hermano-adyacente</code>, sea el elemento <b>exactamente siguiente</b> al indicado en <code>elemento anterior</code>, es decir, tiene que ser el siguiente elemento y sólo uno.</p>
+
+    <p class="definicion-ejemplo"><b>Ejemplo 4:</b> seleccionar dentro de la clase 'contenedor', al único hermano adyacente enlace (a) de un título 1 (h1) y definirle el color red y en negrita.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>.contenedor h1 <span class="definicion-name"><b>+</b></span> a {</p>
+        <p class="pre">  color: red;</p>
+        <p class="pre">  font-weight: bold;</p>
+        <p>}</p>
+    </code>
+
+    <p class="code-titulo"><span>elemento-anterior <b> ~ </b> hermano-general : </span></p>
+    <p> selecciona a todos los hermanos, es decir, que están en el mismo nivel de jerarquía en el DOM, del tipo <code>hermano-general</code> que aparezcan despúes del indicado en <code>elemento-anterior</code>. Estos hermanos pueden o no ser los exactamente siguientes o consecutivos.</p>
+
+    <p class="definicion-ejemplo"><b>Ejemplo 5:</b> seleccionar dentro de la clase 'contenedor', a todos los hermanos que aparezcan después de un título 1 (h1) y definirles el color purple.</p>
+    <code class="definicion-codigo">
+      <!-- <p class="lang">Código CSS:</p> -->
+      <p>.contenedor h1 <span class="definicion-name"><b>~</b></span> a {</p>
+        <p class="pre">  color: purple;</p>
+        <p>}</p>
+    </code>
+    
+    <p>Todos estos selectores se pueden combinar para realizar selecciones más complejas.Hacer ejemplos aquíiiiiiiiiiiiiiiiiiiiiiii</p>
+
+  </div>
+
+
+
+
+
+</body>
+</html>

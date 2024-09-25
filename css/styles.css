@@ -1,0 +1,413 @@
+/* ************************************************************************* */
+/* ************************************************************ RESET STYLES */
+/* ************************************************************************* */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
+  scroll-behavior: smooth;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  &:visited {
+    color: inherit;
+  }
+}
+ul {
+  list-style: none;
+}
+
+/* ************************************************************************* */
+/* *************************************************************** VARIABLES */
+/* ************************************************************************* */
+:root {
+  --bg-code: #ddd;
+  --comentario-color: #888;
+}
+
+
+/* ************************************************************************* */
+/* *************************************************************** PRINCIPAL */
+/* ************************************************************************* */
+
+.principal {
+  max-width: 1100px;
+  background-color:#fff;
+  margin: 30px auto;
+  padding: 20px 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+  
+  p {
+    font-weight: 600;
+    padding: 10px;
+  }
+  
+  .lenguajes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+    
+    .lng-item {
+      padding: 15px;
+      background-color: #000;
+      color: #eee;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    }
+
+  }
+}
+
+/* ************************************************************************* */
+/* ******************************************************************* COMUN */
+/* ************************************************************************* */
+
+body {
+  background: #fff url(/img/body.webp);
+}
+
+.a-pag-principal {
+  max-width: 1100px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 20px;
+  background-color: #000000;
+  color: #eee;
+  border-radius: 5px;
+}
+
+.icon {
+  &::after,
+  &::before {
+    display: inline-block;
+    font-family: 'Font Awesome 6 Free';
+    text-rendering: auto;
+  }
+}
+
+/* ************************************************************************* */
+/* ******************************************************************** HTML */
+/* ************************************************************************* */
+
+h2 {
+  margin: 2rem;
+}
+
+.definicion { /* incluye en HTML etiquetas, en CSS clases, seudo clases, elementos, seudoelementos */ 
+  margin: 25px 50px 10px;
+
+  .definicion-titulo{
+    font-family: 'source code pro';
+    margin-bottom: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    font-weight: 600;
+    box-shadow: 0 3px 5px rgb(0 0 0 / .15);
+  }
+  .definicion-p {
+    margin: 2rem 0 0.75rem;
+    p {
+      margin: 0.4rem 0;
+    }
+  }
+  .definicion-nota {
+    margin-top: 0.75rem;
+    display: flex; /* para que los tres elementos dentro del p (before, nota y texto) estén separados */
+    gap: 0.5rem;
+    justify-content: flex-start;
+    color: #fff;
+    border-left: 7px solid #000;
+    background-color: #777;
+    border-radius: 5px;
+    /* border-left: 5px solid #ff8787;
+    background-color: #f1e9e9; */
+    padding: 1rem;
+    /* padding-left: 2rem; */
+    margin-bottom: 1rem;
+    .nota {
+      font-weight: 700;
+    }
+    &::before {
+      font-size: 1.25rem;
+      /* text-shadow: inset 1px 1px rgb(255,255,255); */
+      font-weight: 900;
+      content: '\f05a';
+      color: rgb(255, 77, 77);
+      /* margin-right: 0.5rem; */
+    }
+  }
+  .definicion-subtitulo {
+    font-style: italic;
+    font-weight: 500;
+    margin: 1.25rem 0 0.25rem 1rem;
+  }
+  .definicion-ejemplo {
+    font-style: italic;
+    font-size: .85rem;
+    /* font-weight: 500; */
+    margin: 0.5rem 0 0.25rem 1rem;
+  }
+  .referencias {
+    margin-bottom: 1rem;
+    a {
+      margin: .1rem 0;
+      background-color: #e8e8e8;
+      display: block;
+      font-size: 0.85rem;
+      padding: .25rem 0.5rem;
+      border-radius: 0.5rem;
+      color: #0d74e1;
+      &:hover {
+        color: white;
+        background-color: #86bbf4;
+      }
+      &::after {
+        margin-left: 0.5rem;
+        font-weight: 900;
+        content: '\f14c';
+        font-size: 1.1rem;
+        line-height: 0.9rem;
+      }
+    }
+  }
+  .definicion-codigo-flex {
+    display: flex;
+    gap: 3px;
+  }
+  .definicion-codigo,
+  .definicion-resultado {
+    /* margin-left: 1rem; */
+    margin-bottom: 1rem;
+    font-family: 'source code pro';
+    font-size: 0.85rem;
+    display: block;
+    /* border-top: 1px solid #c8c8c8; */
+    background-color: var(--bg-code);
+    border-radius: 5px;
+    /* margin: 20px 0 10px 0; */
+    padding: 10px 20px;
+    .definicion-name {
+      color:rgb(255, 69, 69);
+      font-weight: 600;
+    }
+    .pre {
+      white-space: pre;
+    }
+    .lang {
+      font-weight: 600;
+      text-decoration: underline;
+      margin-bottom: 0.2rem;
+    }
+    .comentario {
+      font-family: 'Open Sans', sans-serif;
+      font-style: italic;
+      font-size: 0.8rem;
+      color: var(--comentario-color);
+      white-space: pre;
+    }
+  }
+  code {
+    font-size: 1rem;
+    background-color: var(--bg-code);
+    padding: 0 0.25rem;
+    border-radius: 3px;
+  }
+  .code-titulo {
+    /* font-weight: bold; */
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Source Code Pro', monospace;
+    span {
+      display: inline-block;
+      border-radius: 5px;
+      box-shadow: 0 3px 5px rgb(0 0 0 / .15),0 1px 2px 0 rgba(60,64,67,.3);
+      padding: 0.2rem 0.5rem;
+      /* padding: 0 0.5rem; */
+      background-color: #fff;
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+
+
+details {
+  /* margin: 1.3rem 0;
+  border-bottom: 1px solid #aaa;
+  padding: 0.5rem; */
+  /* height: auto; */
+  transition: all 0.5s ease;
+}
+details[open] {
+  max-height: 99rem;
+  transition: all 0.5s ease;
+  /* border: 1px solid #aaa; */
+}
+details summary {
+  color: #333;
+  cursor: pointer;
+  &:hover {
+    color: #000;
+    /* font-weight: 600; */
+  }
+}
+
+
+/* ************************* SEUDO ELEMENTOS - ::first-letter ::first-line ejemplo 1 */
+.definicion-first-letter-line-ejemplo1 {
+  &::first-letter {
+    font-size: 2rem;
+    /* font-weight: bold; */
+    color: #fff;
+  }
+  &::first-line {
+    background-color: grey;
+  }
+}
+
+/* ******************************* SEUDO ELEMENTOS - ::selection - ejemplo 1 */
+.definicion-selection-ejemplo1 {
+  margin-top: 1rem;
+  &::selection {
+    color: yellow;
+    background-color: red;
+  }
+}
+
+/* ***************************** SEUDO ELEMENTOS - ::placeholder - ejemplo 1 */
+input.definicion-placeholder-ejemplo1,
+textarea.definicion-placeholder-ejemplo1 {
+  margin: 0.5rem 0;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.85rem;
+  display: block;
+  padding: 0.5rem; 
+  width: 350px;
+  &::placeholder {
+    color: #fff;
+    background-color: rgb(156, 156, 156);
+    font-style: italic;
+  }
+}
+textarea.definicion-placeholder-ejemplo1 {
+  height: 150px;
+}
+
+/* ****************** SEUDO ELEMENTOS - ::::file-selector-button - ejemplo 1 */
+.definicion-file-selector-button-ejemplo1 {
+  font-style: italic;
+  color: grey;
+  padding: 10px;
+  &::file-selector-button {
+    width: 150px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(92, 174, 255);
+    padding: 0.5rem;
+    border: thin solid gray;
+    border-radius: 3px;
+  }
+  &:hover::file-selector-button {
+    background-color: rgb(34, 145, 255);
+    box-shadow: 3px 3px 3px rgb(0 0 0 / 0.45);
+  }
+}
+
+/* ********************************** SEUDO ELEMENTOS - ::marker - ejemplo 1 */
+.definicion-marker-ejemplo1 {
+    ::marker {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: red;
+    }
+    li {
+      line-height: 2rem;
+      vertical-align: middle;
+      margin-left: 40px;
+      &:hover {
+        &::marker {
+          font-size: 1.25rem;
+        }
+      }
+    }
+    li:nth-child(1)::marker {content: "† ";}
+    li:nth-child(2)::marker {content: "※ ";}
+    li:nth-child(3)::marker {content: "⁜ ";}
+    li:nth-child(4)::marker {content: "₰ ";}
+    li:nth-child(5)::marker {content: "⁂ ";}
+    li:nth-child(6)::marker {content: "⁛ ";}
+    li:nth-child(7)::marker {content: "⁘ ";}
+    li:nth-child(8)::marker {content: "🤩 ";}
+    li:nth-child(9)::marker {content: "✔️ ";}
+  }
+
+/* ********************************** SEUDO ELEMENTOS - ::marker - ejemplo 2 */
+.definicion-marker-ejemplo2 {
+  --huemarker: 0;
+  ::marker {
+    content: "»";
+    font-size: 3rem;
+    color: hsl(var(--huemarker) 50% 50%);
+  }
+  li { margin-left: 20px;}
+  li:nth-child(2)::marker {--huemarker: 50; font-size: 2.5em;}
+  li:nth-child(3)::marker {--huemarker: 100; font-size: 2em;}
+  li:nth-child(4)::marker {--huemarker: 150; font-size: 1.5em;}
+  li:nth-child(5)::marker {--huemarker: 200; font-size: 1em;}
+}
+
+/* **************************** SEUDO ELEMENTOS - ::before ::after ejemplo 2 */
+.definicion-before-after-ejemplo2 {
+  a {
+    margin-top: 1rem;
+    display: block;
+    width: 200px;
+    height: 200px;
+    background: url(../img/img250x250.jpg) center/cover no-repeat;
+    position: relative;
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: rgb(0 0 0 / 0.5);
+    }
+    &:hover {
+      &::before {
+        background: rgb(0 0 0 / 0);
+      }
+    }
+  }
+}
+
+
+
+/* ************************************************************************* */
+/* ********************************************************************* CSS */
+/* ************************************************************************* */
+
+
+
+/* ************************************************************************* */
+/* ********************************************************************** JS */
+/* ************************************************************************* */
+
+
+
+/* ************************************************************************* */
+/* ************************************************************* TIPS TRICKS */
+/* ************************************************************************* */
+
