@@ -484,7 +484,48 @@
         <a class="link icon" href="https://css-tricks.com/pseudo-class-selectors/" target="_blank">CSS-TRICKS Meet the Pseudo Class Selectors</a>
       </div>
     </div>
+  </div>
 
+    <!-- ----------------------------------------------------- SEUDO CLASES -->
+  <div class="definicion">
+    <h3 class="definicion-titulo">
+      <p>Seudoclases  basadas en la posición o número</p>
+    </h3>
+
+    <p class="code-titulo"><span>:first-child</span> :</p>
+    <p>Selecciona el primer elemento dentro de un padre.</p>
+
+    <p class="code-titulo"><span>:last-child</span> :</p>
+    <p>Selecciona el último elemento dentro de un padre.</p>
+
+    <p class="code-titulo"><span>:nth-child()</span> :</p>
+    <p>Selecciona elementos basándose en una expresión algebráica (p.e. "n" o "2n" o "4n-1"). Se pueden seleccionar elementos como pares o impares o cada tres o los primeros cinco, etc.</p>
+
+    <p class="code-titulo"><span>:nth-of-type()</span> :</p>
+    <p>Similar a <code>:nth-child</code>, pero actúa sobre elementos que sean del tipo que se especifique. Por ejemplo, dentro de un <code>div</code> tenemos varios párrafos e imágenes combinados y se desea selccionar todas la imágenes impares se usaría <code>img:nth-of-type(odd)</code>. Es particularmente util cuando se trabaja con listas o tablas y se está alternando entre elementos &lt;ol&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;dt&gt;, &lt;dd&gt;, etc.</p>
+
+    <p class="code-titulo"><span>:first-of-type</span> :</p>
+    <p>Selecciona el primer elemento del tipo especificado. Por ejemplo, si tuvieramos dos <code>div</code> y cada uno con varios párrafos, imágenes, listas, y quisieramos seleccionar la primera imagen que aparezca dentro de cada uno de los dos <code>div</code> que tenemos, usaríamos <code>div img:first-of-type</code></p>
+
+    <p class="code-titulo"><span>:last-of-type</span> :</p>
+    <p>Igual que <code>:first-of-type</code> pero esta vez seleccionando la última ocurrencia del tipo de elemento especificado.</p>
+
+    <p class="code-titulo"><span>:nth-last-of-type()</span> :</p>
+    <p>Similar a <code>:nth-of-type</code>, pero esta vez empieza a contar desde el último elemento en vez que desde el primero.</p>
+
+    <p class="code-titulo"><span>:nth-last-child()</span> :</p>
+    <p>Similar a <code>:nth-child</code>, pero esta vez empieza a contar desde el último elemento en vez que desde el primero.</p>
+
+    <p class="code-titulo"><span>:only-of-type</span> :</p>
+    <p>Selecciona a un elemento que sea el único hijo de su tipo dentro del padre, es decir, si hay otros hijos del mismo tipo (hermanos del mismo tipo), no seleccionará nada.</p>
+
+    <p class="code-titulo"><span>:only-child</span> :</p>
+    <p>Selecciona a un elemento que sea único hijo del padre, es decir, si hay otros hermanos sean o no del mismo tipo, no seleccionará nada.</p>
+
+
+
+
+  </div>
 
     aqui va :required
   </div>
