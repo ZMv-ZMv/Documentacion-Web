@@ -394,6 +394,21 @@ textarea.definicion-placeholder-ejemplo1 {
 }
 
 
+/* *********************************** SEUDO CLASES - :first-child ejemplo 1 */
+.definicion-first-child-ejemplo1 {
+  ul li { /* 'ul' podría omitirse en este caso */
+    margin-left: 1rem;
+    &:first-child {
+      color: green;
+      font-weight: bold;
+    }
+    &:last-child {
+      color: blueviolet;
+      font-weight: bold;
+    }
+  }
+}
+
 
 /* ************************************************************************* */
 /* ********************************************************************* CSS */
