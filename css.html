@@ -484,6 +484,70 @@
         <a class="link icon" href="https://css-tricks.com/pseudo-class-selectors/" target="_blank">CSS-TRICKS Meet the Pseudo Class Selectors</a>
         <a class="link icon" href="https://www.sitepoint.com/getting-to-know-css3-selectors-structural-pseudo-classes/" target="_blank">Getting to Know CSS3 Selectors: Structural Pseudo-Classes</a>
       </div>
+
+      <ul>Seudoclases interactivos (links e inputs):
+        <li>:link</li>
+        <li>:visited</li>
+        <li>:hover</li>
+        <li>:active</li>
+
+        <li>:focus</li>
+        <li>:focus-within</li>
+        <li>:focus-visible</li>
+        <li>:target</li>
+        <li>:enabled</li>
+        <li>:disabled</li>
+        <li>:checked</li>
+        <li>:indeterminate</li>
+        <li>:placeholder-shown</li>
+        <li>:required</li>
+        <li>:optional</li>
+        <li>:read-only / :read-write</li>
+      </ul>
+
+      <ul>Seudoclases estructurales o de posición:
+        <li>:root</li>
+        <li>:only-child</li>
+        <li>:empty</li>
+        <li>:nth-child(n)</li>
+        <li>:nth-last-child(n)</li>
+        <li>:first-of-type</li>
+        <li>:last-of-type</li>
+        <li>:only-of-type</li>
+        <li>:nth-of-type(n)</li>
+        <li>:nth-last-of-type(n)</li>
+        <li>:first-child</li>
+        <li>:last-child</li>
+      </ul>
+
+      <ul>Seudoclases basadas en texto
+        <li>:lang</li>
+        <li></li>
+      </ul>
+
+      <ul>Seudoclases de contenido
+        <li>::before</li>
+        <li>::after</li>
+      </ul>
+
+      <ul>Seudoclases de validación
+        <li>:valid</li>
+        <li>:invalid</li>
+        <li>:in-range</li>
+      </ul>
+
+      <ul>Otros
+        <li>:is()
+          <p><a href="https://web.dev/learn/css/pseudo-classes?hl=es-419#is">web.dev :is()</a></p>
+        </li>
+        <li>:not()
+          <p><a href="https://web.dev/learn/css/pseudo-classes?hl=es-419#not">web.dev :not()</a></p>
+        </li>
+        <li>empty
+          <p><a href="https://web.dev/learn/css/pseudo-classes?hl=es-419#empty">web.dev :empty</a></p>
+        </li>
+      </ul>
+
     </div>
   </div>
 
@@ -577,37 +641,31 @@
       <span>:nth-child()</span> : <br>
       <span>:nth-last-child()</span> :
     </p>
-    <p>Seleccionan elementos basándose en una expresión algebráica (p.e. "n" o "2n" o "4n-1"). <code>:nth-last-child()</code> lo hace en reversa, empezando desde el último elemento. El valor indicado entre los paréntesis indican lo que se quiere seleccionar: elementos únicos (n), pares o impares (even) (odd)  o cada tres o los primeros cinco, etc. Las expresiones algebráicas funcionan como fórmulas comunes donde hay que reemplazar 'n' por una numearación consecutiva. Por ejemplo:</p>
-    <p>
-      3n+3 -> reemplazando n por una numeración consecutiva tendríamos una selección de tres en tres: <br>
-      (3 x 0) + 3 = 3   = 3er elemento<br>
-      (3 x 1) + 3 = 6   = 6to elemento<br>
-      (3 x 2) + 3 = 9   = 9no elemento<br>
-      (3 x 3) + 3 = 12  = 12vo elemento<br>
-    </p>
-    <p>
-      4n-1 -> reemplazando n por una numeración consecutiva tendríamos una selección de cuatro en cuatro empezando del 3er elemento:<br>
-      (4 x 0) - 1 = -1  = no hay selección<br>
-      (4 x 1) - 1 = 3   = 3ro elemento<br>
-      (4 x 2) - 1 = 7   = 7mo elemento<br>
-      (4 x 3) - 1 = 11  = 11vo elemento<br>
-    </p>
-    <p>
-      -n+4 -> reemplazando n por una numeración consecutiva tendríamos una selección de los cuatro primeros elementos:<br>
-      -0 + 4 = 4  = 4to elemento<br>
-      -1 + 4 = 3  = 3er elemento<br>
-      -2 + 4 = 2  = 2do elemento<br>
-      -3 + 4 = 1  = 1er elemento<br>
-      -4 + 4 = 0  = no hay seleccion, fin<br>
-    </p>
-    <p>
-      -n-4 -> reemplazando n por una numeración consecutiva tendríamos una selección de los cuatro primeros elementos:<br>
-      -0 + 4 = 4  = 4to elemento<br>
-      -1 + 4 = 3  = 3er elemento<br>
-      -2 + 4 = 2  = 2do elemento<br>
-      -3 + 4 = 1  = 1er elemento<br>
-      -4 + 4 = 0  = no hay seleccion, fin<br>
-    </p>
+    <p>Seleccionan elementos basándose en una expresión algebráica (p.e. "n" o "2n" o "4n-1"). <code>:nth-last-child()</code> lo hace en reversa, empezando desde el último elemento. El valor indicado entre los paréntesis indica lo que se quiere seleccionar: elementos únicos (n), pares o impares (even) (odd) o cada tres o los primeros cinco, etc. Las expresiones algebráicas funcionan como fórmulas comunes donde hay que reemplazar 'n' por una numearación consecutiva pudiendo crear selectores más complejos que encuentren elementos a intervalos espaciados con regularidad, mediante la microsintaxis <a href="https://www.w3.org/TR/css-syntax-3/#anb-microsyntax">An + B</a>. Por ejemplo:</p>
+    <code class="definicion-codigo">
+      <p>
+        <b>3n+3</b> -> reemplazando n por una numeración consecutiva tendríamos una selección de tres en tres: <br>
+        (3 x 0) + 3 = 3   = 3er elemento<br>
+        (3 x 1) + 3 = 6   = 6to elemento<br>
+        (3 x 2) + 3 = 9   = 9no elemento<br>
+        (3 x 3) + 3 = 12  = 12vo elemento<br>
+      </p>
+      <p>
+        <b>4n-1</b> -> reemplazando n por una numeración consecutiva tendríamos una selección de cuatro en cuatro empezando del 3er elemento:<br>
+        (4 x 0) - 1 = -1  = no hay selección<br>
+        (4 x 1) - 1 = 3   = 3ro elemento<br>
+        (4 x 2) - 1 = 7   = 7mo elemento<br>
+        (4 x 3) - 1 = 11  = 11vo elemento<br>
+      </p>
+      <p>
+        <b>-n+4</b> -> reemplazando n por una numeración consecutiva tendríamos una selección de los cuatro primeros elementos:<br>
+        -0 + 4 = 4  = 4to elemento<br>
+        -1 + 4 = 3  = 3er elemento<br>
+        -2 + 4 = 2  = 2do elemento<br>
+        -3 + 4 = 1  = 1er elemento<br>
+        -4 + 4 = 0  = no hay seleccion, fin<br>
+      </p>
+    </code>
 
     <p class="code-titulo"> <!-- :nth-of-type() :nth-last-of-type() -->
       <span>:nth-of-type()</span> : <br>
