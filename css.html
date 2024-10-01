@@ -32,11 +32,13 @@
 
     <!-- <p class="definicion-nota icon"><span class="nota">Nota:</span></p> -->
     
-    <p class="definicion-subtitulo">Referencias:</p>
-    <div class="referencias">
-      <a class="link icon" href="https://www.youtube.com/watch?v=9qcw1JxDurs" target="_blank">The Ultimate Guide to CSS Variables</a>
-      <a class="link icon" href="https://www.youtube.com/watch?v=_2LwjfYc1x8" target="_blank">Using CSS custom properties like this is a waste</a>
-    </div>
+    <details> <!-- Referencias -->
+      <summary class="definicion-subtitulo refs">Referencias:</summary>
+      <div class="referencias">
+        <a class="link icon" href="https://www.youtube.com/watch?v=9qcw1JxDurs" target="_blank">The Ultimate Guide to CSS Variables</a>
+        <a class="link icon" href="https://www.youtube.com/watch?v=_2LwjfYc1x8" target="_blank">Using CSS custom properties like this is a waste</a>
+      </div>
+    </details>
 
     <p class="definicion-ejemplo"><b>Ejemplo 1:</b> declaración y uso simple de una variable</p>
     <code class="definicion-codigo">
@@ -103,14 +105,51 @@
       <p>}</p>
     </code>
 
-    <!-- <p class="definicion-subtitulo"><b>Resultado:</b></p>
-    <div class="definicion-resultado">
-      <details>
-        <summary>Desplegar</summary>
-        Texto a mostrar cuando se despliegue la etiqueta
-      </details>
-    </div> -->
   </div>
+
+<!-- ---------------------------------------------------------------------- -->
+<h2>FLEXBOX</h2>
+<div class="definicion">
+  <details> <!-- Referencias -->
+    <!-- <summary><p class="definicion-subtitulo">Referencias:</p></summary> -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="https://web.dev/learn/css/flexbox?hl=es-419" target="_blank">Caja flexible  |  web.dev</a>
+      <a class="link icon" href="https://lenguajecss.com/css/flex/que-es-flex/" target="_blank">Guía de Introducción a Flex - CSS en español - Lenguaje CSS</a>
+      <a class="link icon" href="https://www.aluracursos.com/blog/flexbox-css-guia-completo-elementos-y-ejemplos" target="_blank">Flexbox CSS: Guia Completo, Elementos y Ejemplos | Alura Cursos Online</a>
+      <a class="link icon" href="https://www.yunbitsoftware.com/blog/2017/03/30/flexbox-css3-tutorial-descripcion-ejemplos-html/" target="_blank">Flexbox CSS3. Tutorial en español. Descripción y ejemplos HTML</a>
+      <a class="link icon" href="https://www.eniun.com/flexbox-modelo-caja-flexible-css/" target="_blank">Flexbox, modelo de caja flexible en CSS - Eniun</a>
+      <a class="link icon" href="https://internetingishard.netlify.app/html-and-css/flexbox/#setup" target="_blank">Flexbox Tutorial | HTML & CSS Is Hard</a>
+      <a class="link icon" href="https://htmlandcssguidebook.com/css/flexbox/" target="_blank">Flexbox - HTML & CSS Guidebook</a>
+      <a class="link icon" href="https://www.freecodecamp.org/news/understanding-flexbox-everything-you-need-to-know-b4013d4dc9af" target="_blank">Understanding Flexbox: Everything you need to know</a>
+      <a class="link icon" href="https://www.w3schools.com/css/css3_flexbox_container.asp" target="_blank">CSS Flexbox Container - w3schools</a>
+      <a class="link icon" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Flexbox Layout Guide | CSS-Tricks</a>
+      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox" target="_blank">Typical use cases of flexbox - CSS: Cascading Style Sheets | MDN</a>
+      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex" target="_blank">flex - CSS: Cascading Style Sheets | MDN</a>
+      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank">Flexbox - Learn web development | MDN</a>
+      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox" target="_blank">Basic concepts of flexbox - CSS: Cascading Style Sheets | MDN</a>
+      <a class="link icon" href="https://flexboxfroggy.com/#es" target="_blank">Flexbox Froggy - Un juego para aprender CSS flexbox</a>
+    </div>
+  </details>
+
+  <p class="definicion-p">
+    Flexible Box Layout Model (flexbox) es un modelo de diseño para contenido unidimensional. Permite distribuir el espacio entre unos o varios elementos de tal manera que no sea necesario establecer medidas exactas que, además en muchos casos no son funcionales, sino que se puede proporcionar límites flexibles para organizar mejor cómo se debe mostrar el contenido, sobre todo ahora con la diversidad de dispositivos que modifican los tamaños de visualización en los que se muestran las páginas.
+  </p>
+  <p class="definicion-subtitulo">¿Qué puedes hacer con un diseño flexible?</p>
+  <p class="definicion-p">Los diseños Flex tienen las siguientes características: </p>
+  <ul>
+    <li>Pueden mostrarse como una fila o una columna.</li>
+    <li>Respetan el modo de escritura del documento.</li>
+    <li>Son una sola línea de forma predeterminada, pero se le puede pedir que la ajuste a varias líneas.</li>
+    <li>Los elementos del diseño se pueden reordenar visualmente, de su orden en el DOM.</li>
+    <li>El espacio se puede distribuir dentro de los elementos, por lo que se hacen más grandes y más pequeños según el espacio disponible en sus padres.</li>
+    <li>El espacio se puede distribuir alrededor de los elementos y líneas flexibles en un diseño ajustado, con las propiedades de alineación de cuadros.</li>
+    <li>Los elementos se pueden alinear en el eje cruzado.</li>
+  </ul>
+
+
+
+</div>
 
 <!-- ---------------------------------------------------------------------- -->
   <h2>POSICIONAMIENTO</h2>
@@ -118,12 +157,16 @@
     <h3 class="definicion-titulo" id="nombre-definicion">POSITION RELATIVE Y POSITION ABSOLUTE</h3>
     <p class="definicion-p">Para posicionar los elementos dentro de la página</p>
     <p class="definicion-nota icon"><span class="nota">Nota:</span></p>
-    <p class="definicion-subtitulo">Referencias:</p>
-    <div class="referencias">
-      <a class="link icon" href="https://www.youtube.com/watch?v=DnsrfzFeNg0" target="_blank">Position Relative y Absolute en CSS [Trucos Prácticos]</a>
-      <a class="link icon" href="https://www.youtube.com/watch?v=_e0ddNlc0Y8" target="_blank">Domina POSITION CSS. Guía completa ✅. Position relative, absolute, fixed, sticky y z-index</a>
+
+    <details> <!-- Referencias -->
+      <summary class="definicion-subtitulo refs">Referencias:</summary>
+      <div class="referencias">
+        <a class="link icon" href="https://www.youtube.com/watch?v=DnsrfzFeNg0" target="_blank">Position Relative y Absolute en CSS [Trucos Prácticos]</a>
+        <a class="link icon" href="https://www.youtube.com/watch?v=_e0ddNlc0Y8" target="_blank">Domina POSITION CSS. Guía completa ✅. Position relative, absolute, fixed, sticky y z-index</a>
       
-    </div>
+      </div>
+    </details>
+
     <p class="definicion-ejemplo"><b>Ejemplo 1:</b></p>
     <code class="definicion-codigo">
       <p class="definicion-name">&lt;details&gt;</p>
@@ -155,7 +198,7 @@
       </code>
       <p>También se puede seleccionar un seudo elemento basándose en el estado del elemento origen (selector), por ejemplo <code>p:hover::first-line</code> selecciona el seudo elemento 'primera línea' de un párrafo (p) cuando se posiciona el cursor sobre él (:hover), o también <code>a:hover::after</code> que agregaría un contenido después del link cuando el cursor pase sobre este link, podría ser por ejemplo una imagen de flecha para indicar con mayor énfasis la disponibilidad del link.</p>
     </div>
-    <p class="definicion-subtitulo">Referencias:</p>
+    <p class="definicion-subtitulo refs">Referencias:</p>
     <div class="referencias">
       <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements" target="_blank">MDN Pseudo-elements</a>
       <a class="link icon" href="https://lenguajecss.com/css/pseudoelementos/que-son/" target="_blank">MANZ.DEV Pseudoelementos: ¿Qué son?</a>
@@ -251,7 +294,7 @@
 
     <p class="code-titulo"><span>::file-selector-button</span></p> <!-- ::file-selector-button -->
     <p>Permite dar estilos al botón de 'seleccionar archivo'. Para seleccionar este botón hay que escribir <code>::file-selector-button</code> ya que de otra forma hay que hacer varias otras cosas para llegar hasta él.</p>
-    <p class="definicion-subtitulo">Referencias:</p>
+    <p class="definicion-subtitulo refs">Referencias:</p>
     <div class="referencias">
       <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file" target="_blank">MDN &lt;input type="file"&gt;</a>
     </div>
@@ -290,7 +333,7 @@
 
     <p class="code-titulo"><span>::marker :</span></p> <!-- ::marker -->
     <p>Selecciona las viñetas (íconos) de los items de lista que normalmente tiene tiene como viñeta a puntos 'bullets' o números permitiendo cambiar el contenido y algunos estilos de viñetas y números en las listas. Funciona con cualquier elemento o seudo elemento difinido como <code>display: list-item</code>, como &lt;li&gt; y &lt;summary&gt;.</p>
-    <p class="definicion-subtitulo">Referencias:</p>
+    <p class="definicion-subtitulo refs">Referencias:</p>
     <div class="referencias">
       <a class="link icon" href="https://www.smashingmagazine.com/2019/07/css-lists-markers-counters/" target="_blank">CSS Lists, Markers, And Counters</a>
       <a class="link icon" href="https://web.dev/articles/css-marker-pseudo-element?hl=es-419" target="_blank">Viñetas personalizadas con marcador de CSS</a>
@@ -402,7 +445,7 @@
       Con <code>::before</code> también es posible hacer numeración consecutiva de items haciendo uso de la propiedad 'counter'. Ver ejemplo en referencias.
     </p>
     <p class="definicion-nota icon"><span class="nota">Nota:</span><span>El contenido de <code>::after</code> y <code>::before</code> no existe en el código HTML, por lo que no es accesible con JavaScript.</span></p>
-    <p class="definicion-subtitulo">Referencias:</p>
+    <p class="definicion-subtitulo refs">Referencias:</p>
     <div class="referencias">
       <a class="link icon" href="https://css-tricks.com/almanac/pseudo-selectors/b/after-and-before/" target="_blank">css-tricks.com ::before / ::after</a>
       <a class="link icon" href="https://www.youtube.com/watch?v=zGiirUiWslI" target="_blank">CSS Before and After pseudo elements explained - part one: how they work</a>
@@ -534,7 +577,7 @@
           <p class="pre">  propiedad: valor;</p>
           <p>}</p>
       </code>
-      <p class="definicion-subtitulo">Referencias</p>
+      <p class="definicion-subtitulo refs">Referencias</p>
       <div class="referencias">
         <a class="link icon" href="https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes" target="_blank">MDN Pseudo-classes</a>
         <a class="link icon" href="https://lenguajecss.com/css/pseudoclases/que-son/" target="_blank">MANZ.DEV ¿Qué son las pseudoclases?</a>
@@ -754,7 +797,7 @@
         <p class="pre">  propiedad: valor;</p>
         <p>}</p>
     </code>
-    <p class="definicion-subtitulo">Referencias:</p>
+    <p class="definicion-subtitulo refs">Referencias:</p>
     <div class="referencias">
       <a class="link icon" href="https://www.w3schools.com/cssref/sel_has.php" target="_blank">CSS :has Selector | w3schools</a>
       <a class="link icon" href="https://css-tricks.com/the-css-has-selector/" target="_blank">The CSS :has Selector (and 4+ Examples) | CSS-Tricks</a>
@@ -909,7 +952,7 @@
 
     <!-- <p class="definicion-nota icon"><span class="nota">Nota:</span></p> -->
 
-    <p class="definicion-subtitulo">Referencias:</p>
+    <p class="definicion-subtitulo refs">Referencias:</p>
     <div class="referencias">
       <a class="link icon" href="https://www.w3schools.com/css/css_combinators.asp" target="_blank">CSS Combinators</a>
       <a class="link icon" href="https://www.geeksforgeeks.org/css-combinators/" target="_blank">CSS Combinators</a>
