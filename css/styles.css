@@ -28,9 +28,12 @@ a {
 ul {
   list-style: none;
   li {
+    margin-left: 25px;
+    padding-left: 10px;
     &::marker {
-      /* content: '⁕✓৹₎₌⊕⊛⨠⩥⪢'; */
-      content: '⨠';
+      /* content: '⁕✓৹⊕⊛⨠⩥⪢'; */
+      content: '⁕';
+      /* font-weight: bold; */
     }
   }
 }
@@ -169,8 +172,10 @@ h2 {
     margin: 1.25rem 0 0.25rem 1rem;
   }
   .refs {
+    padding: 0.5rem;
     &:hover{
-      background-color: #e8e8e8;
+      color: #e8e8e8;
+      background-color: #777;
     }
   }
   .definicion-ejemplo {
@@ -354,22 +359,23 @@ textarea.definicion-placeholder-ejemplo1 {
     li {
       line-height: 2rem;
       vertical-align: middle;
-      margin-left: 40px;
+      margin-left: 25px;
+      padding-left: 10px;
       &:hover {
         &::marker {
           font-size: 1.25rem;
         }
       }
     }
-    li:nth-child(1)::marker {content: "† ";}
-    li:nth-child(2)::marker {content: "※ ";}
-    li:nth-child(3)::marker {content: "⁜ ";}
-    li:nth-child(4)::marker {content: "₰ ";}
-    li:nth-child(5)::marker {content: "⁂ ";}
-    li:nth-child(6)::marker {content: "⁛ ";}
-    li:nth-child(7)::marker {content: "⁘ ";}
-    li:nth-child(8)::marker {content: "🤩 ";}
-    li:nth-child(9)::marker {content: "✔️ ";}
+    li:nth-child(1)::marker {content: "†";}
+    li:nth-child(2)::marker {content: "※";}
+    li:nth-child(3)::marker {content: "⁜";}
+    li:nth-child(4)::marker {content: "₰";}
+    li:nth-child(5)::marker {content: "⁂";}
+    li:nth-child(6)::marker {content: "⁛";}
+    li:nth-child(7)::marker {content: "⁘";}
+    li:nth-child(8)::marker {content: "🤩";}
+    li:nth-child(9)::marker {content: "✔️";}
   }
 
 /* ********************************** SEUDO ELEMENTOS - ::marker - ejemplo 2 */
@@ -380,7 +386,10 @@ textarea.definicion-placeholder-ejemplo1 {
     font-size: 3rem;
     color: hsl(var(--huemarker) 50% 50%);
   }
-  li { margin-left: 20px;}
+  li { 
+    margin-left: 25px;
+    padding-left: 10px;
+  }
   li:nth-child(2)::marker {--huemarker: 50; font-size: 2.5em;}
   li:nth-child(3)::marker {--huemarker: 100; font-size: 2em;}
   li:nth-child(4)::marker {--huemarker: 150; font-size: 1.5em;}
