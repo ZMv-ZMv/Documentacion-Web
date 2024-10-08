@@ -132,22 +132,113 @@
     </div>
   </details>
 
-  <p class="definicion-p">
+  <p class="definicion-p"> 
     Flexible Box Layout Model (flexbox) es un modelo de diseño para contenido unidimensional. Permite distribuir dinámicamente el espacio entre unos o varios elementos de tal manera que no sea necesario establecer medidas exactas y/o fijas, sino que se proporcionan límites flexibles para organizar mejor cómo se debe mostrar el contenido, sobre todo ahora con la diversidad de dispositivos que modifican los tamaños de visualización en los que se muestran las páginas.
   </p>
-  <p class="definicion-subtitulo">¿Qué puedes hacer con un diseño flexible?</p>
-  <p class="definicion-p">Los diseños Flex tienen las siguientes características: </p>
-  <ul>
-    <li>Pueden mostrarse como una fila o una columna.</li>
-    <li>Respetan el modo de escritura del documento.</li>
-    <li>Son una sola línea de forma predeterminada, pero se le puede pedir que la ajuste a varias líneas.</li>
-    <li>Los elementos del diseño se pueden reordenar visualmente, de su orden en el DOM.</li>
-    <li>El espacio se puede distribuir dentro de los elementos, por lo que se hacen más grandes y más pequeños según el espacio disponible en sus padres.</li>
-    <li>El espacio se puede distribuir alrededor de los elementos y líneas flexibles en un diseño ajustado, con las propiedades de alineación de cuadros.</li>
-    <li>Los elementos se pueden alinear en el eje cruzado.</li>
-  </ul>
+  <div class="definicion-p">
+    <div class="definicion-subtitulo">¿Qué puedes hacer con un diseño flexible?</div>
+    <p>Los diseños Flex tienen las siguientes características: </p>
+    <ul>
+      <li>Pueden mostrarse como una fila o una columna.</li>
+      <li>Respetan el modo de escritura del documento.</li>
+      <li>Son una sola línea de forma predeterminada, pero se le puede pedir que la ajuste a varias líneas.</li>
+      <li>Los elementos del diseño se pueden reordenar visualmente, de su orden en el DOM.</li>
+      <li>El espacio se puede distribuir dentro de los elementos, por lo que se hacen más grandes y más pequeños según el espacio disponible en sus padres.</li>
+      <li>El espacio se puede distribuir alrededor de los elementos y líneas flexibles en un diseño ajustado, con las propiedades de alineación de cuadros.</li>
+      <li>Los elementos se pueden alinear en el eje cruzado.</li>
+    </ul>
+  
+    <p>Es necesario conocer algunos conceptos generales antes de entender completamente flexbox:</p>
+    <p><b>Contenedor:</b> es el elemnto padre que tendrá en su interior cada uno de los ítems flexibles. Observa que al contrario que muchas otras estructuras CSS, por norma general, en Flex extablecemos las propiedades al elemento padre.</p>
+    <p><b>Ítem:</b> cada uno de los "hijos" que existirán dentro del "contenedor". Cada uno de ellos puede tener propiedades diferentes.</p>
+    <p>Para definir como flex a un elemento hay que utilizar en CSS la propiedad <code>display</code> especificándole uno de estos dos valores <code>flex</code> o <code>inline-flex</code>.</p>
+    <code class="definicion-codigo">
+      <p class="lang">Código HTML:</p>
+      <p>&lt;div class="container"&gt; <span class="comentario">/* Elemento contenedor (padre) */</span></p>
+      <p class="pre">  &lt;div class="item1"&gt;&lt;/div&gt; <span class="comentario">/* hijo 1 */</span></p>
+      <p class="pre">  &lt;div class="item1"&gt;&lt;/div&gt; <span class="comentario">/* hijo 2 */</span></p>
+      <p class="pre">  &lt;div class="item1"&gt;&lt;/div&gt; <span class="comentario">/* hijo 3 */</span></p>
+      <p class="pre">&lt;/div&gt;</p>
+      <br>
+      <p class="lang">Código CSS:</p>
+      <p>.container {</p>
+      <p class="pre">  display: flex; <span class="comentario">/* o display: inline-flex */</span></p>
+      <p>}</p>
+    </code>
+    <p><b>Eje principal:</b> (main axis) los contenedores flexibles tendrán una orientación principal específica. Por defecto, el eje principal del contenedor flex es en horizontal (en fila), pero se puede cambiar para que éste eje principal sea vertical (en columna).</p>
+    <p><b>Eje secundario:</b> (cross axis) es la orientación secundaria, siempre perpendicular al eje principal, dependiendo siempre de él.</p>
+    <p><img src="./img/flexbox/flex_00.png" alt=""></p>
 
+    <div class="definicion-subtitulo">Propiedades del "Contenedor":</div>
+    <p><code>display:</code> Define el elemento como un contenedor flex. Sus valores son: flex, inline-flex.</p>
+    <p><code>flex-direction</code>: Establece la dirección del eje principal. Sus valores son: row, row-reverse, column, column-reverse.</p>
+    <p><code>flex-wrap</code>:Controla si los elementos deben ajustarse a múltiples líneas. Sus valores son: nowrap, wrap, wrap-reverse.</p>
+    <p><code>flex-flow</code>: Atajo para flex-direction y flex-wrap.</p>
+    <p><code>justify-content</code>: Alinea los elementos a lo largo del eje principal. Sus valores son: flex-start, center, flex-end, space-between, space-around, space-evenly.</p>
+    <p><code>align-items</code>: Alinea los elementos a lo largo del eje cruzado. Sus valores son: stretch, flex-start, center, flex-end, baseline.</p>
+    <p><code>align-content</code>: Alinea las líneas de los elementos flex cuando hay espacio adicional en el contenedor. Sus valores son: flex-start, flex-end, center, space-between, space-around, stretch.</p>
+    <p><code>gap</code>: Define el espacio entre los elementos flex. Sus valores pueden ser un único valor (aplicado o a filas o columnas) o dos valores (uno para filas y otro para columnas).</p>
 
+    <div class="definicion-subtitulo">Propiedades de los "Ítems"</div>
+    <p><code>order</code>: cambia el orden visual de los elementos sin alterar su orden en el código.</p>
+    <p><code>flex-grow</code>: define la capacidad de un elemento para crecer si hay espacio disponible.</p>
+    <p><code>flex-shrink</code>: define la capacidad de un elemento para reducir su tamaño si es necesario.</p>
+    <p><code>flex-basis</code>: establece el tamaño inicial del elemento antes de que se aplique el espacio disponible.</p>
+    <p><code>flex</code>: Atajo para las propiedades anteriores (flex-grow, flex-shrink y flex-basis).</p>
+    <p><code>aling-self</code>: permite a un elemento flex alinearse individualmente en el eje cruzado, sobrescribiendo la propiedad align-items del contenedor.</p>
+    <p><code>margin</code>: cuando se define con el valor auto, se asigna todo el espacio disponible al lado correspondiente.</p>
+  </div>
+
+  <div> <!--    display -->
+    <p class="code-titulo"><span>display :</span></p>
+    <p>Esta propiedad usada en el contenedor, activa el modo flex haciendo que los items que contiene se agrupen dinámicamente, de acuerdo al resto de propiedades que definen flexbox. Tiene dos valores posibles:</p>
+    <p></p>
+    <p class="propiedad"><code>flex</code>: establece al contenedor como un elemento en bloque, ocupando todo el ancho disponible del padre. Similar al valor <code>block</code> de cualquier otro elemento.</p>
+    <p class="propiedad"><code>inline-flex</code>: establece al contenedor como un elemento en línea, ocupando únicamente el espacio que su contenido requiera. Similar a <code>inline-block</code>. de cualquier otro elemento.</p>
+  
+  </div>
+  <div> <!--    flex-direction -->
+    <p class="code-titulo"><span>flex-direction :</span></p>
+  </div>
+  <div> <!--    flex-wrap -->
+    <p class="code-titulo"><span>flex-wrap :</span></p>
+  </div>
+  <div> <!--    flex-flow -->
+    <p class="code-titulo"><span>flex-flow :</span></p>
+  </div>
+  <div> <!--    justify-content -->
+    <p class="code-titulo"><span>justify-content :</span></p>
+  </div>
+  <div> <!--    align-items -->
+    <p class="code-titulo"><span>align-items :</span></p>
+  </div>
+  <div> <!--    align-content -->
+    <p class="code-titulo"><span>align-content :</span></p>
+  </div>
+  <div> <!--    gap -->
+    <p class="code-titulo"><span>gap :</span></p>
+  </div>
+  <div> <!--    order -->
+    <p class="code-titulo"><span>order :</span></p>
+  </div>
+  <div> <!--    flex-grow -->
+    <p class="code-titulo"><span>flex-grow :</span></p>
+  </div>
+  <div> <!--    flex-shrink -->
+    <p class="code-titulo"><span>flex-shrink :</span></p>
+  </div>
+  <div> <!--    flex-basis -->
+    <p class="code-titulo"><span>flex-basis :</span></p>
+  </div>
+  <div> <!--    flex -->
+    <p class="code-titulo"><span>flex :</span></p>
+  </div>
+  <div> <!--    aling-self -->
+    <p class="code-titulo"><span>aling-self :</span></p>
+  </div>
+  <div> <!--    margin -->
+    <p class="code-titulo"><span>margin :</span></p>
+  </div>
 
 </div>
 
