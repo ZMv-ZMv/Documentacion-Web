@@ -297,6 +297,71 @@ details summary {
   }
 }
 
+/* ************************* FLEX BOX display ejemplo 1 */
+.definicion-fb-display-ejemplo1 {
+  .contenedor-flex {
+    border: 1px solid rgb(19, 157, 49);
+    display: flex;
+    background-color: #aaa;
+  }
+  .contenedor-inline-flex {
+    border: 1px solid red;
+    display: inline-flex;
+    background-color: #aaa;
+  }
+  .flex-item {
+    border: 1px solid #000;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* ************************* FLEX BOX flex-direction ejemplo 1 */
+.definicion-fb-flex-direction-ejemplo1 {
+  .contenedor-row {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    background-color: #aaa;
+  }
+  .contenedor-row-reverse {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #aaa;
+  }
+  .flex-item {
+    border: 1px solid #000;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+  }
+}
+/* ************************* FLEX BOX flex-direction ejemplo 2 */
+.definicion-fb-flex-direction-ejemplo2 {
+  .contenedor-column {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    background-color: #aaa;
+    height: 250px;
+  }
+  .contenedor-column-reverse {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: #aaa;
+    height: 250px;
+  }
+  .flex-item {
+    border: 1px solid #000;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+  }
+}
+
 
 /* ************************* SEUDO ELEMENTOS - ::first-letter ::first-line ejemplo 1 */
 .definicion-first-letter-line-ejemplo1 {
