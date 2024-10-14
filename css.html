@@ -431,22 +431,60 @@
   </div>
   <div> <!--    flex-wrap -->
     <p class="code-titulo" id="flex-wrap"><span>flex-wrap :</span></p>
-    <p>Controla si los elementos deben ocupar múltiples líneas cuando no caben en el ancho que se les ubica. Sus valores son: nowrap, wrap, wrap-reverse.</p>
+    <p>Controla si los ítems dentro del flexbox deben achicarse o ocupar múltiples líneas cuando no caben en el ancho del flexbox. Sus valores son:</p>
+    <p class="propiedad"><code>nowrap</code>: los ítems se achican (ignorando sus dimensiones) para entrar en el tamaño del contenedor. No se permite el desbordamiento en múltiples líneas. Ésta es el comportamiento por defecto, por tanto no es necesario indicarlo si se desea este comportamiento</p>
+    <p class="propiedad"><code>wrap</code>: los ítems mantienen sus dimensiones y se desbordan ocupando múltiples líneas.</p>
+    <p class="propiedad"><code>wrap-reverse</code>: igual que <code>nowrap</code> pero de manera inversa.</p>
+    <p class="definicion-nota icon"><span class="nota">Nota:</span><span>No sé cómo hacer para que, en flexbox anidados, funcione <code>nowrap</code>, ya que es como si sólo funcionara <code>wrap</code></span> 🤬🤬</p>
   </div>
   <div> <!--    flex-flow -->
     <p class="code-titulo" id="flex-flow"><span>flex-flow :</span></p>
+    <p>Es sólo un atajo con el que se puede definir en una sola instrucción <code>flex-direction</code> y <code>flex-wrap</code>, en lugar de estar escribiéndolos en dos instrucciones separadas.</p>
+    <p class="definicion-ejemplo"><b>Ejemplo1:</b></p>
+    <code class="definicion-codigo">
+      <p class="lang">Código CSS:</p>
+      <p>.container {</p>
+      <p class="comentario">/* flex-flow: propiedad-flex-direction propiedad-flex-wrap; */</p>
+      <p class="pre">  flex-flow: row wrap;</p>
+      <p>}</p>
+    </code>
   </div>
   <div> <!--    justify-content -->
     <p class="code-titulo" id="justify-content"><span>justify-content :</span></p>
+    <p>Define el tipo de posición de los ítems a lo largo del eje principal (los ejes principal y secundario se definen con la propiedad <code>flex-direction</code>). Esta propiedad tiene sentido únicamente si hay espacio libre dentro del contenedor, ayudando a distribuir convenientemente este espacio libre entre los ítems.</p>
+    <img src="/img/flexbox/justifycontent00.png" alt="">
+    <p>Sus valores posibles son:</p>
+    <p class="propiedad"><code>flex-start</code>: los ítems se ubican al inicio del eje principal, de acuerdo a la propiedad <code>flex-direction</code>: la izquierda cuando es <code>row</code> y arriba cuando es <code>column</code>. Es la propiedad por defecto.</p>
+    <p class="propiedad"><code>flex-end</code>: los ítems se ubican al final del eje principal, de acuerdo a la propiedad <code>flex-direction</code>: la derecha cuando es <code>row</code> y abajo cuando es <code>column</code>.</p>
+    <p class="propiedad"><code>start</code>: los ítems se alinean a lo largo del borde de inicio de la dirección del modo de escritura (writing mode).</p>
+    <p class="propiedad"><code>end</code>: los ítems se alinean a lo largo del borde final de la dirección del modo de escritura (writing mode).</p>
+    <p class="propiedad"><code>left</code>: los ítems están ubicados a lo largo del borde izquierdo del contenedor, a menos que esto no tenga sentido con el <code>flex-direction</code> que se está utilizando. En este caso, se comporta como <code>start</code>.</p>
+    <p class="propiedad"><code>right</code>: los ítems están ubicados a lo largo del borde derecho del contenedor, a menos que esto no tenga sentido con el <code>flex-direction</code> que se está utilizando. En este caso, se comporta como <code>end</code>.</p>
+    <p class="propiedad"><code>center</code>: los ítems se centran dejando la misma cantidad de espacio al inicio y al final.</p>
+    <p class="propiedad"><code>space-between</code>: los ítems al inicio y final están ubicados sin espacio en sus bordes respectivos, el resto de ítems se distribuyen espaciándose uniformente.</p>
+    <p class="propiedad"><code>space-around</code>: los ítems tienen, individualmente, la misma cantidad de espacio a su alrededor, los items contiguos parecerán "duplicar" el espacio entre ellos, mientras que los ítems en los extremos parecerán tener la mitad del espacio.</p>
+    <p class="propiedad"><code>space-evenly</code>: los ítems se ubican de modo tal que entre ellos existe la misma cantidad de espacio incluyendo el espacio a los bordes.</p>
+    <img class="img-justify-content01" src="/img/flexbox/justify-content01.svg" alt="">
+    <p>También existen dos palabras clave adicionales que se pueden usar junto con estos valores: <code>safe</code> y <code>unsafe</code>. La primera, asegura que, independiente de cómo hagas este tipo de posicionamiento, no sea posible "empujar" un elemento y hacer que sea renderizado hacia afuera de la pantalla (por ejemplo, sobre el tope) de una manera que haga con que el contenido sea imposible de mover con el desplazamiento de la pantalla (CSS llama a esto "pérdida de datos").</p>
   </div>
   <div> <!--    align-items -->
     <p class="code-titulo" id="align-items"><span>align-items :</span></p>
+    <p>Define el tipo de posición de los ítems a lo largo del eje secundario (los ejes principal y secundario se definen con la propiedad <code>flex-direction</code>). No confundir con <code>align-content</code> que actúa sobre cada una de las líneas de un contenedor multilínea (no tiene efecto si no se usa <code>flex-wrap</code>), mientras que <code>align-items</code> lo hace sobre la única línea que tiene un contenedor flex sin wrap (nowrap).</p>
+    <img src="/img/flexbox/align-items00.png" alt="">
+    <p>Sus valores posibles son:</p>
+    <p class="propiedad"><code>start</code>: alinea los ítems al inicio del eje secundario.</p>
+    <p class="propiedad"><code>end</code>: alinea los ítems al final del eje secundario.</p>
+    <p class="propiedad"><code>center</code>: alinea los ítems al centro del eje secundario.</p>
+    <p class="propiedad"><code>stretch</code>: estira los ítems a lo largo del eje secundario haciendo que ocupen todo el espacio. Esta opción no funciona si los ítems tienen definido una dimensión específica en el sentido de este eje.</p>
+    <p class="propiedad"><code>baseline</code>: alinea los ítems según la línea de sus contenidos. Esta línea base puede ser la de un texto, o la parte inferior de una forma, etc, dependerá del tipo de ítem presente.</p>
+    <img class="img-justify-content01" src="/img/flexbox/align-items01.svg" alt="">
   </div>
   <div> <!--    align-content -->
     <p class="code-titulo" id="align-content"><span>align-content :</span></p>
   </div>
   <div> <!--    gap -->
-    <p class="code-titulo" id="gap"><span>gap :</span></p>
+    <p class="code-titulo" id="gap"><span>gap,</span><br><span>row-gap,</span><br><span>column-gap :</span></p>
+    <p>Definen los espaciamientos entre los ítems a manera de márgenes o paddings, sin las complicaciones de éstos útlimos. Con <code>row-gap</code> se puede definir un espaciamiento independiente para las filas y con <code>column-gap</code> un espaciamiento independiente para las columnas. Con <code>gap</code> se puede definir un único valor a la vez para filas y columnas o dos valores en una misma instrucción.</p>
   </div>
   <div> <!--    order -->
     <p class="code-titulo" id="order"><span>order :</span></p>
