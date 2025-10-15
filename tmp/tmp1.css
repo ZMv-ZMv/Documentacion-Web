@@ -210,24 +210,23 @@ h2 {
       }
     }
   }
-  .definicion-flex {
+  .definicion-codigo-flex {
     display: flex;
     gap: 3px;
   }
   .definicion-codigo,
   .definicion-resultado {
-    font-size: 0.75rem;
-    /* flex-basis: 100%;  para que los ítems ocupen todo el ancho*/
-    flex: 1; /* short para 1 0 0 (grow shrink basis)*/
+    flex-basis: 100%;
+    /* margin-left: 1rem; */
     margin-bottom: 1rem;
     font-family: 'source code pro';
+    font-size: 0.85rem;
     display: block;
+    /* border-top: 1px solid #c8c8c8; */
     background-color: var(--bg-code);
     border-radius: 5px;
+    /* margin: 20px 0 10px 0; */
     padding: 10px 20px;
-    p {
-      margin: 0;
-    }
     .definicion-name {
       color:rgb(255, 69, 69);
       font-weight: 600;
@@ -243,9 +242,9 @@ h2 {
     .comentario {
       font-family: 'Open Sans', sans-serif;
       font-style: italic;
-      /* font-size: 0.8rem; */
+      font-size: 0.8rem;
       color: var(--comentario-color);
-      /* white-space: pre; */
+      white-space: pre;
     }
   }
   code {
@@ -278,6 +277,7 @@ h2 {
   }
 }
 
+
 details {
   /* margin: 1.3rem 0;
   border-bottom: 1px solid #aaa;
@@ -299,25 +299,7 @@ details summary {
   }
 }
 
-/* ***************************************************** VARIABLES ejemplo 4 */
-.definicion-variables-ejemplo4 {
-  --bg-color: #ccc;
-  --front-color: #000;
-  --borde: 1px;
-  .clase {
-    height: 200px;
-    background-color: var(--bg-color);
-    color: var(--front-color);
-    border: var(--borde) var(--front-color) solid;
-    &:hover{
-      --bg-color: red;
-      --front-color: blue;
-      --borde: 10px;
-    }
-  }
-}
-
-/* ******************************************** FLEX BOX display ejemplo 1 */
+/* ************************* FLEX BOX display ejemplo 1 */
 .definicion-fb-display-ejemplo1 {
   .contenedor-flex {
     border: 1px solid rgb(19, 157, 49);
@@ -337,7 +319,7 @@ details summary {
   }
 }
 
-/* **************************************** FLEX BOX flex-direction ejemplo 1 */
+/* ************************* FLEX BOX flex-direction ejemplo 1 */
 .definicion-fb-flex-direction-ejemplo1 {
   .contenedor-row {
     border: 1px solid red;
@@ -358,7 +340,7 @@ details summary {
     height: 50px;
   }
 }
-/* ******************************************* FLEX BOX flex-direction ejemplo 2 */
+/* ************************* FLEX BOX flex-direction ejemplo 2 */
 .definicion-fb-flex-direction-ejemplo2 {
   .contenedor-column {
     border: 1px solid red;
@@ -382,56 +364,11 @@ details summary {
   }
 }
 
-/* ************************************************* FLEXBOX justify-content */
+/* *************************************************** FLEX BOX justify-content */
 .img-justify-content01 {
-  width: 275px;
-  margin-left: 50px;
-  /* height: 500px; */
-}
-
-/* ***************************************************** FLEXBOX align-items */
-.img-align-items01 {
   width: 250px;
-  margin-left: 50px;
-  /* height: 500px; */
 }
 
-/* ****************************************************** FLEXBOX flex-basis */
-.definicion-fb-flex-basis-ejemplo1 {
-  .contenedor {
-    border: 1px solid red;
-    background-color: #aaa;
-    display: flex;
-  }
-  .flex-item {
-    &:nth-child(3) {
-      flex-basis: 75px;
-    }
-    flex-basis: 100px;
-    border: 1px solid #000;
-    background-color: #fff;
-    width: 50px;
-    height: 50px;
-  }
-}
-
-/* ****************************************** FLEXBOX - Tips Ejemplos Varios */
-.definicion-fb-tips-ejemplo1 {
-  .contenedor {
-    border: 1px solid red;
-    background-color: #aaa;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .flex-item {
-    border: 1px solid #000;
-    background-color: #fff;
-    width: 50px;
-    height: 50px;
-  }
-}
 
 /* ************************* SEUDO ELEMENTOS - ::first-letter ::first-line ejemplo 1 */
 .definicion-first-letter-line-ejemplo1 {

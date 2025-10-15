@@ -8,224 +8,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="tmp1.css">
   <title>DOCUMENTACIÓN CSS</title>
 </head>
 
 <body>
 
-  <header>
-    <div class="a-pag-principal">
-      <p><a href="index.html">Regresar a página principal</a></p>
-    </div>
-  </header>
-
-<!-- ---------------------------------------------------------------------- -->
-  <h2>VARIABLES / CUSTOM PROPERTIES</h2>
-  <div class="definicion">
-    <h3 class="definicion-titulo" id="nombre-definicion">VARIABLES / CUSTOM PROPERTIES</h3>
-    <div class="definicion-p">
-      <p>Se refiere a las típicas variables en los lenguajes de programación, y que también se pueden usar en CSS.</p>
-      <p>Al igual que en la mayoría de lenguajes de programación, en CSS, es recomendable que las variables sean declaradas al inicio y en la raíz (root) del documento para que tengan el mayor ámbito posible.</p>
-      <p>Para declarar una variable se debe anteponer dos guiones seguidos antes del nombre, luego se asigna un valor con dos puntos. Para usar el valor de una variable hay que llamar a la función <code>var()</code> y dentro de los paréntesis poner el nombre de la variable.</p>
-    </div>
-
-    <!-- <p class="definicion-nota icon"><span class="nota">Nota:</span></p> -->
-    
-    <details> <!-- Referencias -->
-      <summary class="definicion-subtitulo refs">Referencias:</summary>
-      <div class="referencias">
-        <a class="link icon" href="https://www.youtube.com/watch?v=9qcw1JxDurs" target="_blank">The Ultimate Guide to CSS Variables</a>
-        <a class="link icon" href="https://www.youtube.com/watch?v=_2LwjfYc1x8" target="_blank">Using CSS custom properties like this is a waste</a>
-      </div>
-    </details>
-
-    <p class="definicion-ejemplo"><b>Ejemplo 1:</b> declaración y uso simple de una variable</p>
-    <code class="definicion-codigo">
-      <p><span class="comentario">/* declaracion de una variable en el root llamada '--bg-code' */</span></p>
-      <p>:root {</p>
-      <p class="definicion-name pre">  --bg-code: #fff;</p>
-      <p>}</p>
-      <br>
-      <p><span class="comentario">/* uso posterior de la variable */</span></p>
-      <p>.clase {</p>
-        <p class="pre">  background-color: <span class="definicion-name">var(--bg-code)</span>;</p>
-      <p>}</p>
-    </code>
-
-    <p class="definicion-p">Es necesario siempre realizar la declaración de una variable. Si por alguna razón no se ha hecho, por ejemplo es una variable que viene de JS, se puede definir un valor 'fallback' para que no haya problema con esa variable, luego ese valor se usará en todo el ambito de la misma. Para declarar un fallback a una variable, hay que colocar una coma luego del nombre de la variable seguido del valor requerido.
-    </p>
-
-    <p class="definicion-ejemplo"><b>Ejemplo 2:</b> valor fallback para una variable</p>
-    <code class="definicion-codigo">
-      <p><span class="comentario">/* no existe declaración de la variable '--full-width' */</span></p>
-      <br>
-      <p><span class="comentario">/* definición de un fallback para la variable '--full-width' */</span></p>
-      <p>.clase {</p>
-        <p class="pre">  max-width: var(--full-width<span class="definicion-name">, 1100px</span>);</p>
-      <p>}</p>
-    </code>
-
-    <p class="definicion-p">También se puede usar dentro de un fallback, un valor de otra variable u otro fallback.</p>
-    <p class="definicion-ejemplo"><b>Ejemplo 3:</b> valor de otra variable como fallback, más un dato extra como otro fallback. En este caso la segunda variable no contenga valor alguno por x razón, se usará el último dato.</p>
-    <code class="definicion-codigo">
-      <p><span class="comentario">/* declaracion de una variable en el root llamada '--segunda-variable' */</span></p>
-      <p>:root {</p>
-      <p class="definicion-name pre">  --segunda-variable: green;</p>
-      <p>}</p>
-      <br>
-      <p><span class="comentario">/* si --primera-variable no ha sido declarada, usar --segunda-variable que sí ha sido declarada (su valor es 'green').<br>Si por alguna razón --segunda-variable no tiene valor usar 'red' */</span></p>
-      <p>.clase {</p>
-        <p class="pre">  color: var(--primera-variable<span class="definicion-name">, var(--segunda-variable, red</span>);</p>
-      <p>}</p>
-    </code>
-
-    <p class="definicion-p">El uso de variables con seudo elementos como <code>:hover</code> es muy útil.</p>
-    <p class="definicion-ejemplo"><b>Ejemplo 4:</b> cuando se pasa el mouse sobre el elemento, se cambian el valor de las variables. Tener en cuenta que con este método cambiarán todas las referencias a estas variables, si se tienen otros elementos en otras posiciones de la página también cambiarán.</p>
-    <div class="definicion-flex">
-      <code class="definicion-codigo">
-        <p class="lang">Código HTML:</p>
-        <br>
-        <p class="lang">Código CSS:</p>
-        <p><span class="comentario">/* declaracion de tres variables */</span></p>
-        <p>:root {</p>
-        <p class="definicion-name pre">  --bg-color: #ccc;</p>
-        <p class="definicion-name pre">  --front-color: #000;</p>
-        <p class="definicion-name pre">  --borde: 1px;</p>
-        <p>}</p>
-        <br>
-        <p><span class="comentario">/* uso de variables */ </span></p>
-        <p>.clase {</p>
-          <p class="pre">  height: 200px;</p>
-          <p class="pre">  background-color: <span class="definicion-name">var(--bg-color)</span>;</p>
-          <p class="pre">  color: <span class="definicion-name">var(--front-color)</span>;</p>
-          <p class="pre">  border: <span class="definicion-name">var(--borde) var(--front-color)</span> solid;</p>
-        <p>}</p>
-        <br>
-        <p><span class="comentario">/* uso de las variables sobre el seudo elemento :hover */ </span></p>
-        <p>.clase:hover {</p>
-          <p class="pre">  <span class="definicion-name">--bg-color: red;</span></p>
-          <p class="pre">  <span class="definicion-name">--front-color: blue;</span></p>
-          <p class="pre">  <span class="definicion-name">--borde: 3px;</span></p>
-        <p>}</p>
-      </code>
-      <div class="definicion-resultado">
-        <p class="lang">Resultado:</p>
-        <br>
-        <div class="definicion-variables-ejemplo4">
-          <div class="clase">
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
 <!-- ---------------------------------------------------------------------- -->
 <h2>FLEXBOX</h2>
 <div class="definicion">
 
-  <p class="definicion-p"> 
-    Flexible Box Layout Model (flexbox) es un modelo de diseño para contenido unidimensional. Permite distribuir dinámicamente el espacio entre unos o varios elementos de tal manera que no sea necesario establecer medidas exactas y/o fijas, sino que se proporcionan límites flexibles para organizar mejor cómo se debe mostrar el contenido, sobre todo ahora con la diversidad de dispositivos que modifican los tamaños de visualización en los que se muestran las páginas.
-  </p>
-
-  <details> <!-- Referencias -->
-    <!-- <summary><p class="definicion-subtitulo">Referencias:</p></summary> -->
-    <summary class="definicion-subtitulo refs">Referencias:</summary>
-    <div class="referencias">
-      <a class="link icon" href="https://web.dev/learn/css/flexbox?hl=es-419" target="_blank">Caja flexible  |  web.dev</a>
-      <a class="link icon" href="https://lenguajecss.com/css/flex/que-es-flex/" target="_blank">Guía de Introducción a Flex - CSS en español - Lenguaje CSS</a>
-      <a class="link icon" href="https://www.aluracursos.com/blog/flexbox-css-guia-completo-elementos-y-ejemplos" target="_blank">Flexbox CSS: Guia Completo, Elementos y Ejemplos | Alura Cursos Online</a>
-      <a class="link icon" href="https://www.yunbitsoftware.com/blog/2017/03/30/flexbox-css3-tutorial-descripcion-ejemplos-html/" target="_blank">Flexbox CSS3. Tutorial en español. Descripción y ejemplos HTML</a>
-      <a class="link icon" href="https://www.eniun.com/flexbox-modelo-caja-flexible-css/" target="_blank">Flexbox, modelo de caja flexible en CSS - Eniun</a>
-      <a class="link icon" href="https://internetingishard.netlify.app/html-and-css/flexbox/#setup" target="_blank">Flexbox Tutorial | HTML & CSS Is Hard</a>
-      <a class="link icon" href="https://htmlandcssguidebook.com/css/flexbox/" target="_blank">Flexbox - HTML & CSS Guidebook</a>
-      <a class="link icon" href="https://www.freecodecamp.org/news/understanding-flexbox-everything-you-need-to-know-b4013d4dc9af" target="_blank">Understanding Flexbox: Everything you need to know</a>
-      <a class="link icon" href="https://www.w3schools.com/css/css3_flexbox_container.asp" target="_blank">CSS Flexbox Container - w3schools</a>
-      <a class="link icon" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Flexbox Layout Guide | CSS-Tricks</a>
-      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Typical_use_cases_of_flexbox" target="_blank">Typical use cases of flexbox - CSS: Cascading Style Sheets | MDN</a>
-      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex" target="_blank">flex - CSS: Cascading Style Sheets | MDN</a>
-      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank">Flexbox - Learn web development | MDN</a>
-      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox" target="_blank">Basic concepts of flexbox - CSS: Cascading Style Sheets | MDN</a>
-      <a class="link icon" href="https://flexboxfroggy.com/#es" target="_blank">Flexbox Froggy - Un juego para aprender CSS flexbox</a>
-    </div>
-  </details>
-
-  <div class="definicion-p">
-    <div class="definicion-subtitulo">¿Qué puedes hacer con un diseño flexible?</div>
-    <p>Los diseños Flex tienen las siguientes características: </p>
-    <ul>
-      <li>Pueden mostrarse como una fila o una columna.</li>
-      <li>Respetan el modo de escritura del documento.</li>
-      <li>Son una sola línea de forma predeterminada, pero se le puede pedir que la ajuste a varias líneas.</li>
-      <li>Los elementos del diseño se pueden reordenar visualmente, de su orden en el DOM.</li>
-      <li>El espacio se puede distribuir dentro de los elementos, por lo que se hacen más grandes y más pequeños según el espacio disponible en sus padres.</li>
-      <li>El espacio se puede distribuir alrededor de los elementos y líneas flexibles en un diseño ajustado, con las propiedades de alineación de cuadros.</li>
-      <li>Los elementos se pueden alinear en el eje cruzado.</li>
-    </ul>
-  
-    <p>Es necesario conocer algunos conceptos generales antes de entender completamente flexbox:</p>
-    <p><b>Contenedor:</b> es el elemnto padre que tendrá en su interior cada uno de los ítems flexibles. Observa que al contrario que muchas otras estructuras CSS, por norma general, en Flex extablecemos las propiedades al elemento padre.</p>
-    <p><b>Ítem:</b> cada uno de los "hijos" que existirán dentro del "contenedor". Cada uno de ellos puede tener propiedades diferentes.</p>
-    <p>Para definir como flex a un elemento hay que utilizar en CSS la propiedad <code>display</code> especificándole uno de estos dos valores <code>flex</code> o <code>inline-flex</code>.</p>
-    <code class="definicion-codigo">
-      <p class="lang">Código HTML:</p>
-      <p>&lt;div class="container"&gt; <span class="comentario">/* Elemento contenedor (padre) */</span></p>
-      <p class="pre">  &lt;div class="item1"&gt;&lt;/div&gt; <span class="comentario">/* hijo 1 */</span></p>
-      <p class="pre">  &lt;div class="item1"&gt;&lt;/div&gt; <span class="comentario">/* hijo 2 */</span></p>
-      <p class="pre">  &lt;div class="item1"&gt;&lt;/div&gt; <span class="comentario">/* hijo 3 */</span></p>
-      <p class="pre">&lt;/div&gt;</p>
-      <br>
-      <p class="lang">Código CSS:</p>
-      <p>.container {</p>
-      <p class="pre">  <span class="definicion-name">display: flex;</span> <span class="comentario">/* o display: inline-flex */</span></p>
-      <p>}</p>
-    </code>
-    <p><b>Eje principal:</b> (main axis) los contenedores flexibles tendrán una orientación principal específica. Por defecto, el eje principal del contenedor flex es en horizontal (en fila), pero se puede cambiar para que éste eje principal sea vertical (en columna).</p>
-    <p><b>Eje secundario:</b> (cross axis) es la orientación secundaria, siempre perpendicular al eje principal, dependiendo siempre de él.</p>
-    <p><img src="./img/flexbox/flex_00.png" alt=""></p>
-
-    <div class="definicion-subtitulo">Propiedades del "Contenedor":</div>
-    <p><a href="#display"><code>display</code></a>: Define el elemento como un contenedor flex. Sus valores son: flex, inline-flex.</p>
-    <p><a href="#flex-direction"><code>flex-direction</code></a>: Establece la dirección del eje principal. Sus valores son: row, row-reverse, column, column-reverse.</p>
-    <p><a href="#flex-wrap"><code>flex-wrap</code></a>:Controla si los elementos deben ajustarse a múltiples líneas. Sus valores son: nowrap, wrap, wrap-reverse.</p>
-    <p><a href="#flex-flow"><code>flex-flow</code></a>: Atajo para flex-direction y flex-wrap.</p>
-    <p><a href="#justify-content"><code>justify-content</code></a>: Alinea los elementos a lo largo del eje principal. Sus valores son: flex-start, center, flex-end, space-between, space-around, space-evenly.</p>
-    <p><a href="#align-items"><code>align-items</code></a>: Alinea los elementos a lo largo del eje cruzado. Sus valores son: stretch, flex-start, center, flex-end, baseline.</p>
-    <p><a href="#align-content"><code>align-content</code></a>: Alinea las líneas de los elementos flex cuando hay espacio adicional en el contenedor. Sus valores son: flex-start, flex-end, center, space-between, space-around, stretch.</p>
-    <p><a href="#gap"><code>gap</code></a>: Define el espacio entre los elementos flex. Sus valores pueden ser un único valor (aplicado o a filas o columnas) o dos valores (uno para filas y otro para columnas).</p>
-
-    <div class="definicion-subtitulo">Propiedades de los "Ítems"</div>
-    <p><a href="#order"><code>order</code></a>: cambia el orden visual de los elementos sin alterar su orden en el código.</p>
-    <p><a href="#flex-grow"><code>flex-grow</code></a>: define la capacidad de un elemento para crecer si hay espacio disponible.</p>
-    <p><a href="#flex-shrink"><code>flex-shrink</code></a>: define la capacidad de un elemento para reducir su tamaño si es necesario.</p>
-    <p><a href="#flex-basis"><code>flex-basis</code></a>: establece el tamaño inicial del elemento antes de que se aplique el espacio disponible.</p>
-    <p><a href="#flex"><code>flex</code></a>: Atajo para las propiedades anteriores (flex-grow, flex-shrink y flex-basis).</p>
-    <p><a href="#aling-self"><code>aling-self</code></a>: permite a un elemento flex alinearse individualmente en el eje cruzado, sobrescribiendo la propiedad align-items del contenedor.</p>
-    <p><a href="#margin"><code>margin</code></a>: aunque no es una propieda específica de ítem flex, cuando se define con el valor auto, se asigna todo el espacio disponible al lado correspondiente.</p>
-  </div>
-
   <div> <!--    display -->
-    <p class="code-titulo" id="display"><span>display :</span></p>
-    <p>Esta propiedad usada en el contenedor, activa el modo flex haciendo que los items que contiene se agrupen dinámicamente, de acuerdo al resto de propiedades que definen flexbox. Esta propiedad tiene que estar presente sí o sí para que flexbox funcione. Tiene dos valores posibles:</p>
-    <p class="propiedad"><code>flex</code>: establece al contenedor como un elemento en bloque, es decir, incia en una nueva línea y ocupa todo el ancho disponible del padre, incluso si los ítems internos no ocupan todo el espacio. Similar al valor <code>block</code> de cualquier otro elemento.</p>
-    <p class="propiedad"><code>inline-flex</code>: establece al contenedor como un elemento en línea, ocupando únicamente el espacio que su contenido requiera. Similar a <code>inline-block</code>. de cualquier otro elemento.</p>
-    <p>Hay que notar que sólo los ítems que son hijos directos del contenedor son afectados para alineamiento flex, de haber ítems anidados dentro de los directamente hijos, no serán afectados y se mostrarán normlamente de acuerdo a su disposición corriente.</p>
+
     <p class="definicion-ejemplo"><b>Ejemplo 1:</b> definir en 'flex' y 'inline-flex' los dos contenedores siguientes.</p>
-    <div class="definicion-flex">
+    <div class="definicion-codigo-flex">
       <code class="definicion-codigo">
         <p class="lang">Código HTML:</p>
 
         <p>&lt;div&gt;</p>
-        <p><span class="pre">  </span>'flex' se muestra como bloque, en una nueva línea</p>
+        <p class="pre">  'flex' se muestra como bloque, en una nueva línea</p>
         <p class="pre">  &lt;span class="contenedor-flex"&gt;</p>
         <p class="pre">    &lt;div class="flex-item"&gt;1&lt;/div&gt;</p>
         <p class="pre">    &lt;div class="flex-item"&gt;2&lt;/div&gt;</p>
         <p class="pre">    &lt;div class="flex-item"&gt;3&lt;/div&gt;</p>
         <p class="pre">    &lt;div class="flex-item"&gt;4&lt;/div&gt;</p>
         <p class="pre">  &lt;/span&gt;</p>
-        <p><span class="pre">  </span>y ocupando siempre todo el ancho disponible.</p>
+        <p class="pre">  y ocupando siempre todo el ancho disponible.</p>
         <p>&lt;/div&gt;</p>
         <p>&lt;div&gt;</p>
         <p class="pre">  'inline-flex' se muestra en línea</p>
@@ -235,7 +43,7 @@
         <p class="pre">    &lt;div class="flex-item"&gt;3&lt;/div&gt;</p>
         <p class="pre">    &lt;div class="flex-item"&gt;4&lt;/div&gt;</p>
         <p class="pre">  &lt;/span&gt;</p>
-        <p><span class="pre">  </span>ocupando sólo el ancho que sus ítems internos ocupan.</p>
+        <p><span class="pre">  ocupando</span> sólo el ancho que sus ítems internos ocupan. ocupando sólo el ancho que sus ítems internos ocupan. ocupando sólo el ancho que sus ítems internos ocupan. ocupando sólo el ancho que sus ítems internos ocupan.</p>
         <p>&lt;/div&gt;</p>
         <br>
         <p class="lang">Código CSS:</p>
@@ -282,341 +90,14 @@
               <div class="flex-item">3</div>
               <div class="flex-item">4</div>
             </span>
-            ocupando sólo el ancho que sus ítems internos ocupan.
+            ocupando sólo el ancho que sus ítems internos ocupan. ocupando sólo el ancho que sus ítems internos ocupan. ocupando sólo el ancho que sus ítems internos ocupan. ocupando sólo el ancho que sus ítems internos ocupan.
           </div>
         </div>
       </div>
     </div>
-  
-  </div>
-  <div> <!--    flex-direction -->
-    <p class="code-titulo" id="flex-direction"><span>flex-direction :</span></p>
-    <p>Establece la dirección del eje principal en la que se alinearán los ítems. Sus valores son:</p>
-    <p class="propiedad"><code>row</code>: define al eje principal como horizontal, direccionando los ítems horizontalmente empezando desde el lado izquierdo. El orden de los ítems es tal cual aparecen en el HTML. Es el valor por defecto y no es necesario indicarlo si se desea este resultado.</p>
-    <p class="propiedad"><code>row-reverse</code>: define al eje principal como horizontal, direccionando los ítems horizontalmente pero esta vez empezando desde el lado derecho, además, el orden de los ítems estará invertido a como aparecen en el HTML.</p>
-    <p class="definicion-ejemplo"><b>Ejemplo 1:</b> definir en 'row' y 'row-reverse' los dos contenedores siguientes.</p>
-    <div class="definicion-flex">
-      <code class="definicion-codigo">
-        <p class="lang">Código HTML:</p>
-        <p>&lt;div&gt;</p>
-        <p><span class="pre">  </span>&lt;p&gt;'row' dispone un contenedor horizontal, empezando por la izquierda y con los items en el orden del HTML.&lt;/p&gt;</p>
-        <p><span class="pre">  </span>&lt;p&gt;Es la opción por defecto, por tanto no es necesario incluirla.&lt;/p&gt;</p>
-        <p class="pre">  &lt;div class="contenedor-row"&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;1&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;2&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;3&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;4&lt;/div&gt;</p>
-        <p class="pre">  &lt;/div&gt;</p>
-        <p>&lt;/div&gt;</p>
-        <p>&lt;div&gt;</p>
-        <p><span class="pre">  </span>&lt;p&gt;'row-reverse' dispone un contenedor horizontal, empezando por la derecha y los ítems en reversa al HTML.&lt;/p&gt;</p>
-        <p class="pre">  &lt;div class="contenedor-row-reverse"&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;1&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;2&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;3&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;4&lt;/div&gt;</p>
-        <p class="pre">  &lt;/div&gt;</p>
-        <p>&lt;/div&gt;</p>
-        <br>
-        <p class="lang">Código CSS:</p>
-        <p>.contenedor-row {</p>
-        <p class="pre">  border: 1px solid red;</p>
-        <p class="pre">  <span class="definicion-name">display: flex;</span></p>
-        <p class="pre">  <span class="definicion-name">flex-direction: row;</span></p>
-        <p class="pre">  background-color: #aaa;</p>
-        <p>}</p>
-        <p>.contenedor-row-reverse {</p>
-        <p class="pre">  border: 1px solid red;</p>
-        <p class="pre">  <span class="definicion-name">display: flex;</span></p>
-        <p class="pre">  <span class="definicion-name">flex-direction: row-reverse;</span></p>
-        <p class="pre">  background-color: #aaa;</p>
-        <p>}</p>
-        <p>.flex-item {</p>
-        <p class="pre">  border: 1px solid #000;</p>
-        <p class="pre">  background-color: #fff;</p>
-        <p class="pre">  width: 50px;</p>
-        <p class="pre">  height: 50px;</p>
-        <p>}</p>
-      </code>
-      <div class="definicion-resultado">
-        <p class="lang">Resultado:</p>
-        <!-- <p class="comentario">comentario</p> -->
-        <br>
-        <div class="definicion-fb-flex-direction-ejemplo1">
-          <div>
-            <p>'row' dispone un contenedor horizontal, empezando por la izquierda y con los items en el orden del HTML.</p>
-            <p>Es la opción por defecto, por tanto no es necesario incluirla.</p>
-            <div class="contenedor-row">
-              <div class="flex-item">1</div>
-              <div class="flex-item">2</div>
-              <div class="flex-item">3</div>
-              <div class="flex-item">4</div>
-            </div>
-          </div>
-          <br>
-          <br>
-          <div>
-            <p>'row-reverse' dispone un contenedor horizontal, empezando por la derecha y con los ítems en reversa al HTML.</p>
-            <div class="contenedor-row-reverse">
-              <div class="flex-item">1</div>
-              <div class="flex-item">2</div>
-              <div class="flex-item">3</div>
-              <div class="flex-item">4</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="propiedad"><code>column</code>: define al eje principal como vertical, direccionando los ítems verticalmente empezando desde el lado superior. El orden de los ítems es tal cual aparecen en el HTML.</p>
-    <p class="propiedad"><code>column-reverse</code>: defina al eje principal como vertical, direccionando los ítems verticalmente pero esta vez empezando desde el lado inferior, además, el orden de los ítems estará invertido a como aparecen en el HTML.</p>
-    <p class="definicion-ejemplo"><b>Ejemplo 2:</b> definir en 'column' y 'column-reverse' los dos contenedores siguientes.</p>
-    <div class="definicion-flex">
-      <code class="definicion-codigo">
-        <p class="lang">Código HTML:</p>
-        <p>&lt;div&gt;</p>
-        <p><span class="pre">  </span>&lt;p&gt;'column' dispone un contenedor vertical, empezando por la parted superior y con los items en el orden del HTML.&lt;/p&gt;</p>
-        <p class="pre">  &lt;div class="contenedor-column"&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;1&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;2&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;3&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;4&lt;/div&gt;</p>
-        <p class="pre">  &lt;/div&gt;</p>
-        <p>&lt;/div&gt;</p>
-        <p>&lt;div&gt;</p>
-        <p><span class="pre">  </span>&lt;p&gt;'column-reverse' dispone un contenedor vertical, empezando por la parte inferior y los ítems en reversa al HTML.&lt;/p&gt;</p>
-        <p class="pre">  &lt;div class="contenedor-column-reverse"&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;1&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;2&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;3&lt;/div&gt;</p>
-        <p class="pre">    &lt;div class="flex-item"&gt;4&lt;/div&gt;</p>
-        <p class="pre">  &lt;/div&gt;</p>
-        <p>&lt;/div&gt;</p>
-        <br>
-        <p class="lang">Código CSS:</p>
-        <p>.contenedor-column {</p>
-        <p class="pre">  border: 1px solid red;</p>
-        <p class="pre">  <span class="definicion-name">display: flex;</span></p>
-        <p class="pre">  <span class="definicion-name">flex-direction: column;</span></p>
-        <p class="pre">  background-color: #aaa;</p>
-        <p class="pre">  height: 250px; <span class="comentario"> /* sólo para ver el efecto vertical */</span></p>
-        <p>}</p>
-        <p>.contenedor-column-reverse {</p>
-        <p class="pre">  border: 1px solid red;</p>
-        <p class="pre">  <span class="definicion-name">display: flex;</span></p>
-        <p class="pre">  <span class="definicion-name">flex-direction: column-reverse;</span></p>
-        <p class="pre">  background-color: #aaa;</p>
-        <p class="pre">  height: 250px; <span class="comentario"> /* sólo para ver el efecto vertical */</span></p>
-        <p>}</p>
-        <p>.flex-item {</p>
-        <p class="pre">  border: 1px solid #000;</p>
-        <p class="pre">  background-color: #fff;</p>
-        <p class="pre">  width: 50px;</p>
-        <p class="pre">  height: 50px;</p>
-        <p>}</p>
-      </code>
-      <div class="definicion-resultado">
-        <p class="lang">Resultado:</p>
-        <!-- <p class="comentario">comentario</p> -->
-        <br>
-        <div class="definicion-fb-flex-direction-ejemplo2">
-          <div>
-            <p>'column' dispone un contenedor vertical, empezando por la parted superior y con los items en el orden del HTML.</p>
-            <div class="contenedor-column">
-              <div class="flex-item">1</div>
-              <div class="flex-item">2</div>
-              <div class="flex-item">3</div>
-              <div class="flex-item">4</div>
-            </div>
-          </div>
-          <br>
-          <br>
-          <div>
-            <p>'column-reverse' dispone un contenedor vertical, empezando por la parte inferior y los ítems en reversa al HTML.</p>
-            <div class="contenedor-column-reverse">
-              <div class="flex-item">1</div>
-              <div class="flex-item">2</div>
-              <div class="flex-item">3</div>
-              <div class="flex-item">4</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div> <!--    flex-wrap -->
-    <p class="code-titulo" id="flex-wrap"><span>flex-wrap :</span></p>
-    <p>Controla si los ítems dentro del flexbox deben achicarse o ocupar múltiples líneas cuando no caben en el ancho del flexbox. Sus valores son:</p>
-    <p class="propiedad"><code>nowrap</code>: los ítems se achican (ignorando sus dimensiones) para entrar en el tamaño del contenedor. No se permite el desbordamiento en múltiples líneas. Ésta es el comportamiento por defecto, por tanto no es necesario indicarlo si se desea este comportamiento</p>
-    <p class="propiedad"><code>wrap</code>: los ítems mantienen sus dimensiones y se desbordan ocupando múltiples líneas.</p>
-    <p class="propiedad"><code>wrap-reverse</code>: igual que <code>nowrap</code> pero de manera inversa.</p>
-    <p class="definicion-nota icon"><span class="nota">Nota:</span><span>No sé cómo hacer para que, en flexbox anidados, funcione <code>nowrap</code>, ya que es como si sólo funcionara <code>wrap</code> 🤬🤬</span></p>
-  </div>
-  <div> <!--    flex-flow -->
-    <p class="code-titulo" id="flex-flow"><span>flex-flow :</span></p>
-    <p>Es sólo un atajo con el que se puede definir en una sola instrucción <code>flex-direction</code> y <code>flex-wrap</code>, en lugar de estar escribiéndolos en dos instrucciones separadas.</p>
-    <p class="definicion-ejemplo"><b>Ejemplo1:</b></p>
-    <code class="definicion-codigo">
-      <p class="lang">Código CSS:</p>
-      <p>.container {</p>
-      <p class="comentario">/* flex-flow: propiedad-flex-direction propiedad-flex-wrap; */</p>
-      <p class="pre">  flex-flow: row wrap;</p>
-      <p>}</p>
-    </code>
-  </div>
-  <div> <!--    justify-content -->
-    <p class="code-titulo" id="justify-content"><span>justify-content :</span></p>
-    <p>Define el tipo de posición de los ítems a lo largo del eje principal (los ejes principal y secundario se definen con la propiedad <code>flex-direction</code>). Esta propiedad tiene sentido únicamente si hay espacio libre dentro del contenedor, ayudando a distribuir convenientemente este espacio libre entre los ítems.</p>
-    <img src="/img/flexbox/justifycontent00.png" alt="">
-    <p>Sus valores posibles son:</p>
-    <div class="definicion-flex">
-      <div>
-        <p class="propiedad"><code>flex-start</code>: los ítems se ubican al inicio del eje principal, de acuerdo a la propiedad <code>flex-direction</code>: la izquierda cuando es <code>row</code> y arriba cuando es <code>column</code>. Es la propiedad por defecto.</p>
-        <p class="propiedad"><code>flex-end</code>: los ítems se ubican al final del eje principal, de acuerdo a la propiedad <code>flex-direction</code>: la derecha cuando es <code>row</code> y abajo cuando es <code>column</code>.</p>
-        <p class="propiedad"><code>start</code>: los ítems se alinean a lo largo del borde de inicio de la dirección del modo de escritura (writing mode).</p>
-        <p class="propiedad"><code>end</code>: los ítems se alinean a lo largo del borde final de la dirección del modo de escritura (writing mode).</p>
-        <p class="propiedad"><code>left</code>: los ítems están ubicados a lo largo del borde izquierdo del contenedor, a menos que esto no tenga sentido con el <code>flex-direction</code> que se está utilizando. En este caso, se comporta como <code>start</code>.</p>
-        <p class="propiedad"><code>right</code>: los ítems están ubicados a lo largo del borde derecho del contenedor, a menos que esto no tenga sentido con el <code>flex-direction</code> que se está utilizando. En este caso, se comporta como <code>end</code>.</p>
-        <p class="propiedad"><code>center</code>: los ítems se centran dejando la misma cantidad de espacio al inicio y al final.</p>
-        <p class="propiedad"><code>space-between</code>: los ítems al inicio y final están ubicados sin espacio en sus bordes respectivos, el resto de ítems se distribuyen espaciándose uniformente.</p>
-        <p class="propiedad"><code>space-around</code>: los ítems tienen, individualmente, la misma cantidad de espacio a su alrededor, los items contiguos parecerán "duplicar" el espacio entre ellos, mientras que los ítems en los extremos parecerán tener la mitad del espacio.</p>
-        <p class="propiedad"><code>space-evenly</code>: los ítems se ubican de modo tal que entre ellos existe la misma cantidad de espacio incluyendo el espacio a los bordes.</p>
-      </div>
-      <img class="img-justify-content01" src="/img/flexbox/justify-content01.svg" alt="">
-    </div>
-    <p>También existen dos palabras clave adicionales que se pueden usar junto con estos valores: <code>safe</code> y <code>unsafe</code>. La primera, asegura que, independiente de cómo hagas este tipo de posicionamiento, no sea posible "empujar" un elemento y hacer que sea renderizado hacia afuera de la pantalla (por ejemplo, sobre el tope) de una manera que haga con que el contenido sea imposible de mover con el desplazamiento de la pantalla (CSS llama a esto "pérdida de datos").</p>
-  </div>
-  <div> <!--    align-items -->
-    <p class="code-titulo" id="align-items"><span>align-items :</span></p>
-    <p>Define el tipo de posición de los ítems a lo largo del eje secundario (los ejes principal y secundario se definen con la propiedad <code>flex-direction</code>). No confundir con <code>align-content</code> que actúa sobre cada una de las líneas de un contenedor multilínea (no tiene efecto si no se usa <code>flex-wrap</code>), mientras que <code>align-items</code> lo hace sobre la única línea que tiene un contenedor flex sin wrap (nowrap).</p>
-    <img src="/img/flexbox/align-items00.png" alt="">
-    <p>Sus valores posibles son:</p>
-    <div class="definicion-flex">
-      <div>
-        <p class="propiedad"><code>start</code>: alinea los ítems al inicio del eje secundario.</p>
-        <p class="propiedad"><code>end</code>: alinea los ítems al final del eje secundario.</p>
-        <p class="propiedad"><code>center</code>: alinea los ítems al centro del eje secundario.</p>
-        <p class="propiedad"><code>stretch</code>: estira los ítems a lo largo del eje secundario haciendo que ocupen todo el espacio. Esta opción no funciona si los ítems tienen definido una dimensión específica en el sentido de este eje. Es la opción por defecto.</p>
-        <p class="propiedad"><code>baseline</code>: alinea los ítems según la línea de sus contenidos. Esta línea base puede ser la de un texto, o la parte inferior de una forma, etc, dependerá del tipo de ítem presente.</p>
-      </div>
-      <img class="img-align-items01" src="/img/flexbox/align-items01.svg" alt="">
-    </div>
-  </div>
-  <div> <!--    align-content -->
-    <p class="code-titulo" id="align-content"><span>align-content :</span></p>
-  </div>
-  <div> <!--    gap -->
-    <p class="code-titulo" id="gap"><span>gap,</span><br><span>row-gap,</span><br><span>column-gap :</span></p>
-    <p>Definen los espaciamientos entre los ítems a manera de márgenes o paddings, sin las complicaciones de éstos útlimos. Con <code>row-gap</code> se puede definir un espaciamiento independiente para las filas y con <code>column-gap</code> un espaciamiento independiente para las columnas. Con <code>gap</code> se puede definir un único valor a la vez para filas y columnas o dos valores en una misma instrucción.</p>
-  </div>
-  <div> <!--    order -->
-    <p class="code-titulo" id="order"><span>order :</span></p>
-  </div>
-  <div> <!--    flex-grow -->
-    <p class="code-titulo" id="flex-grow"><span>flex-grow :</span></p>
-  </div>
-  <div> <!--    flex-shrink -->
-    <p class="code-titulo" id="flex-shrink"><span>flex-shrink :</span></p>
-  </div>
-  <div> <!--    flex-basis -->
-    <p class="code-titulo" id="flex-basis"><span>flex-basis :</span></p>
-    <p>Define el tamaño base (inicio) que tendrán los ítems en el eje principal antes de distribuir el espacio que pueda sobrar entre ellos. Este tamañano base suele ser una unidad cualquiera (unidades, porcentajes, etc.), pero también se puede usar la palabra clave <code>content</code> que ajusta el tamaño del ítem al que ocupa su propio contenido, este es el valor por defecto para esta propiedad.</p>
-    <p class="definicion-ejemplo"><b>Ejemplo 1:</b> definir un tamaño base de 100px de ancho para cada uno de lo ítems excepto para el tercer ítem que deberá tener un ancho base de 75px</p>
-    <div class="definicion-flex">
-      <code class="definicion-codigo">
-        <p class="lang">Código HTML:</p>
-        <p>&lt;div class="contenedor"&gt;</p>
-        <p class="pre">  &lt;div class="flex-item"&gt;1&lt;/div&gt;</p>
-        <p class="pre">  &lt;div class="flex-item"&gt;2&lt;/div&gt;</p>
-        <p class="pre">  &lt;div class="flex-item"&gt;3&lt;/div&gt;</p>
-        <p class="pre">  &lt;div class="flex-item"&gt;4&lt;/div&gt;</p>
-        <p>&lt;/div&gt;</p>
-        <br>
-        <p class="lang">Código CSS:</p>
-        <p>.contenedor {</p>
-        <p class="pre">  border: 1px solid red;</p>
-        <p class="pre">  background-color: #aaa;</p>
-        <p class="pre">  <span class="definicion-name">display: flex;</span></p>
-        <p>}</p>
-        <p>.flex-item {</p>
-        <p class="pre">  &:nth-child(3) {</p>
-        <p class="pre">    <span class="definicion-name">flex-basis: 75px;</span></p>  
-        <p class="pre">  }</p>
-        <p class="pre">  <span class="definicion-name">flex-basis: 100px;</span></p>
-        <p class="pre">  border: 1px solid #000;</p>
-        <p class="pre">  background-color: #fff;</p>
-        <p class="pre">  width: 50px;</p>
-        <p class="pre">  height: 50px;</p>
-        <p>}</p>
-      </code>
-      <div class="definicion-resultado">
-        <p class="lang">Resultado:</p>
-        <p class="comentario">Notar que aunque se ha definido un ancho de 50px después de definir los valores de 100px y 75px de flex-basis, son éstos últimos los que prevalecen como valor inicial.</p>
-        <br>
-        <div class="definicion-fb-flex-basis-ejemplo1">
-          <div class="contenedor">
-            <div class="flex-item">1</div>
-            <div class="flex-item">2</div>
-            <div class="flex-item">3</div>
-            <div class="flex-item">4</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div> <!--    flex -->
-    <p class="code-titulo" id="flex"><span>flex :</span></p>
-  </div>
-  <div> <!--    aling-self -->
-    <p class="code-titulo" id="aling-self"><span>aling-self :</span></p>
-  </div>
-  <div> <!--    margin -->
-    <p class="code-titulo" id="margin"><span>margin :</span></p>
-    <p>Ponerle margin auto centrará los items</p>
   </div>
 
-  <div> <!--    FLEXBOX - Tips Tricks Ejemplos Varios -->
-    <p class="definicion-subtitulo">FLEXBOX - Trucos y Ejemplos varios</p>
-    <p class="definicion-ejemplo"><b>Ejemplo 1 - Centrar contenido: </b> cuando se necesite centrar el contenido de un contenedor, cualquiera sea el tipo de éste y cualquiera su contenido, se debe utilizar tres propiedades flexbox: <b>display: flex</b> (para convertir el contenedor en flexbox), <b>justify-content: center</b> (para centrar los ítems en el eje principal) y <b>align-items: center</b> (para centrar los ejes en eje secundario).</p>
-    <div class="definicion-flex">
-      <code class="definicion-codigo">
-        <p class="lang">Código HTML:</p>
-        <p>&lt;div class="contenedor"&gt;</p>
-          <p class="pre">  &lt;div class="flex-item"&gt;1&lt;/div&gt;</p>
-          <p class="pre">  &lt;div class="flex-item"&gt;2&lt;/div&gt;</p>
-          <p class="pre">  &lt;div class="flex-item"&gt;3&lt;/div&gt;</p>
-          <p class="pre">  &lt;div class="flex-item"&gt;4&lt;/div&gt;</p>
-        <p>&lt;/div&gt;</p>
-        <br>
-        <p class="lang">Código CSS:</p>
-        <p>.contenedor {</p>
-          <p class="pre">  border: 1px solid red;</p>
-          <p class="pre">  background-color: #aaa;</p>
-          <p class="pre">  height: 200px;</p>
-          <p class="pre">  <span class="definicion-name">display: flex;</span></p>
-          <p class="pre">  <span class="definicion-name">justify-content: center;</span></p>
-          <p class="pre">  <span class="definicion-name">align-items: center;</span></p>
-        <p>}</p>
-        <p>.flex-item {</p>
-          <p class="pre">  border: 1px solid #000;</p>
-          <p class="pre">  background-color: #fff;</p>
-          <p class="pre">  width: 50px;</p>
-          <p class="pre">  height: 50px;</p>
-        <p>}</p>
-      </code>
-      <div class="definicion-resultado">
-        <p class="lang">Resultado:</p>
-        <br>
-        <div class="definicion-fb-tips-ejemplo1">
-          <div class="contenedor">
-            <div class="flex-item">1</div>
-            <div class="flex-item">2</div>
-            <div class="flex-item">3</div>
-            <div class="flex-item">4</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
 </div>
 
@@ -691,7 +172,7 @@
     </p>
     <p>Seleccionan la primera letra y la primera línea respectivamente de un elemento. Normalmente se utilizan sobre párrafos o contenido tipo texto. </p>
     <p class="definicion-ejemplo"><b>Ejemplo 1:</b> Seleccionar la primera letra de todos los párrafos y definirles el tamaño en 2rem y en color #fff, y a la primera línea cambiarles el fondo a gris.</p>
-    <div class="definicion-flex">
+    <div class="definicion-codigo-flex">
       <code class="definicion-codigo">
         <p class="lang">Código HTML:</p>
         <p>&lt;p&gt;Primer párrafo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eum voluptates suscipit! Qui distinctio enim, eligendi dignissimos magni quidem, cumque, omnis animi eos accusamus laboriosam unde voluptates incidunt illum maiores!.&lt;/p&gt;</p>
@@ -716,7 +197,7 @@
     <p class="code-titulo"><span>::selection :</span></p> <!-- ::selection -->
     <p>Permite definir estilos al texto que el usuario seleccione en la página.</p>
     <p class="definicion-ejemplo"><b>Ejemplo 1:</b> definir el color de texto yellow y el fondo red al texto que el usuario seleccione en el siguiente párrafo.</p>
-    <div class="definicion-flex">
+    <div class="definicion-codigo-flex">
       <code class="definicion-codigo">
         <p class="lang">Código HTML:</p>
         <p>&lt;p&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, dicta esse quae tempora aliquid commodi dignissimos, dolores, eius iure ipsum neque. Cum, libero! Modi est voluptatem aut perspiciatis mollitia id ad, incidunt similique commodi nesciunt ullam maiores, sit veritatis ipsum iste omnis quas maxime hic deserunt quo cumque laborum facere.&lt;/p&gt;</p>
@@ -737,7 +218,7 @@
     <p class="code-titulo"><span>::placeholder :</span></p> <!-- ::placeholder -->
     <p>Permite definir estilos al texto temporal (placeholder) en un elemento 'input' o 'textarea'.</p>
     <p class="definicion-ejemplo"><b>Ejemplo 1:</b> definir el color de texto al #fff, el fondo grey y el tipo de letra itálica a un input y a un textarea a la vez.</p>
-    <div class="definicion-flex">
+    <div class="definicion-codigo-flex">
       <code class="definicion-codigo">
         <p class="lang">Código HTML:</p>
         <p>&lt;p&gt;Ingresa los siguientes datos de producto: &lt;/p&gt;</p>
@@ -768,7 +249,7 @@
       <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file" target="_blank">MDN &lt;input type="file"&gt;</a>
     </div>
     <p class="definicion-ejemplo"><b>Ejemplo 1:</b> formatear bonito el botón y agregarle un efecto sombra al pasar el mouse sobre él.</p>
-    <div class="definicion-flex">
+    <div class="definicion-codigo-flex">
       <code class="definicion-codigo">
         <p class="lang">Código HTML:</p>
         <p>&lt;input class="file" type="file" name="archivo" id="file"&gt;</p>
@@ -804,14 +285,13 @@
     <p>Selecciona las viñetas (íconos) de los items de lista que normalmente tiene tiene como viñeta a puntos 'bullets' o números permitiendo cambiar el contenido y algunos estilos de viñetas y números en las listas. Funciona con cualquier elemento o seudo elemento difinido como <code>display: list-item</code>, como &lt;li&gt; y &lt;summary&gt;.</p>
     <p class="definicion-subtitulo refs">Referencias:</p>
     <div class="referencias">
-      <a class="link icon" href="https://www.youtube.com/watch?v=svhnI9sKUDI" target="_blank">Styling your list-items just got so much easier with this ::marker</a>
       <a class="link icon" href="https://www.smashingmagazine.com/2019/07/css-lists-markers-counters/" target="_blank">CSS Lists, Markers, And Counters</a>
       <a class="link icon" href="https://web.dev/articles/css-marker-pseudo-element?hl=es-419" target="_blank">Viñetas personalizadas con marcador de CSS</a>
       <a class="link icon" href="https://www.w3schools.com/css/css_list.asp" target="_blank">CSS Lists</a>
       <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/::marker" target="_blank">::marker</a>
     </div>
     <p class="definicion-ejemplo"><b>Ejemplo 1:</b> definir un simbolo cualquiera diferente a cada elemento en la lista, además de un color red para cada uno.</p>
-    <div class="definicion-flex">
+    <div class="definicion-codigo-flex">
       <code class="definicion-codigo">
         <p class="lang">Código HTML:</p>
         <p>&lt;ul&gt;</p>
@@ -868,7 +348,7 @@
       </div>
     </div>
     <p class="definicion-ejemplo"><b>Ejemplo 2:</b> definir un tamaño y color diferente para cada uno de los markers de la lista.</p>
-    <div class="definicion-flex">
+    <div class="definicion-codigo-flex">
       <code class="definicion-codigo">
         <p class="lang">Código HTML:</p>
         <p>&lt;ul&gt;</p>
@@ -940,7 +420,7 @@
     </div>
 
     <p class="definicion-ejemplo"><b>Ejemplo 1:</b> agregar un ícono de check al inicio de la siguiente frase y tres signos de exclamación al final de la misma.</p>
-    <div class="definicion-flex">
+    <div class="definicion-codigo-flex">
       <code class="definicion-codigo">
         <p class="lang">Código HTML:</p>
         <p>&lt;p&gt;Ejemplo de ::before y ::after&lt;/p&gt;</p>
@@ -965,7 +445,7 @@
     </div>
 
     <p class="definicion-ejemplo"><b>Ejemplo 2: </b> agregar un '*' (asterisco) al inicio y final de las etiquetas de los campos que son requeridos en el formulario, ambos, la etiqueta y los *s ponerlos en color red. Notar que se usa <b>:has</b> sobre 'label' para verificar si el sgte. elemento es un input con el atributo 'requerido'. Al final después de todo el formulario incluir una leyenda en rojo indicando que significan los asteriscos.</p>
-    <div class="definicion-flex">
+    <div class="definicion-codigo-flex">
       <code class="definicion-codigo">
         <p class="lang">Código HTML:</p>
         <p>&lt;form class="definicion-before-after-ejemplo2"&gt;</p>
@@ -1008,7 +488,7 @@
     </div>
 
     <p class="definicion-ejemplo"><b>Ejemplo 3:</b> poner un 'filtro' a una imagen dentro de un link (etiqueta a) y que al pasar por encima el filtro se 'elimine'. Notar que la imagen es agregada como fondo (background) del elemento, en este caso un 'a'. Tampoco se necesita nada dentro del contenido de esta 'a', por tanto es indistinto usar un ::before o un ::after. En caso necesitar contenido para el 'a', ahi sí afecta diferenciadamente un ::before o un ::after.</p>
-    <div class="definicion-flex">
+    <div class="definicion-codigo-flex">
       <code class="definicion-codigo">
         <p class="lang">Código HTML:</p>
         <p>&lt;a href="#"&gt;&lt;/a&gt; <span class="comentario">/* se puede usar cualquier otro elemento como div o p */</span></p>
@@ -1144,7 +624,7 @@
     </p>
     <p>Seleccionan el primer y último elemento dentro de un padre respectivamente.</p>
     <p class="definicion-ejemplo"><b>Ejemplo1:</b> Seleccionar el primer elemento 'li' dentro de cada lista o sublista y definirle el color green y en negrita y, seleccionar el último elemento 'li' y definirle el color blueviolet y en negrita.</p>
-    <div class="definicion-flex">
+    <div class="definicion-codigo-flex">
       <code class="definicion-codigo">
         <p class="lang">Código HTML:</p>
         <p>&lt;ul&gt;</p>
