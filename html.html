@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,28 +12,159 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <title>DOCUMENTACIÓN HTML</title>
+
 </head>
 <body>
   
-  <header>
-    <div class="a-pag-principal">
-      <p><a href="index.html">Regresar a página principal</a></p>
-    </div>
-  </header>
+<header>
+  <div class="a-pag-principal">
+    <p><a href="index.html">Regresar a página principal</a></p>
+  </div>
+</header>
+
+<h1>Mi Documentación HTML</h1>
 
 <div class="definicion">
-  <p>En el &lt;head&gt;, además del charset, el viewport, y el title, es importante que también vaya el meta "description" de no más de 165 caracteres ya que esta descripción es la que aparece como texto debajo de un link de una página en los resultados de búsqueda de google, además si se tiene secciones dentro de un sitio web como "home", "contacto", "acerca de", etc., cada una debe tener un título y una descripción diferente para que goolge muestre estas secciones también en los resultados de búsqueda.
-  </p>
+  <p>Referencias</p>
+  <div class="referencias">
+    <a class="link icon" href="https://developer.mozilla.org/en-US/" target="_blank" target="_blank">MDN Web Docs</a>
+    <a  class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements" target="_blank">MDN - HTML elements reference</a>
+    <a class="link icon" href="https://htmlreference.io/" target="_blank">htmlreference.io/</a>
+  </div>
+  <p>Ejemplos de webs (para analizar)</p>
+  <div class="referencias">
+    <a class="link icon" href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1&currentsidebar=%23col_overview#principle1" target="_blank">How to Meet WCAG (Quick Reference)</a>
 
-  <p class="definicion-subtitulo-ejemplo">Ejemplo:</p>
+  </div>
+</div>
+
+<hr>
+<h2>DEFINICIONES GENERALES</h2>
+
+<!---------------------------------------------------------------------------->
+<div class="definicion"><!------------------------------- Etiquetas mínimas -->
+  <div class="definicion-subtitulo">Etiquetas &lt;meta&gt; mínimas en el &lt;head&gt;</div>
+  <p class="definicion-p">En el &lt;head&gt;, además del charset, el viewport, y el title, es importante que también vaya el meta "description" de no más de 165 caracteres ya que esta descripción es la que aparece como texto debajo de un link de una página en los resultados de búsqueda de google, además si se tiene secciones dentro de un sitio web como "home", "contacto", "acerca de", etc., cada una debe tener un título y una descripción diferente para que goolge muestre estas secciones también en los resultados de búsqueda.</p>
+
+  <p class="definicion-ejemplo"><b>Ejemplo:</b></p>
   <code class="definicion-codigo">
-    <p><span class="comentario">&lt;!-- El título debe ser de entre 55 y 65 caracteres --&gt;</span></p>
+    <p>&lt;meta charset="UTF-8"&gt;</p>
+    <p>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+    <p>&lt;link rel="stylesheet" href="./styles.css"&gt;</p>
+    <br>    
+    <p><span class="comentario">&lt;!-- &lt;title&gt; debe tener entre 55 y 65 caracteres --&gt;</span></p>
     <p><span class="definicion-name">&lt;title&gt;</span>DOCUMENTACIÓN HTML<span class="definicion-name">&lt;/title&gt;</span>
     </p>
-    <p><span class="definicion-name">&lt;meta name="description" content="Esta descripción aparece como texto de cada página dentro de los resultados de búsqueda de google. No debe tener más de 165 caracteres."&gt;</span>
+    <br>
+    <p><span class="comentario">Esta descripción aparece como texto de cada página dentro de los resultados de búsqueda de google. No debe tener más de 165 caracteres</p>
+    <p><span class="definicion-name">&lt;meta name="description" content="Página dedicada al contenido de ... "&gt;</span>
     </p>
   </code>
 </div>
+
+<!---------------------------------------------------------------------------->
+<div class="definicion"><!--------------------------------  Data Attributes -->
+  <div class="definicion-subtitulo">Data Attributes</div>
+  <p class="definicion-p">Son atributos personalizados que se incluyen en las etiquetas html para su posterior utilización con JavaScript o CSS. Estos atributos deben colarse como cualquier atributo estandar, es decir, dentro de la etiqueta de apertura y empezar con el texto "data-" seguido del identificador del atributo y su respectivo valor.</p>
+
+  <p class="definicion-ejemplo"><b>Ejemplo:</b> en el siguiente párrafo se ha incluido un data attribute llamado "data-parrafo" y su valor es "parrafo-especial"</p>
+  <code class="definicion-codigo">
+    <p>&lt;p<span class="definicion-name"> data-parrafo="parrafo-especial"</span>&gt;este es un párrafo que contiene un data attribute. Visualmente no se muestra nada diferente a un párrafo común pero en el código se podrá usar posteriormente el data attribute para temas de CSS o JavaScript.&lt;/p&gt;</p>
+  </code>
+</div>
+
+<!---------------------------------------------------------------------------->
+<div class="definicion"><!----------------------------  Posicionamiento SEO -->
+  <div class="definicion-subtitulo">Posicionamiento SEO (Search Engine Optimization)</div>
+
+    <p>Referencias</p>
+  <div class="referencias">
+    <a class="link icon" href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=es" target="_blank">Guía de optimización en buscadores (SEO) para principiantes</a>
+  </div>
+
+  <p class="definicion-p">Son etiquetas y/o atributos en tu html que permiten al navegador entender mejor el contenido de la página. El efecto principal es que esta página pueda aparecer en los primeros resultados de una búsqueda. Algunas de estas etiquetas y atributos son:</p>
+  <ul>
+    <li><code>rel="canonical"</code> atributo de la etiqueta <a href="#link">&lt;link&gt;</a> que sirve para indicar una url canónica.</li>
+    <li><code>rel="icon"</code> atributo de la etiqueta <a href="#link">&lt;link&gt;</a> que sirve para indicar el ícono da la página web.</li>
+    <li><code>rel="apple-touch-icon"</code> atributo de la etiqueta <a href="#link">&lt;link&gt;</a> que sirve para indicar el ícono da la página web en dispositivos móviles.</li>
+    <li><code>property="og:title"</code> atributo de la etiqueta <a href="#link">&lt;meta&gt;</a> para compartir páginas web en redes sociales como un objeto enriquecido (tipo tarjetas por ejemplo). Más info <a href="https://www.youtube.com/watch?v=-oK6zL01fNM&t=25426s" target="_blank">aquí</a>, <a href="https://ogp.me/" target="_blank">The Open Graph protocol</a></li>
+  </ul>
+
+  <p class="definicion-ejemplo"><b>Ejemplo:</b> </p>
+  <code class="definicion-codigo">
+    <p>&lt;p<span class="definicion-name"> data-parrafo="parrafo-especial"</span>&gt;este es un párrafo que contiene un data attribute. Visualmente no se muestra nada diferente a un párrafo común pero en el código se podrá usar posteriormente el data attribute para temas de CSS o JavaScript.&lt;/p&gt;</p>
+  </code>
+</div>
+
+<hr>
+<img src="./img/html tabla periodica.png" width="800" alt="">
+
+<hr>
+<h2>ETIQUETAS GENERALES</h2>
+<!---------------------------------------------------------------------------->
+<div class="definicion"> <!--------------------------------------- etiqueta -->
+  <p class="code-titulo" id="etiqueta"><span><a href="" target="_blank">nombre de etiqueta :</a></span></p>
+  
+  <p>Referencias</p>
+  <div class="referencias">
+    <a class="link icon" href="" target="_blank"></a>
+    <a class="link icon" href="" target="_blank"></a>
+  </div>
+  
+  <p>La etiqueta <code>&lt;etiqueta&gt;</code> ... </p>
+
+  <p class="definicion-ejemplo"><b>Ejemplo:</b> texto descriptivo del ejemplo</p>
+  <code class="definicion-codigo">
+    <p><span class="comentario">&lt;!-- &lt;title&gt; debe tener entre 55 y 65 caracteres --&gt;</span></p>
+    <p><span class="definicion-name">&lt;title&gt;</span>DOCUMENTACIÓN HTML<span class="definicion-name">&lt;/title&gt;</span>
+    </p>
+    <br>
+    <p><span class="comentario">Esta descripción aparece como texto de cada página dentro de los resultados de búsqueda de google. No debe tener más de 165 caracteres</p>
+    <p><span class="definicion-name">&lt;meta name="description" content="Página dedicada al contenido de ... "&gt;</span>
+    </p>
+  </code>
+
+</div>
+
+<!---------------------------------------------------------------------------->
+<div class="definicion"> <!--------------------------------------------- hr -->
+  <p class="code-titulo" id="hr"><span><a href="" target="_blank">hr :</a></span></p>
+  <p>La etiqueta <code>&lt;hr&gt;</code> normalmente sólo se utiliza para colocar una línea divisoria cosmética en la página, pero en realidad es más que eso, ya que identifica un salto semántico de contenido</p>
+</div>
+
+<!---------------------------------------------------------------------------->
+<div class="definicion"> <!----------------------------------------- iframe -->
+  <p class="code-titulo" id="iframe"><span><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe" target="_blank">iframe :</a></span></p>
+
+  <p>Referencias</p>
+  <div class="referencias">
+    <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement" target="_blank">HTMLIFrameElement</a>
+    <a class="link icon" href="https://developer.mozilla.org/es/docs/Learn_web_development/Core/Structuring_content/General_embedding_technologies" target="_blank">Desde object hasta iframe - otras tecnologías de incrustación</a>
+    <a class="link icon" href="https://www.w3schools.com/tags/tag_iframe.ASP" target="_blank">HTML &lt;iframe&gt; Tag</a>
+    <a class="link icon" href="https://www.youtube.com/watch?v=-oK6zL01fNM&t=17690s" target="_blank">iframe</a>
+  </div>
+
+  <p>Esta etiqueta sirve para "enmarcar" documentos varios que se necesitan mostrar de manera anidada en la página. Aunque soporta imágenes y videos, es ideal usarlo con otro tipo de documentos como pdf, html, u otras páginas como google maps, etc. El atributo src es el que albergará la ruta del documento que se necesita mostrar.</p>
+
+  
+</div>
+
+<!---------------------------------------------------------------------------->
+<div class="definicion"> <!------------------------------------------- link -->
+  <p class="code-titulo" id="link"><span><a href="" target="_blank">link :</a></span></p>
+  
+  <p>Referencias</p>
+  <div class="referencias">
+    <a class="link icon" href="https://developers.google.com/search/docs/crawling-indexing/canonicalization?hl=es" target="_blank">Qué es la canonicalización</a>
+    <a class="link icon" href="https://developers.google.com/search/docs/appearance/favicon-in-search?hl=es" target="_blank"> Definir un icono de página para que aparezca en los resultados de búsqueda
+</a>
+    <a class="link icon" href="https://youtu.be/-oK6zL01fNM?t=24915" target="_blank">Favicon y apple-touch-icon</a>
+  </div>
+
+<hr>
+<h2>ETIQUETAS SEMÁNTICAS DE ESTRUCTURA</h2>
+<a class="link icon" href="https://www.chucksacademy.com/en/topic/html-semantic" target="_blank">Semantic HTML5</a>
+<a href="https://atlasiko.com/blog/web-development/semantic-tags-html/" target="_blank"><img src="./img/html semantic elements 1.webp" width="500" alt=""></a>
 
 </body>
 </html>
