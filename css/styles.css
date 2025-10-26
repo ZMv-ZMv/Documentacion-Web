@@ -28,23 +28,36 @@ a {
 }
 ul {
   list-style: none;
-}
-li {
-  margin-left: 25px;
-  padding-left: 10px;
-  &::marker {
-    /* content: '⁕✓৹⊕⊛⨠⩥⪢'; */
-    content: '⁕';
-    /* font-weight: bold; */
+  li {
+    margin-left: 25px;
+    padding-left: 10px;
+    &::marker {
+      /* content: '⁕✓৹⊕⊛⨠⩥⪢'; */
+      content: '⁕';
+      /* font-weight: bold; */
+    }
   }
 }
+ol {
+  /* list-style: none; */
+  li {
+    margin-left: 25px;
+    padding-left: 10px;
+    &::marker {
+      /* content: '⁕✓৹⊕⊛⨠⩥⪢'; */
+      /* content: '⁕'; */
+      /* font-weight: bold; */
+    }
+  }
+}
+ 
 
 /* ************************************************************************* */
 /* *************************************************************** VARIABLES */
 /* ************************************************************************* */
 :root {
   --bg-code: #ddd;
-  --comentario-color: #888;
+  --comentario-color: #666;
   --color-link: #0d74e1;
 }
 
