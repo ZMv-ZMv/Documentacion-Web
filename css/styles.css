@@ -43,11 +43,6 @@ ol {
   li {
     margin-left: 25px;
     padding-left: 10px;
-    &::marker {
-      /* content: '⁕✓৹⊕⊛⨠⩥⪢'; */
-      /* content: '⁕'; */
-      /* font-weight: bold; */
-    }
   }
 }
  
@@ -643,11 +638,49 @@ textarea.definicion-placeholder-ejemplo1 {
 }
 
 
+
+
 /* ************************************************************************* */
 /* ********************************************************************* CSS */
 /* ************************************************************************* */
 
 
+/* ************************************ POSICIONAMIENTO - absolute ejemplo 1 */
+.relative-parent{
+  position: relative;
+  background-color: #f8b6b6;
+  background-color: ;
+  padding: 10px;
+}
+.anterior-absolute,
+.posterior-absolute {
+  padding: 25px;
+  background-color: #86bbf4;
+}
+.posterior-absolute {
+  background-color: #86f4b8;
+  background-color: ;
+}
+.absolute {
+  position: absolute;
+  margin: 5px;
+  color: white;
+  background-color: rgb(255, 0, 255);
+  /* top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 50px; */
+}
+
+/* *************************************************** UNIDADES - PORCENTAJE */
+
+.porcentaje1{
+  background-color: darkkhaki;
+  width: 50%;
+  padding: 1%;
+}
 
 /* ************************************************************************* */
 /* ********************************************************************** JS */
@@ -659,3 +692,13 @@ textarea.definicion-placeholder-ejemplo1 {
 /* ************************************************************* TIPS TRICKS */
 /* ************************************************************************* */
 
+.caja-linea,
+.caja-bloque {
+  border: 1px solid #000;
+  color: white;
+  background-color: cadetblue;
+  width: 500px;
+  height: 250px;
+  padding: 32px;
+  margin: 16px;
+}

@@ -131,7 +131,7 @@
 <!-- -------------------------------------------------------------- CASCADA -->
 <h2 id="cascada">CASCADA</h2>
 <div class="definicion">
-  <p>Cascada es el algoritmo con el cual se <b>determina la prioridad o prevalescencia</b> de los estilos CSS. Esto permite resolver conflictos cuando por ejmplo se aplican múltiples reglas de estilo CSS a un único elemento HTMl. Entender el concepto de este algoritmo es entender cómo los navegadores aplican y resuelven los conflictos de reglas de estilo CSS.</p>
+  <p>Cascada es el algoritmo con el cual los agentes de usuario (navegadores) <b>determinan la prioridad o prevalescencia</b> de los estilos CSS de acuerdo a sus origen y características. Esto también permite resolver conflictos cuando por ejmplo se aplican múltiples reglas de estilo CSS a un único elemento HTMl. Entender el concepto de este algoritmo es entender cómo los navegadores aplican y resuelven los conflictos de reglas de estilo ya que es la base de CSS (Cascade Style Sheet).</p>
   <p>El algoritmo de cascada está dividido en cuatro partes: <a href="#especificidad">especificidad</a>, <a href="#origen">origen</a>, <a href="#importancia">importancia</a>, y <a href="#posicion-orden">posición y orden de aparición</a>: el orden en que aparecen las reglas de estilos CSS.</p>
 
   <details> <!-- Referencias -->
@@ -153,10 +153,10 @@
   </h3>
   <p>El origen define la prioridad identificando de dónde vienen las reglas de estilo CSS, desde donde se aplican. En una página HTML, los estilos pueden porvenir de varios fuentes, p.e. de una etiqueta &lt;link&gt;, un estilo interno definido por una etiqueta &lt;style&gt;, una regla @import, un estilo "inline" como atributo de un elemento HTML, del user agent, etc., es por esto que el código que uno escribe para una página, no es el único código aplicado a ésta. La cascada tiene en cuenta todos estos orígenes y les otorga una prioridad con la que estos estilos deben aplicarse. El orden de prioridad de estos orígenes, de menor a mayor es el siguiente:</p>
   <ol>
-    <li><b>Estilos base de agente de usuario</b> (User agent base styles). Son los que el navegador aplica a los elementos HTML de forma predeterminada.</li>
-    <li><b>Estilos de usuarios locales</b> (Local user styles). Estos pueden provenir del nivel del sistema operativo, como un tamaño de fuente base o una preferencia de movimiento reducido, acciones como apliar o reducir la página, o cambiar el tema del sistema operativo a un tema oscuro hacen que el navegador detecte estos cambios y los aplique a las páginas si está autorizado para ello. También pueden provenir de extensiones de navegador, como una extensión de navegador que permite al usuario escribir su propio CSS personalizado para una página web, o si un</li>
-    <li><b>CSS creado</b> (Authored CSS). Es el CSS que escribimos en nuestras hojas de estilo, lo que codificamos específicamente para una página.</li>
-    <li><b>Los !important creados</b> (Authored !important). Cualquier !important que agregues a tus declaraciones creadas.</li>
+    <li><b>Estilos base de agente de usuario</b> (User agent base styles). Los agentes de usuario o navegadores aplican estilos predeterminados a cualquier documento. Estos estilos son los que menos prioridad tienen a menos que incluyan una declaración <code>!important</code>.</li>
+    <li><b>Estilos de usuarios locales</b> (Local user styles). Estos pueden provenir del nivel del sistema operativo, como un tamaño de fuente base o una preferencia de movimiento reducido, acciones como apliar o reducir la página, o cambiar el tema del sistema operativo a un tema oscuro hacen que el navegador detecte estos cambios y los aplique a las páginas si está autorizado para ello. También pueden provenir de extensiones de navegador, como una extensión de navegador que permite al usuario escribir su propio CSS personalizado para una página web.</li>
+    <li><b>CSS de autor</b> (Authored CSS). Son el tipo más común, es el CSS que escribimos como desarrolladores en nuestras hojas de estilo, lo que codificamos específicamente para una página. El autor o desarrollador web, define los estilos del documento mediante una o más hotas de estilo, vinculadas o importadas, con bloques &lt;style&gt;, etc., definiendo la apariencia de un sitio web.</li>
+    <li><b>!important de autor</b> (Authored !important). Cualquier declaración !important que se agregue a los estilos de autor.</li>
     <li><b>Estilos de usuarios locales !important</b> (Local user styles !important). Cualquier !important que provenga del nivel del sistema operativo o del nivel de extensión del navegador CSS.</li>
     <li><b>Agente de usuario !important</b> (User agent !important). Cualquier !important que se define en el CSS predeterminado, proporcionado por el navegador.</li>
   </ol>
@@ -254,9 +254,10 @@
       <th>Selector</th>
       <th>Valor</th>
     </tr>
-    <tr>
+    <tr> <!-- Selector universal -->
       <td>
         <p><b>Selector universal ( * ):</b></p>
+        <p>Y los combinadores (+, >, ~, ||, espacio)</p>
         <code class="definicion-codigo">
           <p>* {<span class="comentario"> /* selector universal */</span></p>
             <p class="pre">  color: blue;</p>
@@ -266,7 +267,7 @@
       </td>
       <td>0,0,0,0 (no tiene especificidad)</td>
     </tr>
-    <tr>
+    <tr> <!-- Etiquetas y seudo elementos -->
       <td>
         <p><b>Etiquetas y seudo elementos:</b></p>
         <code class="definicion-codigo">
@@ -280,7 +281,7 @@
       </td>
       <td>0,0,0,1</td>
     </tr>
-    <tr>
+    <tr> <!-- Clases, seudo clases y atributos -->
       <td>
         <p><b>Clases, seudo clases y atributos</b></p>
         <code class="definicion-codigo">
@@ -304,7 +305,7 @@
       </td>
       <td>0,0,1,0</td>
     </tr>
-    <tr>
+    <tr> <!-- Identificadores -->
       <td>
         <p><b>Identificadores</b></p>
         <code class="definicion-codigo">
@@ -316,9 +317,10 @@
       </td>
       <td>0,1,0,0</td>
     </tr>
-    <tr>
+    <tr> <!-- Estilos en línea -->
       <td>
         <p><b>Estilos en línea</b></p>
+        <p>Los estilos inline añadidos a un elemento através del atributo style (p.e., style="font-weight:bold"), siempre sobrescriben a cualquier estilo escrito en hojas de estilo externas.</p>
         <code class="definicion-codigo">
           <p>&lt;div style="color: red"&gt;&lt;/div&gt;</p>
           <p><span class="comentario"> /* Dentro del código HTML se indica el estilo como un atributo */</span></p>
@@ -326,7 +328,7 @@
       </td>
       <td>1,0,0,0</td>
     </tr>
-    <tr>
+    <tr> <!-- !Important -->
       <td>
         <p><b>!Important</b></p>
         <p><code>!important</code> al final de un valor, es la mayor especificidad que un objeto individual puede tener.</p>
@@ -375,7 +377,7 @@
 
   <p class="definicion-ejemplo"><b>Ejemplo 4:</b> del Ejemplo 3, si se desea hacer prevalecer el elemento anterior en aparición, se puede volver a escribir un selector para darle mayor especificidad</p>
   <code class="definicion-codigo">
-    <p><span class="comentario">este estilo prevalece porque la especificidad es mayor</span></p>
+    <p><span class="comentario">este estilo prevalece porque se ha duplicado el selector de clase (.mi-boton), la especificidad es mayor</span></p>
     <p>button.mi-boton.mi-boton { <span class="comentario"> /* button (0,0,0,1) + .mi-boton (0,0,1,0) + .mi-boton (0,0,1,0) = 0,0,2,1 */ </span></p> 
       <p class="pre">  color: red;</p>
     <p>}</p>
@@ -385,9 +387,33 @@
     <p>}</p>
   </code>
 
+  <p class="definicion-subtitulo">Declaración directa vs estilos heredados</p>
+  <p>Los estilos que directamente se apliquen a un elemento tendrán prevalencia sobre los estilos que este mismo elemento herede de sus padres, sin importar que tan específicos sean estos estilos heredados.</p>
+
+  <p class="definicion-ejemplo"><b>Ejemplo 5:</b> &lt;h1&gt; debería heredar el estilo de #parent, pero existe una declaración directa para &lt;h1&gt; que la hace más específica por tanto es la que prevalece</p>
+  <code class="definicion-codigo">
+    <p class="lang">Código HTML:</p>
+    <p>&lt;html&gt;</p>
+      <p class="pre">  &lt;body id="parent"&gt;</p>
+        <p class="pre">    &lt;h1&gt;¡Aquí va un título!&lt;/h1&gt;</p>
+      <p class="pre">  &lt;/body&gt;</p>
+    <p>&lt;/html&gt;</p>
+    <br>
+    <p class="lang">Código CSS:</p>
+    <p><span class="comentario"></span></p>
+    <p>h1 { <span class="comentario"> /* esta prevalece por se declaración directa */ </span></p> 
+      <p class="pre">  color: blue;</p>
+    <p>}</p>
+    <p>#parent {</p> 
+      <p class="pre">  color: red;</p>
+    <p>}</p>
+  </code>
+
   <a href="https://specifishity.com/" target="_blank"><img src="./img/specifishity.png" alt="" width="400" height="auto"></a>
 
-  
+  <p class="definicion-subtitulo">Uso de las herramientas para desarrollador del navegador (Developer Tools)</p>
+  <p>Casi todos los navegadores poseen herramientas para desarrolladores que permiten analizar el código de una página web. En el caso de CSS es muy útil visualizar los estilos y prioridad de un elemento seleccionado.</p>
+  <img src="./img/developerTools.png" alt="" width="600" height="auto">
 
   
 
@@ -396,7 +422,27 @@
 <!-- ------------------------------------------------------------- HERENCIA -->
 <h2 id="herencia">HERENCIA</h2>
 <div class="definicion">
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet consectetur velit commodi? Nisi iusto, minus tempore corporis provident sint facere illum eos autem cupiditate mollitia velit blanditiis sit ullam est?</p>
+
+  <details> <!-- Referencias -->
+  <summary class="definicion-subtitulo refs">Referencias:</summary>
+  <div class="referencias">
+    <a class="link icon" href="https://web.dev/learn/css/inheritance" target="_blank">Inheritance</a>
+    <a class="link icon" href="" target="_blank"></a>
+
+  </div>
+  </details>
+
+  <p>Algunas propiedades CSS que se establecen a un elemento "padre", no todas, se heredan (se propagan) hacia los elementos internos "hijos". Por ejemplo si para un elemento se estable el color red y el tipo de letra arial, cada elemento que se encuentre dentro de él, también se mostrará con ese color y fuente, a menos que se les haya establecido un color y tipo directamente.</p>
+  <P>CSS proporciona cuatro valores de propiedad universales especiales para el control de la herencia. Todas las propiedades CSS aceptan estos valores.</P>
+
+  <p class="code-titulo"><span>inherit</span></p>
+  <p>Se aplica a los elementos hijos, haciendo que hereden las propiedades del padre, es decir, activa la herencia.</p>
+  <p class="code-titulo"><span>initial</span></p>
+  <p>El valor de la propiedad será el del agente de usuario (navegador)</p>
+  <p class="code-titulo"><span>unset</span></p>
+  <p>Restablece la propiedad a su valor natural, lo que significa que si la propiedad se hereda de forma natural, actúa como <code>inherit</code>, y en caso contrario como <code>initial</code>.</p>
+  <p class="code-titulo"><span>revert</span></p>
+  <p>Aún en desarrollo, no soportada por todos los navegadores.</p>
 
   <details> <!-- Referencias -->
     <summary class="definicion-subtitulo refs">Referencias:</summary>
@@ -414,6 +460,27 @@
     <p class="pre">  Texto a mostrar cuando se despliegue la etiqueta</p>
     <p class="definicion-name">&lt;/details&gt;</p>
   </code>
+
+</div>
+
+<!-- ------------------------------------------------------- MODELO DE CAJA -->
+<h2 id="herencia">MODELO DE CAJA</h2>
+<div class="definicion">
+
+  <div class="definicion-subtitulo">En caja VS en línea</div>
+  <span class="caja-linea">Esto es una caja en linea</span><br>
+  <span class="caja-linea">Esto es una caja en linea</span>
+  <span> esto es un span simple</span>
+  <div class="caja-bloque">Esto es una caja en bloque</div>
+  
+  <div class="definicion-subtitulo">La propiedad <code>display</code></div>
+  <div class="definicion-subtitulo">La propiedad <code>visibility</code></div>
+  <div class="definicion-subtitulo">La propiedad <code>overflow</code></div>
+  <div class="definicion-subtitulo">La propiedad <code>box-sizing</code></div>
+
+otros temas:
+  <div class="definicion-subtitulo">Colapso de márgenes verticales</div>
+  <div class="definicion-subtitulo">Centrado de Cajas (con margen auto)</div>
 
 </div>
 
@@ -1450,6 +1517,22 @@
 
 </div>
 
+<!-- ------------------------------------------------------------- UNIDADES -->
+<h2>UNIDADES</h2>
+<div class="definicion">
+  <p>aqui definición...</p>
+
+<p class="definicion-subtitulo">em / rem</p>
+
+<p class="definicion-subtitulo">Porcentajes</p>
+<p>Porcentaje del contenedor padre.</p>
+
+<div class="porcentaje1">Caja de bloque</div>
+
+
+
+</div>
+
 <!-- ---------------------------------------------------------------------- -->
 <h2>VARIABLES / CUSTOM PROPERTIES</h2>
 <div class="definicion">
@@ -2053,8 +2136,18 @@
 <!-- ---------------------------------------------------------------------- -->
 <h2>POSICIONAMIENTO</h2>
 <div class="definicion">
-  <h3 class="definicion-titulo" id="nombre-definicion">POSITION RELATIVE Y POSITION ABSOLUTE</h3>
-  <p class="definicion-p">Para posicionar los elementos dentro de la página</p>
+  <p>Para posicionar los elementos dentro de la página. Tiene cinco valores posibles: <a href="#p-static">Static</a>, <a href="#p-relative">Relative</a>, <a href="#p-absolute">Absolute</a>, <a href="#p-fixed">Fixed</a>, <a href="#p-sticky">Sticky</a>. Cuando se activa cualquier posicionamiento que no sea static, se dispone de cinco propiedades de posicionamiento para poder situar el elemento dentro del HTML: </p>
+    <ul>
+      <li><code>top</code>: para mover el elemento desde la parte superior hacia abajo</li>
+      <li><code>bottom</code>: para mover el elemento desde la parte inferior hacia arriba</li>
+      <li><code>left</code>: para mover el elemento desde la izquierda hacia la derecha</li>
+      <li><code>right</code>: para mover el elemento desde la derecha hacia la izquierda</li>
+      <li><code>z-index</code>: para traer hacia adelante o atrás sobre otros elementos.</li>
+    </ul>
+  <p>Estas cinco propiedades no funcionan con el posicionamiento por defecto "static". Cualquier otro posicionamiento podrá desplazar el objeto fuera de su posición normal. Este desplazamiento se puede indicar en cualquier unidad de medida. Desplazamientos negativos moverán los elementos en dirección contraria.</p>
+  <p>La propiedad <code>top</code> tiene prioridad sobre la propiedad <code>bottom</code>, de igual forma la propiedad <code>left</code> tiene prioridad sobre la propiedad <code>right</code>.</p>
+  <p>Notar que en las herramientas para desarrolladores, cuando se elige un posicionamiento diferente de static, el diagrama de caja, muestra también los datos de posicionamiento.</p>
+
   <p class="definicion-nota icon"><span class="nota">Nota:</span></p>
 
   <details> <!-- Referencias -->
@@ -2065,6 +2158,31 @@
     
     </div>
   </details>
+
+  <div id="p-static" class="definicion-subtitulo">Position static</div>
+  <p>Es la posición por defecto de los elementos, no es necesario indicarla. El elemento queda estático y en su posición en el flujo del HTML por lo que no se pueden mover, y se respetan sus dimensiones. Ninguna de las propiedades de posicionamiento tienen efecto.</p>
+  
+  <div id="p-relative" class="definicion-subtitulo">Position relative</div>
+  <p>El elemento se podrá mover tomando como base (desde) su <b>posición original</b> en el flujo del HTML, es decir, su posición es relativa a su posición original. El elemento conserva sus dimensiones y a pesar que visualmente se desplace, el espacio que debe ocupar en la posición original se sigue manteniendo, como si no hubiera desplazamiento. Si no se indica algún desplzamiento con las propiedades de posicionamiento, el elemento mantedrá su posición original en el flujo del HTML sin efecto alguno.
+  </p>
+  
+  <div id="p-absolute" class="definicion-subtitulo">Position absolute</div>
+  <p>El elemento se podrá mover tomando como base (desde) el <b>primer antecesor cuyo posicionamiento no sea "static"</b> (que no tenga el posicionamiento por defecto) "enganchándose" a él (si este antecesor se mueve, el elemento lo sigue). En caso no exista ningún elemento con esas características, se toma como base el documento HTML (no el body). El elemento ¿pierde??? sus dimensiones ocupando sólo lo que el contenido ocupa como sucede con un objeto "inline" (a no ser que expresamente se indique un width y height) y, también pierde su ubicación en el flujo del HTML como si no existiera en ese flujo, los elementos que le siguen se disponen sin tenerlo en cuenta. Si no se indica algún desplazamiento con las propiedades de posicionamiento, el elemento "quedará desplazado" una catidad de unidades (pixeles) de modo que pareciese estar en su ubicación original en el flujo HTML, solapándose con los elementos que le siguen.</p>
+  <p>En las herramientas para desarrolladores, en el modelo de caja, se muestra las dimensiones de "position" como un nuevo dato.</p>
+  <p>Cuando se especifica un width y/o un height, éstas tienen prevalescencia sobre las propiedades de posicionamiento (top, left, bottom y right)</p>
+  <p>Cuando no se especifica un width y/o un height las propiedades de posicionamiento sólo desplazan "su lado" mas no todo el elemnto.</p>
+
+  <div class="relative-parent">Padre con posición relativa
+    <div class="anterior-absolute">Elemento anterior a absolute</div>
+    <div class="absolute">Elemento con posicion absolute</div>
+    <div class="posterior-absolute">Elemento posterior a absolute</div>
+  </div>
+  
+  <div id="p-fixed" class="definicion-subtitulo">Position fixed</div>
+  <p>El elemento pierde sus dimensiones y su posición original en el flujo HTML. Si se le asignas propiedades de posicionamiento, siempre toma como base (desde) el documento HTML y además queda fijo en la pantalla, no se mueve con el scroll.</p>
+
+  <div id="p-sticky" class="definicion-subtitulo">Position sticky</div>
+  
 
   <p class="definicion-ejemplo"><b>Ejemplo 1:</b></p>
   <code class="definicion-codigo">
