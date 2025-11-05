@@ -1534,12 +1534,12 @@ otros temas:
 </div>
 
 <!-- ---------------------------------------------------------------------- -->
-<h2>VARIABLES / CUSTOM PROPERTIES</h2>
-<div class="definicion">
-  <h3 class="definicion-titulo" id="nombre-definicion">VARIABLES / CUSTOM PROPERTIES</h3>
+<h2>VARIABLES (CUSTOM PROPERTIES) Y FUNCIONES</h2>
+<div class="definicion"> <!-- VARIABLES (CUSTOM PROPERTIES) -->
+  <h3 class="definicion-titulo" id="variables">VARIABLES (CUSTOM PROPERTIES)</h3>
   <div class="definicion-p">
-    <p>Se refiere a las típicas variables en los lenguajes de programación, y que también se pueden usar en CSS.</p>
-    <p>Al igual que en la mayoría de lenguajes de programación, en CSS, es recomendable que las variables sean declaradas al inicio y en la raíz (root) del documento para que tengan el mayor ámbito posible.</p>
+    <p>Se refiere a las típicas variables que existen en los lenguajes de programación, y que también se pueden usar en CSS.</p>
+    <p>Al igual que en la mayoría de lenguajes de programación, en CSS, es recomendable que las variables sean declaradas al inicio y en la raíz (root) del documento para que tengan el mayor ámbito posible, aunque es completamente válido declararlas en cualquier parte del documento CSS</p>
     <p>Para declarar una variable se debe anteponer dos guiones seguidos antes del nombre, luego se asigna un valor con dos puntos. Para usar el valor de una variable hay que llamar a la función <code>var()</code> y dentro de los paréntesis poner el nombre de la variable.</p>
   </div>
 
@@ -1550,6 +1550,7 @@ otros temas:
     <div class="referencias">
       <a class="link icon" href="https://www.youtube.com/watch?v=9qcw1JxDurs" target="_blank">The Ultimate Guide to CSS Variables</a>
       <a class="link icon" href="https://www.youtube.com/watch?v=_2LwjfYc1x8" target="_blank">Using CSS custom properties like this is a waste</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=11711s" target="_blank">Custom Properties y Función var()</a>
     </div>
   </details>
 
@@ -1566,7 +1567,7 @@ otros temas:
     <p>}</p>
   </code>
 
-  <p class="definicion-p">Es necesario siempre realizar la declaración de una variable. Si por alguna razón no se ha hecho, por ejemplo es una variable que viene de JS, se puede definir un valor 'fallback' para que no haya problema con esa variable, luego ese valor se usará en todo el ambito de la misma. Para declarar un fallback a una variable, hay que colocar una coma luego del nombre de la variable seguido del valor requerido.
+  <p class="definicion-p">Es necesario siempre realizar la declaración de una variable. Si por alguna razón no se ha hecho, por ejemplo es una variable que viene de JS, se puede definir un valor 'fallback' o valor por defecto (si no encuentra el valor por defecto aplica este fallback), para que no haya problema con esa variable, luego ese valor se usará en todo el ambito de la misma. Para declarar un fallback a una variable, hay que colocar una coma luego del nombre de la variable seguido del valor requerido.
   </p>
 
   <p class="definicion-ejemplo"><b>Ejemplo 2:</b> valor fallback para una variable</p>
@@ -1633,6 +1634,26 @@ otros temas:
     </div>
   </div>
 
+</div>
+
+<div class="definicion"> <!-- FUNCIONES -->
+  <h3 class="definicion-titulo" id="funciones">FUNCIONES</h3>
+  <p>Se refiere a las típicas funciones que existen en los lenguajes de programación, y que también se pueden usar en CSS.</p>
+
+  <div> <!--    display -->
+  <p class="code-titulo" id="var"><span>var</span></p>
+  <p>Se utiliza para tomar el valor de una variable y asignarlo a una propiedad. Ver ejemplos de Custom Properties</p>
+
+  <p class="code-titulo" id="url"><span>url</span></p>
+  <p>Sirve para cargar contenido externo.</p>
+
+  <p class="code-titulo" id="calc"><span>calc</span></p>
+  <p>Para hacer cálculos. Se puede utilizar variables</p>
+
+  <p class="code-titulo" id="clamp"><span>clamp</span></p>
+  <p></p>
+
+  </div>
 </div>
 
 <!-- ---------------------------------------------------------------------- -->
@@ -2200,8 +2221,9 @@ otros temas:
   </div>
 </div>
 
-
-
+<!-- ---------------------------------------------------------------------- -->
+<h2>FUENTES EXTERNAS</h2>
+<a href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=15411s">Fuentes externas (@font-face & font-display)</a>
 
 </body>
 </html>
