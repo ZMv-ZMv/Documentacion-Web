@@ -110,6 +110,7 @@
 <div class="definicion">
   <p>Referencias Generales</p>
   <div class="referencias">
+    <a class="link icon" href="https://cssreference.io/" target="_blank" target="_blank">https://cssreference.io/</a>
     <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" target="_blank">MDN - CSS: Cascading Style Sheets</a>
     <a class="link icon" href="https://www.w3schools.com/css/default.asp" target="_blank">CSS w3schools</a>
     <a class="link icon" href="https://www.geeksforgeeks.org/css/css-tutorial/" target="_blank">CSS geeksforgeeks</a>
@@ -1533,7 +1534,7 @@ otros temas:
 
 </div>
 
-<!-- ---------------------------------------------------------------------- -->
+<!-- ------------------------------------------------ VARIABLES Y FUNCIONES -->
 <h2>VARIABLES (CUSTOM PROPERTIES) Y FUNCIONES</h2>
 <div class="definicion"> <!-- VARIABLES (CUSTOM PROPERTIES) -->
   <h3 class="definicion-titulo" id="variables">VARIABLES (CUSTOM PROPERTIES)</h3>
@@ -1656,7 +1657,7 @@ otros temas:
   </div>
 </div>
 
-<!-- ---------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------- FLEXBOX -->
 <h2>FLEXBOX</h2>
 <div class="definicion">
 
@@ -1743,8 +1744,8 @@ otros temas:
   <div> <!--    display -->
     <p class="code-titulo" id="display"><span>display :</span></p>
     <p>Esta propiedad usada en el contenedor, activa el modo flex haciendo que los items que contiene se agrupen dinámicamente, de acuerdo al resto de propiedades que definen flexbox. Esta propiedad tiene que estar presente sí o sí para que flexbox funcione. Tiene dos valores posibles:</p>
-    <p class="propiedad"><code>flex</code>: establece al contenedor como un elemento en bloque, es decir, incia en una nueva línea y ocupa todo el ancho disponible del padre, incluso si los ítems internos no ocupan todo el espacio. Similar al valor <code>block</code> de cualquier otro elemento.</p>
-    <p class="propiedad"><code>inline-flex</code>: establece al contenedor como un elemento en línea, ocupando únicamente el espacio que su contenido requiera. Similar a <code>inline-block</code>. de cualquier otro elemento.</p>
+    <p class="valor"><code>flex</code>: establece al contenedor como un elemento en bloque, es decir, incia en una nueva línea y ocupa todo el ancho disponible del padre, incluso si los ítems internos no ocupan todo el espacio. Similar al valor <code>block</code> de cualquier otro elemento.</p>
+    <p class="valor"><code>inline-flex</code>: establece al contenedor como un elemento en línea, ocupando únicamente el espacio que su contenido requiera. Similar a <code>inline-block</code>. de cualquier otro elemento.</p>
     <p>Hay que notar que sólo los ítems que son hijos directos del contenedor son afectados para alineamiento flex, de haber ítems anidados dentro de los directamente hijos, no serán afectados y se mostrarán normlamente de acuerdo a su disposición corriente.</p>
     <p class="definicion-ejemplo"><b>Ejemplo 1:</b> definir en 'flex' y 'inline-flex' los dos contenedores siguientes.</p>
     <div class="definicion-flex">
@@ -1826,8 +1827,8 @@ otros temas:
   <div> <!--    flex-direction -->
     <p class="code-titulo" id="flex-direction"><span>flex-direction :</span></p>
     <p>Establece la dirección del eje principal en la que se alinearán los ítems. Sus valores son:</p>
-    <p class="propiedad"><code>row</code>: define al eje principal como horizontal, direccionando los ítems horizontalmente empezando desde el lado izquierdo. El orden de los ítems es tal cual aparecen en el HTML. Es el valor por defecto y no es necesario indicarlo si se desea este resultado.</p>
-    <p class="propiedad"><code>row-reverse</code>: define al eje principal como horizontal, direccionando los ítems horizontalmente pero esta vez empezando desde el lado derecho, además, el orden de los ítems estará invertido a como aparecen en el HTML.</p>
+    <p class="valor"><code>row</code>: define al eje principal como horizontal, direccionando los ítems horizontalmente empezando desde el lado izquierdo. El orden de los ítems es tal cual aparecen en el HTML. Es el valor por defecto y no es necesario indicarlo si se desea este resultado.</p>
+    <p class="valor"><code>row-reverse</code>: define al eje principal como horizontal, direccionando los ítems horizontalmente pero esta vez empezando desde el lado derecho, además, el orden de los ítems estará invertido a como aparecen en el HTML.</p>
     <p class="definicion-ejemplo"><b>Ejemplo 1:</b> definir en 'row' y 'row-reverse' los dos contenedores siguientes.</p>
     <div class="definicion-flex">
       <code class="definicion-codigo">
@@ -1901,8 +1902,8 @@ otros temas:
         </div>
       </div>
     </div>
-    <p class="propiedad"><code>column</code>: define al eje principal como vertical, direccionando los ítems verticalmente empezando desde el lado superior. El orden de los ítems es tal cual aparecen en el HTML.</p>
-    <p class="propiedad"><code>column-reverse</code>: defina al eje principal como vertical, direccionando los ítems verticalmente pero esta vez empezando desde el lado inferior, además, el orden de los ítems estará invertido a como aparecen en el HTML.</p>
+    <p class="valor"><code>column</code>: define al eje principal como vertical, direccionando los ítems verticalmente empezando desde el lado superior. El orden de los ítems es tal cual aparecen en el HTML.</p>
+    <p class="valor"><code>column-reverse</code>: defina al eje principal como vertical, direccionando los ítems verticalmente pero esta vez empezando desde el lado inferior, además, el orden de los ítems estará invertido a como aparecen en el HTML.</p>
     <p class="definicion-ejemplo"><b>Ejemplo 2:</b> definir en 'column' y 'column-reverse' los dos contenedores siguientes.</p>
     <div class="definicion-flex">
       <code class="definicion-codigo">
@@ -1980,9 +1981,9 @@ otros temas:
   <div> <!--    flex-wrap -->
     <p class="code-titulo" id="flex-wrap"><span>flex-wrap :</span></p>
     <p>Controla si los ítems dentro del flexbox deben achicarse o ocupar múltiples líneas cuando no caben en el ancho del flexbox. Sus valores son:</p>
-    <p class="propiedad"><code>nowrap</code>: los ítems se achican (ignorando sus dimensiones) para entrar en el tamaño del contenedor. No se permite el desbordamiento en múltiples líneas. Ésta es el comportamiento por defecto, por tanto no es necesario indicarlo si se desea este comportamiento</p>
-    <p class="propiedad"><code>wrap</code>: los ítems mantienen sus dimensiones y se desbordan ocupando múltiples líneas.</p>
-    <p class="propiedad"><code>wrap-reverse</code>: igual que <code>nowrap</code> pero de manera inversa.</p>
+    <p class="valor"><code>nowrap</code>: los ítems se achican (ignorando sus dimensiones) para entrar en el tamaño del contenedor. No se permite el desbordamiento en múltiples líneas. Ésta es el comportamiento por defecto, por tanto no es necesario indicarlo si se desea este comportamiento</p>
+    <p class="valor"><code>wrap</code>: los ítems mantienen sus dimensiones y se desbordan ocupando múltiples líneas.</p>
+    <p class="valor"><code>wrap-reverse</code>: igual que <code>nowrap</code> pero de manera inversa.</p>
     <p class="definicion-nota icon"><span class="nota">Nota:</span><span>No sé cómo hacer para que, en flexbox anidados, funcione <code>nowrap</code>, ya que es como si sólo funcionara <code>wrap</code> 🤬🤬</span></p>
   </div>
   <div> <!--    flex-flow -->
@@ -2004,16 +2005,16 @@ otros temas:
     <p>Sus valores posibles son:</p>
     <div class="definicion-flex">
       <div>
-        <p class="propiedad"><code>flex-start</code>: los ítems se ubican al inicio del eje principal, de acuerdo a la propiedad <code>flex-direction</code>: la izquierda cuando es <code>row</code> y arriba cuando es <code>column</code>. Es la propiedad por defecto.</p>
-        <p class="propiedad"><code>flex-end</code>: los ítems se ubican al final del eje principal, de acuerdo a la propiedad <code>flex-direction</code>: la derecha cuando es <code>row</code> y abajo cuando es <code>column</code>.</p>
-        <p class="propiedad"><code>start</code>: los ítems se alinean a lo largo del borde de inicio de la dirección del modo de escritura (writing mode).</p>
-        <p class="propiedad"><code>end</code>: los ítems se alinean a lo largo del borde final de la dirección del modo de escritura (writing mode).</p>
-        <p class="propiedad"><code>left</code>: los ítems están ubicados a lo largo del borde izquierdo del contenedor, a menos que esto no tenga sentido con el <code>flex-direction</code> que se está utilizando. En este caso, se comporta como <code>start</code>.</p>
-        <p class="propiedad"><code>right</code>: los ítems están ubicados a lo largo del borde derecho del contenedor, a menos que esto no tenga sentido con el <code>flex-direction</code> que se está utilizando. En este caso, se comporta como <code>end</code>.</p>
-        <p class="propiedad"><code>center</code>: los ítems se centran dejando la misma cantidad de espacio al inicio y al final.</p>
-        <p class="propiedad"><code>space-between</code>: los ítems al inicio y final están ubicados sin espacio en sus bordes respectivos, el resto de ítems se distribuyen espaciándose uniformente.</p>
-        <p class="propiedad"><code>space-around</code>: los ítems tienen, individualmente, la misma cantidad de espacio a su alrededor, los items contiguos parecerán "duplicar" el espacio entre ellos, mientras que los ítems en los extremos parecerán tener la mitad del espacio.</p>
-        <p class="propiedad"><code>space-evenly</code>: los ítems se ubican de modo tal que entre ellos existe la misma cantidad de espacio incluyendo el espacio a los bordes.</p>
+        <p class="valor"><code>flex-start</code>: los ítems se ubican al inicio del eje principal, de acuerdo a la propiedad <code>flex-direction</code>: la izquierda cuando es <code>row</code> y arriba cuando es <code>column</code>. Es la propiedad por defecto.</p>
+        <p class="valor"><code>flex-end</code>: los ítems se ubican al final del eje principal, de acuerdo a la propiedad <code>flex-direction</code>: la derecha cuando es <code>row</code> y abajo cuando es <code>column</code>.</p>
+        <p class="valor"><code>start</code>: los ítems se alinean a lo largo del borde de inicio de la dirección del modo de escritura (writing mode).</p>
+        <p class="valor"><code>end</code>: los ítems se alinean a lo largo del borde final de la dirección del modo de escritura (writing mode).</p>
+        <p class="valor"><code>left</code>: los ítems están ubicados a lo largo del borde izquierdo del contenedor, a menos que esto no tenga sentido con el <code>flex-direction</code> que se está utilizando. En este caso, se comporta como <code>start</code>.</p>
+        <p class="valor"><code>right</code>: los ítems están ubicados a lo largo del borde derecho del contenedor, a menos que esto no tenga sentido con el <code>flex-direction</code> que se está utilizando. En este caso, se comporta como <code>end</code>.</p>
+        <p class="valor"><code>center</code>: los ítems se centran dejando la misma cantidad de espacio al inicio y al final.</p>
+        <p class="valor"><code>space-between</code>: los ítems al inicio y final están ubicados sin espacio en sus bordes respectivos, el resto de ítems se distribuyen espaciándose uniformente.</p>
+        <p class="valor"><code>space-around</code>: los ítems tienen, individualmente, la misma cantidad de espacio a su alrededor, los items contiguos parecerán "duplicar" el espacio entre ellos, mientras que los ítems en los extremos parecerán tener la mitad del espacio.</p>
+        <p class="valor"><code>space-evenly</code>: los ítems se ubican de modo tal que entre ellos existe la misma cantidad de espacio incluyendo el espacio a los bordes.</p>
       </div>
       <img class="img-justify-content01" src="/img/flexbox/justify-content01.svg" alt="">
     </div>
@@ -2026,11 +2027,11 @@ otros temas:
     <p>Sus valores posibles son:</p>
     <div class="definicion-flex">
       <div>
-        <p class="propiedad"><code>start</code>: alinea los ítems al inicio del eje secundario.</p>
-        <p class="propiedad"><code>end</code>: alinea los ítems al final del eje secundario.</p>
-        <p class="propiedad"><code>center</code>: alinea los ítems al centro del eje secundario.</p>
-        <p class="propiedad"><code>stretch</code>: estira los ítems a lo largo del eje secundario haciendo que ocupen todo el espacio. Esta opción no funciona si los ítems tienen definido una dimensión específica en el sentido de este eje. Es la opción por defecto.</p>
-        <p class="propiedad"><code>baseline</code>: alinea los ítems según la línea de sus contenidos. Esta línea base puede ser la de un texto, o la parte inferior de una forma, etc, dependerá del tipo de ítem presente.</p>
+        <p class="valor"><code>start</code>: alinea los ítems al inicio del eje secundario.</p>
+        <p class="valor"><code>end</code>: alinea los ítems al final del eje secundario.</p>
+        <p class="valor"><code>center</code>: alinea los ítems al centro del eje secundario.</p>
+        <p class="valor"><code>stretch</code>: estira los ítems a lo largo del eje secundario haciendo que ocupen todo el espacio. Esta opción no funciona si los ítems tienen definido una dimensión específica en el sentido de este eje. Es la opción por defecto.</p>
+        <p class="valor"><code>baseline</code>: alinea los ítems según la línea de sus contenidos. Esta línea base puede ser la de un texto, o la parte inferior de una forma, etc, dependerá del tipo de ítem presente.</p>
       </div>
       <img class="img-align-items01" src="/img/flexbox/align-items01.svg" alt="">
     </div>
@@ -2154,7 +2155,7 @@ otros temas:
 
 </div>
 
-<!-- ---------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------ POSICIONAMIENTO -->
 <h2>POSICIONAMIENTO</h2>
 <div class="definicion">
   <p>Para posicionar los elementos dentro de la página. Tiene cinco valores posibles: <a href="#p-static">Static</a>, <a href="#p-relative">Relative</a>, <a href="#p-absolute">Absolute</a>, <a href="#p-fixed">Fixed</a>, <a href="#p-sticky">Sticky</a>. Cuando se activa cualquier posicionamiento que no sea static, se dispone de cinco propiedades de posicionamiento para poder situar el elemento dentro del HTML: </p>
@@ -2221,9 +2222,208 @@ otros temas:
   </div>
 </div>
 
-<!-- ---------------------------------------------------------------------- -->
+<!-- ----------------------------------------------------- FUENTES EXTERNAS -->
 <h2>FUENTES EXTERNAS</h2>
 <a href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=15411s">Fuentes externas (@font-face & font-display)</a>
+
+<!-- ------------------------------------------------ PROPIEDADES GENERICAS -->
+<h2>PROPIEDADES GENÉRICAS</h2>
+<a href=""></a>
+
+<div class="definicion"> <!--    base para propiedad -->
+  <p class="code-titulo" id="background"><span>ejemplo</span></p>
+
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Párrafo simple</p>
+  <div class="js-sintax"><i>código</i> JavaScript</div>
+
+</div>
+
+<div class="definicion"> <!--   propiedades background -->
+  <div class="definicion-subtitulo">Propiedades para el fondo de los elementos</div>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="https://www.youtube.com/watch?v=p_lT7AgpEMU&t=21808s" target="_blank">Estilos de fondo (Curso HTML & CSS ( 3 / 5 ): Unidades y Estilos CSS - jonmircha)</a>
+      <a class="link icon" href="https://www.geeksforgeeks.org/css/css-background/" target="_blank">CSS Background</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=3T_Jy1CqH9k" target="_blank">Controlling background-images | CSS Tutorial
+      <a class="link icon" href="https://www.youtube.com/watch?v=zHZRFwWQt2w" target="_blank">Background images with HTML & CSS</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=6aZmo6KOFjQ" target="_blank">Explicación del tamaño de la imagen de fondo CSS: cubrir, contener, automático y otras técnicas</a>
+    </div>
+  </details>
+
+  <p>Las propiedades background se usan para agregar efectos a los fondos de los elementos como colores e imágenes. Estas propiedades son:</p>
+  <p><a href="#bg-color"><code>background-color</code></a>: define el color de fondo</p>
+  <p><a href="#bg-image"><code>background-image</code></a>: define una o más imágenes para el fondo</p>
+  <p><a href="#bg-position"><code>background-position</code></a>: define la posición de las imágenes de fondo</p>
+  <p><a href="#bg-size"><code>background-size</code></a>: define el tamaño de las imágenes de fondo</p>
+  <p><a href="#bg-repeat"><code>background-repeat</code></a>: define cómo se repiten las imágenes de fondo</p>
+  <p><a href="#bg-origin"><code>background-origin</code></a>: define el origen de las imágenes de fondo</p>
+  <p><a href="#bg-clip"><code>background-clip</code></a>: define el áre a mostrar de las imágenes de fondo</p>
+  <p><a href="#bg-attach"><code>background-attachment</code></a>: define si las imágenes de fondo quedan fijas o se desplazan con la página</p>
+  <p><a href="#bg-background"><code>background</code></a>: es un atajo para las propiedades anteriores</p>
+
+  <div>  <!-- background-color -->
+  <p class="code-titulo" id="bg-color"><span>background-color</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="https://cssreference.io/property/background-color/" target="_blank">cssreference background-color</a>
+    
+    </div>
+  </details>
+  <p>Define el color de fondo de un elemento. Casi cualquier elemento HTML puede tener un color de fondo. Sus posibles valores pueden ser un <a href="https://www.w3schools.com/cssref/css_colors_legal.php" target="_blank">valor de color permitido</a>, un <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank">nombre de color permitido</a>, la palabra clave <code>transparent</code> (que es el valor por defecto y toma el color del elemento que está justo por debajo de él en el apilamiento.) e <code>inherit</code>.</p>
+  <div class="js-sintax"><i>object</i>.style.backgroundColor="#00FF00"</div>
+  </div>
+
+  <div>  <!-- background-image -->
+  <p class="code-titulo" id="bg-image"><span>background-image</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="https://cssreference.io/property/background-image/" target="_blank">cssreference background-image</a>
+      <a class="link icon" href="https://www.w3schools.com/cssref/pr_background-image.php" target="_blank">CSS background-image Property</a>
+      <a class="link icon" href="https://www.w3schools.com/css/css3_backgrounds.asp" target="_blank">CSS Multiple Backgrounds</a>
+      <a class="link icon" href="https://www.w3schools.com/cssref/playdemo.php?filename=playcss_background-image" target="_blank">CSS background-image demo</a>
+    </div>
+  </details>
+  <p>Define el fondo del elemento de manera que muestre una o varias imágenes. Por defecto las imágenes son posicionadas en la esquina superior derecha del elemento y se repiten horizontal y verticalmente.</p>
+  <div class="js-sintax"><i>object</i>.style.backgroundImage="url(img.jpg)"</div>
+  <p>Los valores posibles que esta propiedad puede tener son:</p>
+  <p class="valor"><code>none</code>: fondo sin imagen, es el valor por defecto.</p>
+  <p class="valor"><code>url()</code>: para especificar la ruta de una imagen. Para mostrar varias imágenes, separar cada url con una coma. Es normal que posteriormente se necesite ubicar o redimensionar las imágenes a un aspecto más atractivo, en cuyo caso se debe utilizar el resto de propiedades background explicadas.</p>
+  <p class="valor"><code>conic-gradient</code>: crea un gradiente cónico con al menos dos colores.</p>
+  <p class="valor"><code>linear-gradient</code>: crea un gradiente cónico con al menos dos colores de arriba hacia abajo.</p>
+  <p class="valor"><code>radial-gradient</code>: crea un gradiente radial con al menos dos colores desde el centro hacia los bordes.</p>
+  <p class="valor"><code>repeating-conic-gradient</code>: crea un gradiente cónico repetido.</p>
+  <p class="valor"><code>repeating-linear-gradient</code>: crea un gradiente linear repetido.</p>
+  <p class="valor"><code>repeating-radial-gradient</code>: crea un gradiente radial repetido.</p>
+
+  </div>
+
+  <div>  <!-- background-size -->
+  <p class="code-titulo" id="bg-size"><span>background-size</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="https://cssreference.io/property/background-size/" target="_blank">cssreference background-size</a>
+      <a class="link icon" href="https://www.w3schools.com/cssref/css3_pr_background-size.php" target="_blank">CSS background-size Property</a>
+      <a class="link icon" href="https://www.w3schools.com/cssref/playdemo.php?filename=playcss_background-size&preval=cover" target="_blank">CSS background-size - demo</a>
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Nos permite especificar el tamaño de las imágenes de fondo de un elemento. Si con la propiedad <code>background-imagese</code> se tiene varias imágenes de fondo (separadas por comas), los tamaños deben estar también serparados por coma en correspondencia.</p>
+  <div class="js-sintax"><i>object</i>.style.backgroundSize="60px 120px"</div>  
+  <p>Los posibles valores que puede tener son:</p>
+  <p class="valor"><code>auto</code>: la imagen se muestra en tamaño original. Si la imagen es demasiado grande, habrá áreas de la imagen que no se verán, y si es muy pequeña, habrá repeticiones de la imagen para llenar los espacios que queden. Es el valor por defecto.</p>
+  <p class="valor"><code>length</code>: a través de dos valores, define primero el ancho y luego alto de la imagen de fondo. Si sólo se especifica un valor, el segundo será "auto" calculando internamente para no tener deformaciones en la imagen.</p>
+  <p class="valor"><code>percentage</code>: a través de dos valores, define primero el ancho y luego alto de la imagen de fondo en porcentaje del elemento padre. Si sólo se especifica un valor, el segundo será "auto" calculando internamente para no tener deformaciones en la imagen.</p>
+  <p class="valor"><code>cover</code>: redimensiona la imagen de fondo de manera que cubra todo el contenedor sin dejar áreas vacías dentro de él, incluso si la imagen tenga que deformarse en su aspecto ancho - alto o si partes de la imagen sean cortadas (ocultas en verdad).</p>
+  <p class="valor"><code>contain</code>: redimensiona la imagen de fondo de manera que esté totalmente visible dentro del contenedor. No hay distorción de la imagen????. Esto puede causar que haya áras vacías en el contenedor o que la imagen se repita.</p>
+  </div>
+
+  <div>  <!-- background-position -->
+  <p class="code-titulo" id="bg-position"><span>background-position</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Párrafo simple</p>
+  <div class="js-sintax"><i>código</i> JavaScript</div>  
+  <p>Párrafo simple</p>
+  </div>
+  
+  <div>  <!-- background-repeat -->
+  <p class="code-titulo" id="bg-repeat"><span>background-repeat</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Define el modo en que las imágenes se repiten en el fondo del elemento, si hay espacio para hacerlo. La repetición de la imagen inicia de acuerdo a la posicionada indicada en la propiedad <code>background-position</code>, si no se especifica <code>background-position</code> la imagen se empezará a repetir desde la esquina superior izquierda del elemento.</p>
+  <div class="js-sintax"><i>object</i>.style.backgroundRepeat="repeat-x" </div>  
+  <p>Los posibles valores que puede tener son:</p>
+  <p class="valor"><code>repeat</code>: la imagen se repite vertical y horizontalmente, las últimas imágenes quedan parcialmente ocultas si no caben en el espacio. Es el valor por defecto.</p>
+  <p class="valor"><code>repeat-x</code>: la imagen se repite sólo horizontalmente, la última imagen queda parcialmente oculta si no cabe en el espacio.</p>
+  <p class="valor"><code>repeat-y</code>: la imagen se repite sólo verticalmente, la última imagen queda parcialmente oculta si no cabe en el espacio..</p>
+  <p class="valor"><code>no-repeat</code>: la imagen no se repite, se muestra sólo una vez.</p>
+  <p class="valor"><code>space</code>: la imagen se repite completa tantas veces como sea posible sin distorcionarse (en su proporción ancho - alto), sin redimensionarse, sin que queden partes ocultas y, con espacios vacíos distribuidos uniformemente si no cabe otra repetición. La primera y última imagen se fijan a cada uno de sus lados dentro del elemento.</p>
+  <p class="valor"><code>round</code>: la imagen se repite completa tantas veces como sea posible sin que queden partes ocultas, sin embargo sí se distorciona lo necesario hasta que quepa otra imagen.</p>
+  <p>Estos dos últimos valores son útiles en elementos dinámicos que se pueden redimensionar. <a href="https://www.youtube.com/shorts/lb1HT_hnDv8" target="_blank">Ver ejemplo aquí</a>. También se puede especificar dos valores para el eje horizontal y vertical respectivamente:</p>
+  <code class="definicion-codigo">
+    <p>background-repeat: round space; /* width resizes, height static */</p>
+    <p>background-repeat: space round; /* width static, height resizes */</p>
+    <p>background-repeat: space no-repeat; /* fit tiles horizontally only */</p>
+  </code>
+
+  </div>
+  
+  <div>  <!-- background-origin -->
+  <p class="code-titulo" id="bg-origin"><span>background-origin</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Párrafo simple</p>
+  <div class="js-sintax"><i>código</i> JavaScript</div>  
+  <p>Párrafo simple</p>
+  </div>
+  
+  <div>  <!-- background-clip -->
+  <p class="code-titulo" id="bg-clip"><span>background-clip</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Párrafo simple</p>
+  <div class="js-sintax"><i>código</i> JavaScript</div>  
+  <p>Párrafo simple</p>
+  </div>
+  
+  <div>  <!-- background-attachment -->
+  <p class="code-titulo" id="bg-attach"><span>background-attachment</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Párrafo simple</p>
+  <div class="js-sintax"><i>código</i> JavaScript</div>  
+  <p>Párrafo simple</p>
+  </div>
+  
+  <div>  <!-- background -->
+  <p class="code-titulo" id="bg-background"><span>background</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Párrafo simple</p>
+  <div class="js-sintax"><i>código</i> JavaScript</div>  
+  <p>Párrafo simple</p>
+  </div>
+
+</div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6"><g fill="currentColor" clip-path="url(#wellness_svg__a)"><path d="M11.473 17.65c-.259-.259-.679-.363-1.034-.01L8.91 19.167a.72.72 0 0 0-.157.8c.091.219.317.453.677.453.197 0 .38-.076.517-.214l1.53-1.53c.353-.352.252-.769-.004-1.025M9.613 15.937a.84.84 0 0 0-.576-.571.7.7 0 0 0-.174-.024.7.7 0 0 0-.496.225L6.84 17.094a.72.72 0 0 0-.158.8c.09.22.316.454.677.454a.73.73 0 0 0 .52-.215l1.527-1.528c.252-.252.252-.503.208-.668M7.263 13.447a.68.68 0 0 0-.458-.193c-.162 0-.338.067-.51.24L4.76 15.03a.72.72 0 0 0-.208.512c0 .36.234.586.454.677.22.09.545.097.799-.157l1.53-1.53c.317-.372.204-.826-.072-1.085M13.75 20.09a.86.86 0 0 0-.58-.58c-.166-.044-.414-.045-.66.2l-1.527 1.53c-.252.251-.253.5-.208.666.072.27.303.5.577.572.168.046.42.047.669-.2l1.527-1.53c.246-.245.245-.493.201-.658M24 7.546a6.56 6.56 0 0 0-1.931-4.614A6.55 6.55 0 0 0 17.442 1h-.036a6.55 6.55 0 0 0-4.608 1.88l-2.54 2.535a1.384 1.384 0 0 0 .001 1.953 1.384 1.384 0 0 0 1.954 0L13.53 6.05l1.23-1.228.211-.211.212.21c2.146 2.13 4.668 4.638 7.166 7.137a6.55 6.55 0 0 0 1.65-4.413"></path><path d="m14.976 6.673-1.73 1.73a2.82 2.82 0 0 1-2.01.832c-.759 0-1.473-.296-2.01-.833a2.83 2.83 0 0 1-.832-2.01c0-.76.295-1.474.832-2.01l1.731-1.73A6.56 6.56 0 0 0 6.548 1a6.55 6.55 0 0 0-4.617 1.932A6.55 6.55 0 0 0 0 7.593a6.55 6.55 0 0 0 1.931 4.662l1.77 1.77.031-.036 1.53-1.53a2.17 2.17 0 0 1 2.485-.42 2.17 2.17 0 0 1 1.26 1.845c.701.008 1.07.282 1.32.531 1.46 1.47 3.188 3.208 4.927 4.949.604.602 1.128.171 1.275.025.373-.373.515-1.002.109-1.41l-5.123-5.12c-.288-.288-.282-.727.012-1.022.295-.295.735-.3 1.023-.013l5.12 5.123c.185.184.431.285.692.285.48 0 .78-.312.902-.604a.96.96 0 0 0-.21-1.065l-5.122-5.12a.69.69 0 0 1-.19-.678.79.79 0 0 1 .547-.546.69.69 0 0 1 .677.189l5.121 5.123c.185.183.43.284.692.284.48 0 .78-.312.901-.604a.96.96 0 0 0-.21-1.064c-2.278-2.278-4.406-4.398-6.494-6.474"></path></g><defs><clipPath id="wellness_svg__a"><path fill="currentColor" d="M0 1h24v21.502H0z"></path></clipPath></defs></svg>
 
 </body>
 </html>

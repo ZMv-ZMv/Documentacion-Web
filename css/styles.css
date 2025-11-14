@@ -192,7 +192,7 @@ h2 {
     padding: 0.5rem;
     &:hover{
       color: #e8e8e8;
-      background-color: #777;
+      background-color: #8b8b8b;
     }
   }
   .definicion-ejemplo {
@@ -229,7 +229,8 @@ h2 {
     gap: 3px;
   }
   .definicion-codigo,
-  .definicion-resultado {
+  .definicion-resultado,
+  .js-sintax {
     font-size: 0.75rem;
     /* flex-basis: 100%;  para que los ítems ocupen todo el ancho*/
     flex: 1; /* short para 1 0 0 (grow shrink basis)*/
@@ -262,13 +263,21 @@ h2 {
       /* white-space: pre; */
     }
   }
+  .js-sintax {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    ::before {
+      content: "Sintaxis JavaScript: ";
+      font-weight: bold;
+    }
+  }
   code {
     font-size: 1rem;
     background-color: var(--bg-code);
     padding: 0 0.25rem;
     border-radius: 3px;
   }
-  .propiedad {
+  .valor {
     margin: 0.75rem 0;
     &::before {
       content: "» ";
@@ -289,27 +298,6 @@ h2 {
       background-color: #fff;
       margin-bottom: 0.25rem;
     }
-  }
-}
-
-details {
-  /* margin: 1.3rem 0;
-  border-bottom: 1px solid #aaa;
-  padding: 0.5rem; */
-  /* height: auto; */
-  transition: all 0.5s ease;
-}
-details[open] {
-  max-height: 99rem;
-  transition: all 0.5s ease;
-  /* border: 1px solid #aaa; */
-}
-details summary {
-  color: #333;
-  cursor: pointer;
-  &:hover {
-    color: #000;
-    /* font-weight: 600; */
   }
 }
 
