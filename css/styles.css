@@ -322,7 +322,7 @@ h2 {
 /* ******************************************** FLEX BOX display ejemplo 1 */
 .definicion-fb-display-ejemplo1 {
   .contenedor-flex {
-    border: 1px solid rgb(19, 157, 49);
+    border: 1px solid red;
     display: flex;
     background-color: #aaa;
   }
