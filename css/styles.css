@@ -651,6 +651,7 @@ textarea.definicion-placeholder-ejemplo1 {
   margin: 5px;
   color: white;
   background-color: rgb(255, 0, 255);
+  /* modificiar y travesiar con los valores siguientes para ver cómo funcionan */
   /* top: 0;
   left: 0;
   bottom: 0;

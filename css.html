@@ -767,6 +767,7 @@ otros temas:
 
   <p class="code-titulo"><span>::marker :</span></p> <!-- ::marker -->
   <p>Selecciona las viñetas (íconos) de los items de lista que normalmente tiene tiene como viñeta a puntos 'bullets' o números permitiendo cambiar el contenido y algunos estilos de viñetas y números en las listas. Funciona con cualquier elemento o seudo elemento difinido como <code>display: list-item</code>, como &lt;li&gt; y &lt;summary&gt;.</p>
+  <p>También se puede modificar estos íconos con las <a href="#prop-listas">propiedades para listas</a></p>
   <p class="definicion-subtitulo refs">Referencias:</p>
   <div class="referencias">
     <a class="link icon" href="https://www.youtube.com/watch?v=svhnI9sKUDI" target="_blank">Styling your list-items just got so much easier with this ::marker</a>
@@ -2165,7 +2166,12 @@ otros temas:
 <!-- ------------------------------------------------------ POSICIONAMIENTO -->
 <h2>POSICIONAMIENTO</h2>
 <div class="definicion">
-  <p>Para posicionar los elementos dentro de la página. Tiene cinco valores posibles: <a href="#p-static">Static</a>, <a href="#p-relative">Relative</a>, <a href="#p-absolute">Absolute</a>, <a href="#p-fixed">Fixed</a>, <a href="#p-sticky">Sticky</a>. Cuando se activa cualquier posicionamiento que no sea static, se dispone de cinco propiedades de posicionamiento para poder situar el elemento dentro del HTML: </p>
+  <p>Propiedades para posicionar los elementos dentro de una página. </p>
+
+  <div> <!-- position -->
+  <p class="code-titulo" id="margin"><span> position </span></p>
+
+  <p>Tiene cinco valores posibles: <a href="#p-static">static</a>, <a href="#p-relative">relative</a>, <a href="#p-absolute">absolute</a>, <a href="#p-fixed">fixed</a>, <a href="#p-sticky">sticky</a>. Cuando se activa cualquier posicionamiento que no sea static, se dispone de cinco valores de posicionamiento para poder situar el elemento dentro del HTML: </p>
     <ul>
       <li><code>top</code>: para mover el elemento desde la parte superior hacia abajo</li>
       <li><code>bottom</code>: para mover el elemento desde la parte inferior hacia arriba</li>
@@ -2173,10 +2179,10 @@ otros temas:
       <li><code>right</code>: para mover el elemento desde la derecha hacia la izquierda</li>
       <li><code>z-index</code>: para traer hacia adelante o atrás sobre otros elementos.</li>
     </ul>
-  <p>Estas cinco propiedades no funcionan con el posicionamiento por defecto "static". Cualquier otro posicionamiento podrá desplazar el objeto fuera de su posición normal. Este desplazamiento se puede indicar en cualquier unidad de medida. Desplazamientos negativos moverán los elementos en dirección contraria.</p>
+  <p>Estos cinco valores no funcionan con el posicionamiento por defecto "static". Cualquier otro posicionamiento podrá desplazar el objeto fuera de su posición normal. Este desplazamiento se puede indicar en cualquier unidad de medida. Desplazamientos negativos moverán los elementos en dirección contraria.</p>
   <p>La propiedad <code>top</code> tiene prioridad sobre la propiedad <code>bottom</code>, de igual forma la propiedad <code>left</code> tiene prioridad sobre la propiedad <code>right</code>.</p>
 
-  <p class="definicion-nota icon"><span class="nota">Nota:</span> en las herramientas para desarrolladores, cuando se elige un posicionamiento diferente de static, el diagrama de caja también muestra las dimensiones del posicionamiento.</p>
+  <p class="definicion-nota icon"><span class="nota">Nota:</span> en las herramientas para desarrolladores, cuando se elige un posicionamiento diferente de static, el diagrama de modelo de caja también muestra las dimensiones del posicionamiento como un nuevo dato.</p>
 
   <details> <!-- Referencias -->
     <summary class="definicion-subtitulo refs">Referencias:</summary>
@@ -2187,16 +2193,11 @@ otros temas:
     </div>
   </details>
 
-  <div id="p-static" class="definicion-subtitulo">Position static</div>
-  <p>Es la posición por defecto de los elementos, no es necesario indicarla. El elemento queda estático y en su posición en el flujo del HTML por lo que no se pueden mover, y se respetan sus dimensiones. Ninguna de las propiedades de posicionamiento tienen efecto.</p>
+  <p id="p-static" class="valor"><code>static</code>: Es la posición por defecto de los elementos, no es necesario indicarla. El elemento queda estático y en su posición en el flujo del HTML por lo que no se pueden mover, y se respetan sus dimensiones. Ninguna de las propiedades de posicionamiento tienen efecto.</p>
   
-  <div id="p-relative" class="definicion-subtitulo">Position relative</div>
-  <p>El elemento se podrá mover tomando como base (desde) su <b>posición original</b> en el flujo del HTML, es decir, su posición es relativa a su posición original. El elemento conserva sus dimensiones y a pesar que visualmente se desplace, el espacio que debe ocupar en la posición original se sigue manteniendo, como si no hubiera desplazamiento. Si no se indica algún desplzamiento con las propiedades de posicionamiento, el elemento mantedrá su posición original en el flujo del HTML sin efecto alguno.
-  </p>
+  <p id="p-relative" class="valor"><code>relative</code>: El elemento se podrá mover tomando como base (desde) su <b>posición original</b> en el flujo del HTML, es decir, su posición es relativa a su posición original. El elemento conserva sus dimensiones y a pesar que visualmente se desplace, el espacio que debe ocupar en la posición original se sigue manteniendo, como si no hubiera desplazamiento. Si no se indica algún desplzamiento con las propiedades de posicionamiento, el elemento mantedrá su posición original en el flujo del HTML sin efecto alguno.</p>
   
-  <div id="p-absolute" class="definicion-subtitulo">Position absolute</div>
-  <p>El elemento se podrá mover tomando como base (desde) el <b>primer antecesor cuyo posicionamiento no sea "static"</b> (que no tenga el posicionamiento por defecto) "enganchándose" a él (si este antecesor se mueve, el elemento lo sigue). En caso no exista ningún elemento con esas características, se toma como base el documento HTML (no el body). El elemento ¿pierde??? sus dimensiones ocupando sólo lo que el contenido ocupa como sucede con un objeto "inline" (a no ser que expresamente se indique un width y height) y, también pierde su ubicación en el flujo del HTML como si no existiera en ese flujo, los elementos que le siguen se disponen sin tenerlo en cuenta. Si no se indica algún desplazamiento con las propiedades de posicionamiento, el elemento "quedará desplazado" una catidad de unidades (pixeles) de modo que pareciese estar en su ubicación original en el flujo HTML, solapándose con los elementos que le siguen.</p>
-  <p>En las herramientas para desarrolladores, en el modelo de caja, se muestra las dimensiones de "position" como un nuevo dato.</p>
+  <p id="p-absolute" class="valor"><code>absolute</code>: El elemento se podrá mover tomando como base (desde) el <b>primer antecesor cuyo posicionamiento no sea "static"</b> (que no tenga el posicionamiento por defecto) "enganchándose" a él (si este antecesor se mueve, el elemento lo sigue). En caso no exista ningún elemento con esas características, se toma como base el documento HTML (no el body). El elemento ¿pierde??? sus dimensiones ocupando sólo lo que el contenido ocupa como sucede con un objeto "inline" (a no ser que expresamente se indique un width y height) y, también pierde su ubicación en el flujo del HTML como si no existiera en ese flujo, los elementos que le siguen se disponen sin tenerlo en cuenta. Si no se indica algún desplazamiento con las propiedades de posicionamiento, el elemento "quedará desplazado" una catidad de unidades (pixeles) de modo que pareciese estar en su ubicación original en el flujo HTML, solapándose con los elementos que le siguen.</p>
   <p>Cuando se especifica un width y/o un height, éstas tienen prevalescencia sobre las propiedades de posicionamiento (top, left, bottom y right)</p>
   <p>Cuando no se especifica un width y/o un height las propiedades de posicionamiento sólo desplazan "su lado" mas no todo el elemnto.</p>
 
@@ -2206,10 +2207,9 @@ otros temas:
     <div class="posterior-absolute">Elemento posterior a absolute</div>
   </div>
   
-  <div id="p-fixed" class="definicion-subtitulo">Position fixed</div>
-  <p>El elemento pierde sus dimensiones y su posición original en el flujo HTML. Si se le asignas propiedades de posicionamiento, siempre toma como base (desde) el documento HTML y además queda fijo en la pantalla, no se mueve con el scroll.</p>
+  <p id="p-fixed" class="valor"><code>fixed</code>: El elemento pierde sus dimensiones y su posición original en el flujo HTML. Si se le asignas propiedades de posicionamiento, siempre toma como base (desde) el documento HTML y además queda fijo en la pantalla, no se mueve con el scroll.</p>
 
-  <div id="p-sticky" class="definicion-subtitulo">Position sticky</div>
+  <p id="p-sticky" class="valor"><code>sticky</code></p>
   
 
   <p class="definicion-ejemplo"><b>Ejemplo 1:</b></p>
@@ -2226,6 +2226,45 @@ otros temas:
       Texto a mostrar cuando se despliegue la etiqueta
     </details>
   </div>
+  </div>
+
+  <div> <!-- object-position -->
+  <p class="code-titulo" id="margin"><span> object-position </span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="https://www.w3schools.com/cssref/css3_pr_object-position.php" target="_blank">W3S CSS object-position Property</a>
+      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/object-position" target="_blank">MDN object-position</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=_e0ddNlc0Y8" target="_blank">Domina POSITION CSS. Guía completa ✅. Position relative, absolute, fixed, sticky y z-index.</a>
+      <a class="link icon" href="https://css-tricks.com/almanac/properties/o/object-position/" target="_blank">CSS-TRICKS object-position</a>
+    </div>
+  </details>
+  <p>Especifica la posición de la imagen o video dentro de su contenedor. El primer valor controla el eje X y el segundo el eje Y, o, puede ser un texto (left, center, right, left), o un número (pixeles o porcentaje). Se permiten valores negativos. El valor por defecto es 50% 50%, es decir, centrada.</p>
+  <div class="js-sintax"><i>object</i>.style.objectPosition="0 10%" </div>
+  </div>
+
+  <div> <!-- object-fit -->
+  <p class="code-titulo" id="margin"><span> object-fit </span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="https://www.w3schools.com/css/css3_object-fit.asp" target="_blank">W3S CSS object-fit Property</a>
+      <a class="link icon" href="https://www.w3schools.com/cssref/playdemo.php?filename=playcss_object-fit" target="_blank">W3S CSS object-fit demo</a>
+      <a class="link icon" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/object-fit" target="_blank">MDN object-fit</a>
+      <a class="link icon" href="https://www.youtube.com/watch?v=SfIhedIsUck" target="_blank">Aprendé a controlar tus imágenes con object-fit en 5 minutos!</a>
+    </div>
+  </details>
+  <p>Define cómo se debe redimensionar una imagen o video dentro de su contenedor. Notar que junto con esta propiedad también se puede especificar dimensiones específicas como pixeles o porcentajes Esta propiedad es similar a <a href="#bg-size"><code>background-size</code></a>.</p>
+  <div class="js-sintax"><i>object</i>.style.objectFit="cover"</div>
+  <p>Sus posibles valores son:</p>
+  <p class="valor"><code>fill</code>: la imagen o video es redimensionada para rellenar la totalidad del contenedor sin preservar ratio. Es el valor por defecto.</p>
+  <p class="valor"><code>cover</code>: la imagen o video es redimensionada para cubrir la totalidad del contenedor preservando el ratio y, ocultar contenido fuera del contenedor de ser necesario.</p>
+  <p class="valor"><code>contain</code>: la imagen o video es redimensionada para ser contenida completamente dentro del contenedor preservando el ratio y, dejando espacios vacíos dentro del contenedor de ser necesario.</p>
+  <p class="valor"><code>none</code>: la imagen no se redimensiona.</p>
+  <p class="valor"><code>scale-down</code>: la versión más pequeña de <code>none</code> o <code>contain</code></p>
+
+  </div>
+
 </div>
 
 <!-- ----------------------------------------------------- FUENTES EXTERNAS -->
@@ -2250,7 +2289,7 @@ otros temas:
 
 </div>
 
-<div class="definicion"> <!--   propiedades background -->
+<div class="definicion"> <!--   propiedades para background -->
   <div class="definicion-subtitulo">Propiedades para el fondo de los elementos</div>
   <details> <!-- Referencias -->
     <summary class="definicion-subtitulo refs">Referencias:</summary>
@@ -2478,9 +2517,53 @@ otros temas:
 
 </div>
 
-<img class="tmp" src="./img/developerTools.png" alt="">
+<div class="definicion"> <!--   propiedades para listas -->
+  <div id="prop-listas" class="definicion-subtitulo">Propiedades para las listas</div>
+
+  <p class="code-titulo" id="ls-style-image"><span>list-style-image</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Párrafo simple</p>
+  <div class="js-sintax"><i>código</i> JavaScript</div>
 
 
+  <p class="code-titulo" id="ls-style-position"><span>list-style-position</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Párrafo simple</p>
+  <div class="js-sintax"><i>código</i> JavaScript</div>
+
+
+  <p class="code-titulo" id="ls-style-type"><span>list-style-type</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Párrafo simple</p>
+  <div class="js-sintax"><i>código</i> JavaScript</div>
+  
+
+  <p class="code-titulo" id="ls-style"><span>list-style</span></p>
+  <details> <!-- Referencias -->
+    <summary class="definicion-subtitulo refs">Referencias:</summary>
+    <div class="referencias">
+      <a class="link icon" href="" target="_blank">nombreLink</a>
+    </div>
+  </details>
+  <p>Párrafo simple</p>
+  <div class="js-sintax"><i>código</i> JavaScript</div>
+
+</div>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6"><g fill="currentColor" clip-path="url(#wellness_svg__a)"><path d="M11.473 17.65c-.259-.259-.679-.363-1.034-.01L8.91 19.167a.72.72 0 0 0-.157.8c.091.219.317.453.677.453.197 0 .38-.076.517-.214l1.53-1.53c.353-.352.252-.769-.004-1.025M9.613 15.937a.84.84 0 0 0-.576-.571.7.7 0 0 0-.174-.024.7.7 0 0 0-.496.225L6.84 17.094a.72.72 0 0 0-.158.8c.09.22.316.454.677.454a.73.73 0 0 0 .52-.215l1.527-1.528c.252-.252.252-.503.208-.668M7.263 13.447a.68.68 0 0 0-.458-.193c-.162 0-.338.067-.51.24L4.76 15.03a.72.72 0 0 0-.208.512c0 .36.234.586.454.677.22.09.545.097.799-.157l1.53-1.53c.317-.372.204-.826-.072-1.085M13.75 20.09a.86.86 0 0 0-.58-.58c-.166-.044-.414-.045-.66.2l-1.527 1.53c-.252.251-.253.5-.208.666.072.27.303.5.577.572.168.046.42.047.669-.2l1.527-1.53c.246-.245.245-.493.201-.658M24 7.546a6.56 6.56 0 0 0-1.931-4.614A6.55 6.55 0 0 0 17.442 1h-.036a6.55 6.55 0 0 0-4.608 1.88l-2.54 2.535a1.384 1.384 0 0 0 .001 1.953 1.384 1.384 0 0 0 1.954 0L13.53 6.05l1.23-1.228.211-.211.212.21c2.146 2.13 4.668 4.638 7.166 7.137a6.55 6.55 0 0 0 1.65-4.413"></path><path d="m14.976 6.673-1.73 1.73a2.82 2.82 0 0 1-2.01.832c-.759 0-1.473-.296-2.01-.833a2.83 2.83 0 0 1-.832-2.01c0-.76.295-1.474.832-2.01l1.731-1.73A6.56 6.56 0 0 0 6.548 1a6.55 6.55 0 0 0-4.617 1.932A6.55 6.55 0 0 0 0 7.593a6.55 6.55 0 0 0 1.931 4.662l1.77 1.77.031-.036 1.53-1.53a2.17 2.17 0 0 1 2.485-.42 2.17 2.17 0 0 1 1.26 1.845c.701.008 1.07.282 1.32.531 1.46 1.47 3.188 3.208 4.927 4.949.604.602 1.128.171 1.275.025.373-.373.515-1.002.109-1.41l-5.123-5.12c-.288-.288-.282-.727.012-1.022.295-.295.735-.3 1.023-.013l5.12 5.123c.185.184.431.285.692.285.48 0 .78-.312.902-.604a.96.96 0 0 0-.21-1.065l-5.122-5.12a.69.69 0 0 1-.19-.678.79.79 0 0 1 .547-.546.69.69 0 0 1 .677.189l5.121 5.123c.185.183.43.284.692.284.48 0 .78-.312.901-.604a.96.96 0 0 0-.21-1.064c-2.278-2.278-4.406-4.398-6.494-6.474"></path></g><defs><clipPath id="wellness_svg__a"><path fill="currentColor" d="M0 1h24v21.502H0z"></path></clipPath></defs></svg>
